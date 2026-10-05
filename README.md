@@ -24,7 +24,25 @@ JDK 21 (proposition à valider). Chacun vérifie sa version avec `java -version`
 
 ## Compiler et lancer
 
-_À compléter avec le socle._
+Les commandes se lancent depuis la racine du dépôt, avec le JDK 21 installé (voir Prérequis).
+
+Linux, macOS ou Git Bash :
+
+```
+javac -encoding UTF-8 -d out $(find src -name "*.java")
+java -cp out taskflow.Main
+```
+
+PowerShell :
+
+```
+javac -encoding UTF-8 -d out (Get-ChildItem -Path src -Recurse -Filter *.java).FullName
+java -cp out taskflow.Main
+```
+
+- Le menu s'affiche : on choisit une entrée par son numéro, et `0` quitte.
+- Le programme lit et écrit en UTF-8. Le terminal doit être en UTF-8 pour que les accents s'affichent bien ; sous Windows, on l'y met avec `chcp 65001` avant de lancer.
+- Le dossier `out/` contient les fichiers compilés. Git l'ignore, on peut le supprimer à tout moment.
 
 ## Exemple d'utilisation
 
