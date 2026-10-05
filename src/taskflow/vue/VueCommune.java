@@ -52,6 +52,11 @@ public class VueCommune {
         console.afficher("Aucune donnée n'a été modifiée.");
     }
 
+    /** Message provisoire des fonctionnalités que les domaines n'ont pas encore écrites. */
+    public void afficherPasEncoreDisponible() {
+        console.afficher("Pas encore disponible.");
+    }
+
     public void afficherFermeture() {
         console.afficher("");
         console.afficher("Fermeture de TaskFlow.");
