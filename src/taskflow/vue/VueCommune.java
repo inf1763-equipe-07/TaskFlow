@@ -38,20 +38,6 @@ public class VueCommune {
         console.afficherErreur("choix invalide. Entrez un des numéros du menu.");
     }
 
-    /** Lit l'identifiant d'une tâche, ou rien si ce n'est pas un nombre. */
-    public OptionalInt lireIdentifiant() {
-        return console.lireEntier("Identifiant de la tâche : ");
-    }
-
-    public void afficherIdentifiantInvalide() {
-        console.afficherErreur("l'identifiant doit être un nombre entier.");
-    }
-
-    public void afficherIdentifiantInconnu(int id) {
-        console.afficherErreur("aucune tâche ne correspond à l'identifiant " + id + ".");
-        console.afficher("Aucune donnée n'a été modifiée.");
-    }
-
     /** Message provisoire des fonctionnalités que les domaines n'ont pas encore écrites. */
     public void afficherPasEncoreDisponible() {
         console.afficher("Pas encore disponible.");

@@ -31,7 +31,7 @@ public class Main {
         TacheService service = new TacheService(repository);
         Console console = new Console();
         VueCommune vueCommune = new VueCommune(console);
-        SelecteurTache selecteur = new SelecteurTache(service, vueCommune);
+        SelecteurTache selecteur = new SelecteurTache(service, console);
 
         DemarrageControleur demarrage = new DemarrageControleur(service, console, vueCommune);
 

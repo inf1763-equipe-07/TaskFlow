@@ -5,7 +5,7 @@ import java.util.OptionalInt;
 
 import taskflow.modele.Tache;
 import taskflow.modele.TacheService;
-import taskflow.vue.VueCommune;
+import taskflow.vue.Console;
 
 /**
  * Demande un identifiant à l'utilisateur et retrouve la tâche correspondante.
@@ -14,11 +14,11 @@ import taskflow.vue.VueCommune;
 public class SelecteurTache {
 
     private final TacheService service;
-    private final VueCommune vueCommune;
+    private final Console console;
 
-    public SelecteurTache(TacheService service, VueCommune vueCommune) {
+    public SelecteurTache(TacheService service, Console console) {
         this.service = service;
-        this.vueCommune = vueCommune;
+        this.console = console;
     }
 
     /**
@@ -26,14 +26,15 @@ public class SelecteurTache {
      * le message d'erreur est déjà affiché et on retourne « rien ».
      */
     public Optional<Tache> selectionner() {
-        OptionalInt saisie = vueCommune.lireIdentifiant();
+        OptionalInt saisie = console.lireEntier("Identifiant de la tâche : ");
         if (saisie.isEmpty()) {
-            vueCommune.afficherIdentifiantInvalide();
+            console.afficherErreur("l'identifiant doit être un nombre entier.");
             return Optional.empty();
         }
         Optional<Tache> tache = service.trouver(saisie.getAsInt());
         if (tache.isEmpty()) {
-            vueCommune.afficherIdentifiantInconnu(saisie.getAsInt());
+            console.afficherErreur("aucune tâche ne correspond à l'identifiant " + saisie.getAsInt() + ".");
+            console.afficher("Aucune donnée n'a été modifiée.");
         }
         return tache;
     }
