@@ -7,7 +7,6 @@ import java.util.List;
 
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
-import taskflow.controleur.SelecteurTache;
 import taskflow.modele.Priorite;
 import taskflow.modele.SaisieInvalideException;
 import taskflow.modele.Statut;
@@ -28,8 +27,6 @@ public class Main {
         TacheRepository repository = new FichierTacheRepository(cheminDesDonnees(args));
         TacheService service = new TacheService(repository);
         Console console = new Console();
-        // Outil partagé : demande un identifiant et retrouve la tâche. Les domaines qui en ont besoin le reçoivent.
-        SelecteurTache selecteur = new SelecteurTache(service, console);
 
         console.afficher("TASKFLOW — Gestion des tâches");
 
