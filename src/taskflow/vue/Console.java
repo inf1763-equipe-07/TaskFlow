@@ -3,6 +3,7 @@ package taskflow.vue;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.OptionalInt;
 import java.util.Scanner;
 
@@ -18,12 +19,14 @@ public class Console {
     /**
      * Affiche l'invite puis lit une ligne.
      * Si on appuie seulement sur Entrée, on obtient un texte vide.
+     * Lance une NoSuchElementException quand il n'y a plus rien à lire (par exemple Ctrl+D) :
+     * le menu l'attrape pour fermer proprement l'application.
      */
     public String lire(String invite) {
         ecran.print(invite);
         ecran.flush(); // l'invite n'a pas de saut de ligne : on force son affichage avant la lecture
         if (!clavier.hasNextLine()) {
-            throw new FinDeSaisieException();
+            throw new NoSuchElementException("fin de la saisie");
         }
         return clavier.nextLine();
     }

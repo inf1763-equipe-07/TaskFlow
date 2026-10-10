@@ -2,9 +2,9 @@ package taskflow.controleur;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.OptionalInt;
 
-import taskflow.vue.FinDeSaisieException;
 import taskflow.vue.VueCommune;
 
 /**
@@ -35,7 +35,7 @@ public class MenuControleur {
                     actions.get(choix.getAsInt() - 1).executer();
                 }
             }
-        } catch (FinDeSaisieException e) {
+        } catch (NoSuchElementException e) {
             // Plus rien à lire au clavier : on ferme comme si l'utilisateur avait choisi 0.
         }
         vueCommune.afficherFermeture();
