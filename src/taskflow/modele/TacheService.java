@@ -13,7 +13,7 @@ public class TacheService {
     private final List<Tache> taches = new ArrayList<>();
 
     // L'identifiant que recevra la prochaine tâche créée.
-    // Le domaine Ajout s'en sert ; le domaine Chargement le recalcule (plus grand identifiant + 1).
+    // Le domaine Ajout s'en sert ; remplacer() le recalcule (plus grand identifiant + 1).
     private int prochainId = 1;
 
     public TacheService(TacheRepository repository) {
@@ -33,6 +33,16 @@ public class TacheService {
             }
         }
         return Optional.empty();
+    }
+
+    /**
+     * Remplace toutes les tâches par celles données, puis recalcule l'identifiant de la prochaine tâche
+     * (le plus grand identifiant + 1). Sert au chargement du fichier et au mode de démonstration.
+     */
+    public void remplacer(List<Tache> nouvelles) {
+        taches.clear();
+        taches.addAll(nouvelles);
+        prochainId = taches.stream().mapToInt(Tache::id).max().orElse(0) + 1;
     }
 
     /** Donne l'identifiant à utiliser pour une nouvelle tâche, puis avance le compteur. */
