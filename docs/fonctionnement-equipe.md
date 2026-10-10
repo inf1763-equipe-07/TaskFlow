@@ -31,11 +31,11 @@ Rôles proposés à la première rencontre d'équipe, attribués en séance de l
 
 | Rôle | Membre | Ce qu'il fait | Son document |
 |---|---|---|---|
-| Product Owner | [nom] | Valide les récits, ordonne le backlog, propose l'objectif et le contenu de chaque itération. Administre le tableau. | `docs/organisation.md` |
-| Scrum Master | [nom] | Seul point de coordination : anime les rendez-vous, suit le tableau, relance, note les relances et les mesures prises. | `docs/iterations.md` |
+| Product Owner | Emilien | Valide les récits, ordonne le backlog, propose l'objectif et le contenu de chaque itération. Administre le tableau. | `docs/organisation.md` |
+| Scrum Master | Sofiane | Seul point de coordination : anime les rendez-vous, suit le tableau, relance, note les relances et les mesures prises. | `docs/iterations.md` |
 | Intégrateur | Ahmed | Prépare le démarrage (ce document, le dépôt, le socle). Administre le dépôt (accès, protection de `main`), gère les fusions et les conflits. | `CONTRIBUTING.md` |
-| Responsable Qualité/Test | [nom] | Exécute les vérifications sur un clone propre et veille à la définition de terminé. | `docs/verification.md` |
-| Responsable de la documentation | [nom] | Tient le README, vérifie la cohérence des documents, fait la remise sur Moodle. | `README.md` |
+| Responsable Qualité/Test | Marc-Rafael | Exécute les vérifications sur un clone propre et veille à la définition de terminé. | `docs/verification.md` |
+| Responsable de la documentation | Mathieu | Tient le README, vérifie la cohérence des documents, fait la remise sur Moodle. | `README.md` |
 
 - Chacun ajoute aux documents ce qui concerne ses propres récits, et écrit lui-même sa ligne de contribution.
 - Toute modification d'un document passe par une PR.
