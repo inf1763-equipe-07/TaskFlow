@@ -25,7 +25,7 @@ public class Main {
 
     public static void main(String[] args) {
         // Les objets partagés
-        TacheRepository repository = new FichierTacheRepository(Path.of("data/taches.txt"));
+        TacheRepository repository = new FichierTacheRepository(cheminDesDonnees(args));
         TacheService service = new TacheService(repository);
         Console console = new Console();
         // Outil partagé : demande un identifiant et retrouve la tâche. Les domaines qui en ont besoin le reçoivent.
@@ -87,6 +87,19 @@ public class Main {
         // --- Fin domaine Sauvegarde ---
 
         new MenuControleur(console, entrees).lancer();
+    }
+
+    /**
+     * Le fichier de données : data/taches.txt, ou le chemin donné en argument
+     * (par exemple donnees-test/exemple.txt pour essayer avec le fichier d'exemple).
+     */
+    private static Path cheminDesDonnees(String[] args) {
+        for (String argument : args) {
+            if (!argument.equals("--demo")) {
+                return Path.of(argument);
+            }
+        }
+        return Path.of("data/taches.txt");
     }
 
     /** Les deux tâches de l'exemple de l'énoncé, les mêmes que dans donnees-test/exemple.txt. */
