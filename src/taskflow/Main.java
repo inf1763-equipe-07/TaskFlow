@@ -4,7 +4,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-import taskflow.controleur.DemarrageControleur;
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
 import taskflow.controleur.SelecteurTache;
@@ -12,7 +11,6 @@ import taskflow.modele.TacheRepository;
 import taskflow.modele.TacheService;
 import taskflow.persistance.FichierTacheRepository;
 import taskflow.vue.Console;
-import taskflow.vue.VueCommune;
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -25,14 +23,21 @@ public class Main {
         TacheRepository repository = new FichierTacheRepository(Path.of("data/taches.txt"));
         TacheService service = new TacheService(repository);
         Console console = new Console();
-        VueCommune vueCommune = new VueCommune(console);
         // Outil partagé : demande un identifiant et retrouve la tâche. Les domaines qui en ont besoin le reçoivent.
         SelecteurTache selecteur = new SelecteurTache(service, console);
 
-        DemarrageControleur demarrage = new DemarrageControleur(service, console, vueCommune);
-        if (!demarrage.demarrer()) {
-            System.exit(1); // le code 1 signale que l'application s'est arrêtée sur une erreur
-        }
+        console.afficher("TASKFLOW — Gestion des tâches");
+
+        // Au démarrage, le domaine Chargement retrouve les tâches sauvegardées. Si le fichier est illisible,
+        // il affiche l'erreur puis arrête l'application avec System.exit(1) (le code 1 signale une erreur).
+
+        // --- Début domaine Chargement ---
+        // ---
+
+        // ---
+        // --- Fin domaine Chargement ---
+
+
 
         // Les entrées du menu, dans l'ordre des zones ci-dessous.
         // Un domaine y ajoute son contrôleur et son entrée, par exemple :
