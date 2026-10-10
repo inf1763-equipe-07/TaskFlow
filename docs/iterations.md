@@ -51,7 +51,90 @@
 4. Confirmer la répartition des domaines, les contributions individuelles et les accès nécessaires au dépôt.
 5. Préciser les objectifs et l'organisation des deux itérations.
 
-**Compte rendu et décisions effectives :** à compléter à partir des échanges tenus pendant la réunion. Aucun résultat de cette séance n'est présumé ici.
+**Compte rendu et décisions effectives :** voir le bilan détaillé de la réunion ci-dessous
+
+###  Compte rendu effectif de la réunion du 9 octobre 2026
+
+**Horaire prévu :** 9 h à 10 h  
+**Format :** réunion d'équipe sur Teams  
+**Rédacteur :** Sofiane Khider — Scrum Master
+
+#### 1. Consolidation du backlog produit
+
+L'équipe a examiné les différentes propositions de récits utilisateurs déposées dans l'[Issue #4](https://github.com/inf1763-equipe-07/TaskFlow/issues/4).
+
+Après discussion et regroupement des propositions, une **synthèse commune de 12 récits utilisateurs** a été retenue comme base de travail. Cette synthèse, préparée par **Marc-Raphaël Chehab**, a été publiée en commentaire dans l'Issue #4.
+
+**Décisions :**
+- Confier à **Émilien Thibert, Product Owner**, la préparation d'une Pull Request présentant le backlog consolidé.
+- Soumettre cette Pull Request à la relecture et à l'approbation d'un autre membre avant sa fusion.
+- Ne considérer le backlog comme officiellement validé qu'après cette étape de revue.
+
+**Suivi :** la synthèse est disponible dans l'Issue #4 ; la validation formelle par Pull Request reste à effectuer.
+
+#### 2. Revue des Pull Requests en attente
+
+Deux Pull Requests ont été examinées :
+
+- [PR #5 — Documents d'équipe](https://github.com/inf1763-equipe-07/TaskFlow/pull/5)
+- [PR #6 — Socle Java](https://github.com/inf1763-equipe-07/TaskFlow/pull/6)
+
+L'équipe a constaté que la participation aux revues était encore insuffisante. **Sofiane avait déjà publié des commentaires sur les deux PR**, notamment sur l'organisation documentaire et sur le découpage architectural du socle. Émilien avait également signalé un ajustement concernant les rôles dans la PR #5.
+
+**Décision :** chaque membre devra examiner personnellement les deux Pull Requests et y publier des observations constructives et argumentées avant la prochaine réunion.
+
+Pour la PR #5, l'objectif est de finaliser la documentation commune et de permettre sa validation.
+
+Pour la PR #6, une attention particulière devra être accordée à la structure technique et à la pertinence du découpage des classes.
+
+#### 3. Débat sur l'architecture du socle Java
+
+Une discussion approfondie a été consacrée à la proposition de socle développée par Ahmed, comprenant **23 classes Java**.
+
+À partir des observations formulées dans la PR #6, l'équipe a débattu de la possibilité de simplifier cette architecture afin d'éviter une complexité excessive, tout en préparant les prochaines phases du projet.
+
+Les principaux critères abordés sont :
+
+- La simplicité, la lisibilité et la maintenabilité du code.
+- Le respect de la séparation des responsabilités.
+- La possibilité de répartir efficacement le travail entre les membres.
+- La limitation des conflits Git lors du développement collaboratif.
+- L'évolutivité de l'architecture pour la suite du projet.
+- **Le respect intégral des règles métier et des exigences de l'énoncé.**
+
+**Décision :** aucune modification définitive du socle n'a été arrêtée pendant cette rencontre. Chaque membre présentera, lors de la prochaine réunion, **sa propre proposition d'architecture alternative plus légère**.
+
+Chaque proposition devra identifier les classes conservées, regroupées ou supprimées et **justifier les choix effectués**. L'objectif n'est pas de réduire le nombre de classes à tout prix, mais de retenir une architecture cohérente et adaptée aux besoins fonctionnels.
+
+Une attention prioritaire sera accordée à la préservation des règles métier et de l'ensemble des comportements attendus.
+
+#### 4. Plan d'action
+
+| Action | Responsable | Échéance |
+|---|---|---|
+| Préparer une PR pour la synthèse des 12 récits utilisateurs | Émilien — Product Owner | Dès que possible |
+| Relire et approuver la PR du backlog | Un autre membre de l'équipe | Après ouverture de la PR |
+| Examiner et commenter la PR #5 — Documentation | Tous les membres | Avant la prochaine réunion |
+| Examiner et commenter la PR #6 — Socle Java | Tous les membres | Avant la prochaine réunion |
+| Préparer une architecture alternative plus légère, avec justification des choix | Chaque membre | Réunion du 11 octobre |
+| Vérifier la conformité de chaque proposition aux règles métier et à l'énoncé | Chaque membre | Réunion du 11 octobre |
+| Documenter les décisions et suivre les actions | Sofiane — Scrum Master | Suivi continu |
+
+#### 5. Prochaine réunion - dimanche 11 octobre 2026
+
+**Heure prévue :** vers **19 h**.
+
+**Ordre du jour :**
+
+1. Vérifier l'avancement de la validation du backlog par le Product Owner.
+2. Faire le point sur les commentaires et les revues des PR #5 et #6.
+3. Présenter les différentes propositions de socle simplifié.
+4. Permettre à chaque membre de défendre son architecture et de justifier ses choix techniques.
+5. Comparer les propositions selon la cohérence du code, les possibilités de collaboration et, surtout, **le respect des règles métier et des exigences du projet**.
+6. Dégager une orientation commune et définir les prochaines actions.
+
+**Point de vigilance :** toute simplification de l'architecture doit préserver les fonctionnalités et les validations prévues dans l'énoncé. Le nombre de classes ne constitue pas, à lui seul, un critère de qualité.
+
 
 ---
 
