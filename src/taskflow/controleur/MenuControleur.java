@@ -1,51 +1,58 @@
 package taskflow.controleur;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.OptionalInt;
 
-import taskflow.vue.VueCommune;
+import taskflow.vue.Console;
 
 /**
- * La boucle principale : afficher le menu, lire le choix, exécuter l'action choisie, recommencer.
- * Le choix 0 quitte.
+ * La boucle principale : afficher le menu, lire le choix, exécuter l'entrée choisie, recommencer.
+ * Le choix 0 quitte. Le menu commence vide : chaque domaine ajoute ses entrées dans Main.
  */
 public class MenuControleur {
 
-    private final VueCommune vueCommune;
-    private final List<ActionMenu> actions;
+    /** Une entrée du menu : le texte à afficher et le travail à exécuter quand on la choisit. */
+    public record Entree(String libelle, Runnable action) {
+    }
 
-    public MenuControleur(VueCommune vueCommune, List<ActionMenu> actions) {
-        this.vueCommune = vueCommune;
-        this.actions = List.copyOf(actions);
+    private final Console console;
+    private final List<Entree> entrees;
+
+    public MenuControleur(Console console, List<Entree> entrees) {
+        this.console = console;
+        this.entrees = List.copyOf(entrees);
     }
 
     public void lancer() {
         try {
             boolean continuer = true;
             while (continuer) {
-                vueCommune.afficherMenu(libellesDesActions());
-                OptionalInt choix = vueCommune.lireChoixMenu();
-                if (choix.isEmpty() || choix.getAsInt() < 0 || choix.getAsInt() > actions.size()) {
-                    vueCommune.afficherChoixInvalide();
+                afficherMenu();
+                OptionalInt choix = console.lireEntier("Votre choix : ");
+                if (choix.isEmpty() || choix.getAsInt() < 0 || choix.getAsInt() > entrees.size()) {
+                    console.afficherErreur("choix invalide. Entrez un des numéros du menu.");
                 } else if (choix.getAsInt() == 0) {
                     continuer = false;
                 } else {
-                    actions.get(choix.getAsInt() - 1).executer();
+                    entrees.get(choix.getAsInt() - 1).action().run();
                 }
             }
         } catch (NoSuchElementException e) {
             // Plus rien à lire au clavier : on ferme comme si l'utilisateur avait choisi 0.
         }
-        vueCommune.afficherFermeture();
+        console.afficher("");
+        console.afficher("Fermeture de TaskFlow.");
+        console.afficher("Au revoir !");
     }
 
-    private List<String> libellesDesActions() {
-        List<String> libelles = new ArrayList<>();
-        for (ActionMenu action : actions) {
-            libelles.add(action.libelle());
+    /** Affiche les entrées numérotées à partir de 1, puis « 0. Quitter ». */
+    private void afficherMenu() {
+        console.afficher("");
+        for (int i = 0; i < entrees.size(); i++) {
+            console.afficher((i + 1) + ". " + entrees.get(i).libelle());
         }
-        return libelles;
+        console.afficher("0. Quitter");
+        console.afficher("");
     }
 }
