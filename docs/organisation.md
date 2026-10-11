@@ -14,7 +14,10 @@ Chaque récit comprend sa description, ses critères d'acceptation, sa priorité
 
 - **P1 — Très élevée :** fonctionnalité fondamentale.
 - **P2 — Élevée :** fonctionnalité complémentaire ou gestion d'un cas particulier obligatoire.
+<<<<<<< HEAD
 - **P3 - Normale :** fonctionnalité obligatoire mais non cruciale
+=======
+>>>>>>> origin/docs/4-backlog
 
 **Estimation :** points d'effort proposés à valider par l'équipe.
 
@@ -23,20 +26,35 @@ Chaque récit comprend sa description, ses critères d'acceptation, sa priorité
 ## US-01 — Ajouter une tâche
 
 **Priorité :** P1 — Très élevée  
+<<<<<<< HEAD
 **Estimation :** 5 points, crucial pour le projet, plus de temps doit lui être accordé
 
 ### Récit utilisateur
 
 En tant qu'utilisateur de soutien, je veux ajouter une tâche afin de conserver une trace du travail à effectuer.
+=======
+**Estimation :** 5 points
+
+### Récit utilisateur
+
+En tant qu'utilisateur, je veux ajouter une tâche afin de conserver une trace du travail à effectuer.
+>>>>>>> origin/docs/4-backlog
 
 ### Critères d'acceptation
 
 - [ ] CA1 : Lorsqu'un titre valide est fourni, l'application crée une tâche avec un identifiant positif unique et le statut `À faire`.
+<<<<<<< HEAD
 - [ ] CA2 : Si aucune priorité n'est précisée ou la valeur entrée est invalide, la priorité par défaut est `Normale`, sinon elle prend la valeur entrée, soit `Basse`, `Normale` ou `Élevée`.
 - [ ] CA3 : Si aucune échéance n'est fournie ou la valeur entrée ne suit pas le format `AAAA-MM-JJ` la tâche est créée sans échéance, sinon elle prend la valeur entrée.
 - [ ] CA4 : Un titre vide ou composé uniquement d'espaces est refusé sans créer de tâche, et un message explique l'erreur, sinon il prend la velur entrée.
 - [ ] CA5 : Après un ajout réussi, l'application confirme la création et affiche l'identifiant attribué.
 - [ ] CA6 : Il est possible à tout moment d'annuler la création d'une tâche.
+=======
+- [ ] CA2 : Si aucune priorité n'est précisée, la priorité par défaut est `Normale`.
+- [ ] CA3 : Si aucune échéance n'est fournie, la tâche est créée sans échéance.
+- [ ] CA4 : Un titre vide ou composé uniquement d'espaces est refusé sans créer de tâche, et un message explique l'erreur.
+- [ ] CA5 : Après un ajout réussi, l'application confirme la création et affiche l'identifiant attribué.
+>>>>>>> origin/docs/4-backlog
 
 ### Dépendances
 
@@ -54,7 +72,11 @@ En tant qu'utilisateur de soutien, je veux ajouter une tâche afin de conserver 
 ## US-02 — Afficher la liste des tâches
 
 **Priorité :** P1 — Très élevée  
+<<<<<<< HEAD
 **Estimation :** 2 points, quelques lignes de codes
+=======
+**Estimation :** 3 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -68,7 +90,11 @@ En tant qu'utilisateur, je veux consulter la liste des tâches afin de connaîtr
 
 ### Dépendances
 
+<<<<<<< HEAD
 - Dépend d'un jeu de test, pour disposer de tâches à afficher.
+=======
+- Dépend de **US-01 — Ajouter une tâche**, pour disposer de tâches à afficher.
+>>>>>>> origin/docs/4-backlog
 - Nécessite l'accès à la collection de tâches.
 
 ### Vérification
@@ -82,7 +108,11 @@ En tant qu'utilisateur, je veux consulter la liste des tâches afin de connaîtr
 ## US-03 — Marquer une tâche comme terminée
 
 **Priorité :** P1 — Très élevée  
+<<<<<<< HEAD
 **Estimation :** 2 points, quelques lignes de codes
+=======
+**Estimation :** 3 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -93,7 +123,11 @@ En tant qu'utilisateur, je veux marquer une tâche comme terminée afin de suivr
 - [ ] CA1 : Lorsqu'un identifiant existant est fourni, le statut de la tâche sélectionnée passe à `Terminée`.
 - [ ] CA2 : L'application confirme le changement de statut.
 - [ ] CA3 : Les autres informations de la tâche et les autres tâches restent inchangées.
+<<<<<<< HEAD
 - [ ] CA4 : Si l'identifiant n'existe pas ou comprend des caractères autres que des chiffres, l'application affiche un message d'erreur.
+=======
+- [ ] CA4 : Si l'identifiant n'existe pas, l'application affiche un message d'erreur.
+>>>>>>> origin/docs/4-backlog
 - [ ] CA5 : Si la tâche est déjà terminée, l'application le signale sans effectuer de modification inutile.
 
 ### Dépendances
@@ -112,8 +146,13 @@ En tant qu'utilisateur, je veux marquer une tâche comme terminée afin de suivr
 
 ## US-04 — Modifier la priorité d'une tâche
 
+<<<<<<< HEAD
 **Priorité :** P2 — Très élevée  
 **Estimation :** 2 points, quelques lignes de codes
+=======
+**Priorité :** P1 — Très élevée  
+**Estimation :** 3 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -124,7 +163,11 @@ En tant qu'utilisateur, je veux modifier la priorité d'une tâche afin d'adapte
 - [ ] CA1 : L'utilisateur peut sélectionner une tâche existante à l'aide de son identifiant.
 - [ ] CA2 : Les valeurs `Basse`, `Normale` et `Élevée` sont acceptées.
 - [ ] CA3 : Une priorité invalide est refusée et la priorité actuelle reste inchangée.
+<<<<<<< HEAD
 - [ ] CA4 : Si l'identifiant n'existe pas ou comprend des caractères autres que des chiffres, l'application signale le problème.
+=======
+- [ ] CA4 : Si l'identifiant n'existe pas, l'application signale le problème.
+>>>>>>> origin/docs/4-backlog
 - [ ] CA5 : La modification de la priorité ne change pas les autres informations de la tâche.
 
 ### Dépendances
@@ -142,8 +185,13 @@ En tant qu'utilisateur, je veux modifier la priorité d'une tâche afin d'adapte
 
 ## US-05 — Attribuer une échéance à une tâche
 
+<<<<<<< HEAD
 **Priorité :** P3 — Très élevée  
 **Estimation :** 2 points, quelques lignes de codes
+=======
+**Priorité :** P1 — Très élevée  
+**Estimation :** 3 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -155,7 +203,11 @@ En tant qu'utilisateur, je veux attribuer une échéance à une tâche afin de c
 - [ ] CA2 : La date respecte le format `AAAA-MM-JJ` et correspond à une date réelle du calendrier.
 - [ ] CA3 : Une date impossible ou un format incorrect est refusé sans modifier l'échéance existante.
 - [ ] CA4 : Les dates passées sont acceptées.
+<<<<<<< HEAD
 - [ ] CA5 : Si l'identifiant n'existe pas ou comprend des caractères autres que des chiffres, l'application signale le problème.
+=======
+- [ ] CA5 : Si l'identifiant n'existe pas, l'application signale le problème.
+>>>>>>> origin/docs/4-backlog
 
 ### Dépendances
 
@@ -173,8 +225,13 @@ En tant qu'utilisateur, je veux attribuer une échéance à une tâche afin de c
 
 ## US-06 — Modifier une échéance existante
 
+<<<<<<< HEAD
 **Priorité :** P3 — Élevée  
 **Estimation :** 2 points,  quelques lignes de codes
+=======
+**Priorité :** P2 — Élevée  
+**Estimation :** 2 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -185,7 +242,11 @@ En tant qu'utilisateur, je veux modifier l'échéance d'une tâche afin de tenir
 - [ ] CA1 : L'utilisateur peut remplacer l'échéance d'une tâche existante par une nouvelle date valide.
 - [ ] CA2 : La nouvelle date remplace l'ancienne sans modifier le titre, la priorité ou le statut.
 - [ ] CA3 : Une date invalide est refusée et l'ancienne échéance est conservée.
+<<<<<<< HEAD
 - [ ] CA4 : Si l'identifiant n'existe pas ou comprend des caractères autres que des chiffres, l'application signale le problème.
+=======
+- [ ] CA4 : Si l'identifiant n'existe pas, l'application signale le problème.
+>>>>>>> origin/docs/4-backlog
 
 ### Dépendances
 
@@ -203,8 +264,13 @@ En tant qu'utilisateur, je veux modifier l'échéance d'une tâche afin de tenir
 
 ## US-07 — Retirer l'échéance d'une tâche
 
+<<<<<<< HEAD
 **Priorité :** P3 — Élevée  
 **Estimation :** 2 points, quelques lignes de codes
+=======
+**Priorité :** P2 — Élevée  
+**Estimation :** 2 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -215,7 +281,11 @@ En tant qu'utilisateur, je veux retirer l'échéance d'une tâche afin de ne plu
 - [ ] CA1 : L'utilisateur peut retirer l'échéance d'une tâche existante à l'aide de son identifiant.
 - [ ] CA2 : Après le retrait, la tâche est conservée et son échéance est indiquée comme absente.
 - [ ] CA3 : Le titre, la priorité, l'identifiant et le statut restent inchangés.
+<<<<<<< HEAD
 - [ ] CA4 : Si l'identifiant n'existe pas ou comprend des caractères autres que des chiffres, l'application signale le problème.
+=======
+- [ ] CA4 : Si l'identifiant n'existe pas, l'application signale le problème.
+>>>>>>> origin/docs/4-backlog
 
 ### Dépendances
 
@@ -233,7 +303,11 @@ En tant qu'utilisateur, je veux retirer l'échéance d'une tâche afin de ne plu
 ## US-08 — Sauvegarder les tâches dans un fichier
 
 **Priorité :** P1 — Très élevée  
+<<<<<<< HEAD
 **Estimation :** 5 points, crucial, besoin de plus de temps que les autres
+=======
+**Estimation :** 5 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -248,7 +322,11 @@ En tant qu'utilisateur, je veux sauvegarder explicitement les tâches dans un fi
 
 ### Dépendances
 
+<<<<<<< HEAD
 - Dépend d'un jeu de test pour disposer de données à sauvegarder.
+=======
+- Dépend de **US-01 — Ajouter une tâche**, pour disposer de données à sauvegarder.
+>>>>>>> origin/docs/4-backlog
 - Nécessite un mécanisme d'écriture dans un fichier local.
 
 ### Vérification
@@ -262,8 +340,13 @@ En tant qu'utilisateur, je veux sauvegarder explicitement les tâches dans un fi
 
 ## US-09 — Recharger les tâches sauvegardées au démarrage
 
+<<<<<<< HEAD
 **Priorité :** P2 — Très élevée  
 **Estimation :** 2 points, quelques lignes de codes
+=======
+**Priorité :** P1 — Très élevée  
+**Estimation :** 5 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -292,8 +375,13 @@ En tant qu'utilisateur, je veux retrouver automatiquement mes tâches sauvegard�
 
 ## US-10 — Démarrer sans fichier de données existant
 
+<<<<<<< HEAD
 **Priorité :** P3 — Élevée  
 **Estimation :** 2 points,  quelques lignes de codes, lié à US-09
+=======
+**Priorité :** P2 — Élevée  
+**Estimation :** 2 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -319,8 +407,13 @@ En tant qu'utilisateur, je veux pouvoir démarrer l'application sans fichier de 
 
 ## US-11 — Gérer un fichier de données illisible ou mal formé
 
+<<<<<<< HEAD
 **Priorité :** P3 — Élevée  
 **Estimation :** 3 points,  quelques lignes de codes, besoin de recherche
+=======
+**Priorité :** P2 — Élevée  
+**Estimation :** 3 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
@@ -348,7 +441,11 @@ En tant qu'utilisateur, je veux être averti si le fichier de données est illis
 ## US-12 — Signaler un échec de sauvegarde
 
 **Priorité :** P2 — Élevée  
+<<<<<<< HEAD
 **Estimation :** 3 points, quelques lignes de codes, besoin de recherche
+=======
+**Estimation :** 2 points
+>>>>>>> origin/docs/4-backlog
 
 ### Récit utilisateur
 
