@@ -98,6 +98,7 @@ Les principaux critères abordés sont :
 - La simplicité, la lisibilité et la maintenabilité du code.
 - Le respect de la séparation des responsabilités.
 - La possibilité de répartir efficacement le travail entre les membres.
+- L'autonomie des membres : chaque développeur doit pouvoir avancer dans son domaine sans attendre les autres ni perturber leur travail.
 - La limitation des conflits Git lors du développement collaboratif.
 - L'évolutivité de l'architecture pour la suite du projet.
 - **Le respect intégral des règles métier et des exigences de l'énoncé.**
@@ -148,9 +149,11 @@ Une attention prioritaire sera accordée à la préservation des règles métier
 | Objectif | À définir lors de la planification |
 | Récits retenus | À inscrire après validation du backlog |
 | Responsables | À préciser par récit / Issue |
+| Principales tâches de réalisation | À préciser lors de la planification et à actualiser pendant l'itération |
 | Version ou commit de référence | À renseigner lors de la revue |
 | Vérifications effectuées | À compléter avec `docs/verification.md` |
 | Résultats et difficultés | À consigner en revue d'itération |
+| Ajustements décidés | À consigner au fil de l'itération, avec les raisons des changements |
 | Amélioration retenue en rétrospective | À compléter |
 
 ### Itération 2
@@ -161,9 +164,11 @@ Une attention prioritaire sera accordée à la préservation des règles métier
 | Objectif | À définir lors de la planification |
 | Récits retenus | À inscrire après validation du backlog |
 | Responsables | À préciser par récit / Issue |
+| Principales tâches de réalisation | À préciser lors de la planification et à actualiser pendant l'itération |
 | Version ou commit de référence | À renseigner lors de la revue |
 | Vérifications effectuées | À compléter avec `docs/verification.md` |
 | Résultats et difficultés | À consigner en revue d'itération |
+| Ajustements décidés | À consigner au fil de l'itération, avec les raisons des changements |
 | Amélioration retenue en rétrospective | À compléter |
 
 ---
@@ -177,6 +182,10 @@ Une attention prioritaire sera accordée à la préservation des règles métier
 | 2026-10-07 | Attribution des rôles | Répartition des cinq responsabilités de l'équipe | Tous | Réalisé en réunion |
 | 2026-10-07 | Propositions de récits | Centraliser les propositions dans l'Issue #4 | Tous | À actualiser |
 | 2026-10-07 | Revue documentaire | Examiner et commenter la PR #5 | Tous | À actualiser |
+| 2026-10-09 | Consolidation du backlog | Retenir la synthèse de 12 récits préparée par Marc comme base de travail, sous réserve de validation par PR | Émilien (Product Owner) | Synthèse publiée dans l'Issue #4 ; PR #10 ouverte, validation en attente |
+| 2026-10-09 | Revue des PR #5 et #6 | Chaque membre doit examiner et commenter la documentation et le socle Java avant la prochaine réunion | Tous les membres | Échéance : 11 octobre ; suivi des commentaires et des approbations sur GitHub |
+| 2026-10-09 | Architecture du socle Java | Chaque membre prépare une proposition de socle allégé et justifie ses choix, en veillant au respect des règles métier et des exigences du projet | Tous les membres | Présentation et comparaison prévues le 11 octobre ; aucune architecture définitivement retenue |
+| 2026-10-09 | Prochaine réunion | Organiser une rencontre pour examiner les revues des PR, comparer les architectures proposées et déterminer les prochaines actions | Tous les membres | Réunion prévue le dimanche 11 octobre 2026, vers 19 h |
 
 ### Modèle pour les prochains comptes rendus
 
