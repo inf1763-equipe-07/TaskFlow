@@ -112,7 +112,7 @@ En tant qu'utilisateur, je veux marquer une tâche comme terminée afin de suivr
 
 ## US-04 — Modifier la priorité d'une tâche
 
-**Priorité :** P2 — Très élevée  
+**Priorité :** P2 — Élevée  
 **Estimation :** 2 points, quelques lignes de codes
 
 ### Récit utilisateur
@@ -142,7 +142,7 @@ En tant qu'utilisateur, je veux modifier la priorité d'une tâche afin d'adapte
 
 ## US-05 — Attribuer une échéance à une tâche
 
-**Priorité :** P3 — Très élevée  
+**Priorité :** P3 — Normale 
 **Estimation :** 2 points, quelques lignes de codes
 
 ### Récit utilisateur
@@ -173,7 +173,7 @@ En tant qu'utilisateur, je veux attribuer une échéance à une tâche afin de c
 
 ## US-06 — Modifier une échéance existante
 
-**Priorité :** P3 — Élevée  
+**Priorité :** P3 — Normale  
 **Estimation :** 2 points,  quelques lignes de codes
 
 ### Récit utilisateur
@@ -203,7 +203,7 @@ En tant qu'utilisateur, je veux modifier l'échéance d'une tâche afin de tenir
 
 ## US-07 — Retirer l'échéance d'une tâche
 
-**Priorité :** P3 — Élevée  
+**Priorité :** P3 — Normale  
 **Estimation :** 2 points, quelques lignes de codes
 
 ### Récit utilisateur
@@ -262,7 +262,7 @@ En tant qu'utilisateur, je veux sauvegarder explicitement les tâches dans un fi
 
 ## US-09 — Recharger les tâches sauvegardées au démarrage
 
-**Priorité :** P2 — Très élevée  
+**Priorité :** P2 — Élevée  
 **Estimation :** 2 points, quelques lignes de codes
 
 ### Récit utilisateur
@@ -292,7 +292,7 @@ En tant qu'utilisateur, je veux retrouver automatiquement mes tâches sauvegard�
 
 ## US-10 — Démarrer sans fichier de données existant
 
-**Priorité :** P3 — Élevée  
+**Priorité :** P3 — Normale 
 **Estimation :** 2 points,  quelques lignes de codes, lié à US-09
 
 ### Récit utilisateur
@@ -319,7 +319,7 @@ En tant qu'utilisateur, je veux pouvoir démarrer l'application sans fichier de 
 
 ## US-11 — Gérer un fichier de données illisible ou mal formé
 
-**Priorité :** P3 — Élevée  
+**Priorité :** P3 — Normale 
 **Estimation :** 3 points,  quelques lignes de codes, besoin de recherche
 
 ### Récit utilisateur
