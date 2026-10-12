@@ -34,7 +34,7 @@ Rôles proposés à la première rencontre d'équipe, attribués en séance de l
 | Product Owner | Emilien | Valide les récits, ordonne le backlog, propose l'objectif et le contenu de chaque itération. Administre le tableau. | `docs/organisation.md` |
 | Scrum Master | Sofiane | Seul point de coordination : anime les rendez-vous, suit le tableau, relance, note les relances et les mesures prises. | `docs/iterations.md` |
 | Intégrateur | Ahmed | Prépare le démarrage (ce document, le dépôt, le socle). Administre le dépôt (accès, protection de `main`), gère les fusions et les conflits. | `CONTRIBUTING.md` |
-| Responsable Qualité/Test | Marc-Rafael | Exécute les vérifications sur un clone propre et veille à la définition de terminé. | `docs/verification.md` |
+| Responsable Qualité/Test | Marc-Raphaël | Exécute les vérifications sur un clone propre et veille à la définition de terminé. | `docs/verification.md` |
 | Responsable de la documentation | Mathieu | Tient le README, vérifie la cohérence des documents, fait la remise sur Moodle. | `README.md` |
 
 - Chacun ajoute aux documents ce qui concerne ses propres récits, et écrit lui-même sa ligne de contribution.
@@ -47,11 +47,11 @@ Chacun possède un domaine de bout en bout (affichage, logique, fichier) pendant
 
 | Domaine | Ce qu'il couvre | Propriétaire |
 |---|---|---|
-| A — Ajout | ajouter une tâche (titre, priorité, échéance) et refuser les saisies invalides | [nom] |
-| B — Consultation et modification | afficher la liste, marquer une tâche terminée, modifier sa priorité | [nom] |
-| C — Échéance | attribuer, modifier et retirer une échéance | [nom] |
-| D — Sauvegarde | sauvegarder dans le fichier, signaler un échec de sauvegarde | [nom] |
-| E — Chargement | retrouver ses tâches au démarrage, démarrer sans fichier, gérer un fichier abîmé | [nom] |
+| A — Ajout | ajouter une tâche (titre, priorité, échéance) et refuser les saisies invalides | Sofiane |
+| B — Consultation et modification | afficher la liste, marquer une tâche terminée, modifier sa priorité | Ahmed |
+| C — Échéance | attribuer, modifier et retirer une échéance | Marc-Raphaël |
+| D — Sauvegarde | sauvegarder dans le fichier, signaler un échec de sauvegarde | Mathieu |
+| E — Chargement | retrouver ses tâches au démarrage, démarrer sans fichier, gérer un fichier abîmé | Émilien |
 
 Les domaines sont attribués en séance de lancement, avec les rôles. Chaque domaine a un point d'entrée et des zones dans le socle (voir `CONTRIBUTING.md`).
 
