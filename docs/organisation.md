@@ -267,8 +267,8 @@ En tant qu'utilisateur de soutien, je veux ajouter une tâche afin de conserver 
 #### Critères d'acceptation
 
 - [ ] CA1 : Lorsqu'un titre valide est fourni, l'application crée une tâche avec un identifiant positif unique et le statut `À faire`.
-- [ ] CA2 : Si aucune priorité n'est précisée ou la valeur entrée est invalide, la priorité par défaut est `Normale`, sinon elle prend la valeur entrée, soit `Basse`, `Normale` ou `Élevée`.
-- [ ] CA3 : Si aucune échéance n'est fournie ou la valeur entrée ne suit pas le format `AAAA-MM-JJ` la tâche est créée sans échéance, sinon elle prend la valeur entrée.
+- [ ] CA2 : Si aucune priorité n'est précisée, la priorité par défaut est `Normale`, sinon elle prend la valeur entrée, soit `Basse`, `Normale` ou `Élevée`. Si la valeur entrée est invalide, une erreur est affichée.
+- [ ] CA3 : Si aucune échéance n'est fournie la tâche est créée sans échéance, sinon elle prend la valeur entrée. Si la valeur entrée ne correspond pas au format `AAAA-MM-JJ`, une erreur est affichée.
 - [ ] CA4 : Un titre vide ou composé uniquement d'espaces est refusé sans créer de tâche, et un message explique l'erreur, sinon il prend la velur entrée.
 - [ ] CA5 : Après un ajout réussi, l'application confirme la création et affiche l'identifiant attribué.
 - [ ] CA6 : Il est possible à tout moment d'annuler la création d'une tâche.
