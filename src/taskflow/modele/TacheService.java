@@ -13,7 +13,7 @@ public class TacheService {
     private final List<Tache> taches = new ArrayList<>();
 
     // L'identifiant que recevra la prochaine tâche créée.
-    // Le domaine Ajout s'en sert ; le domaine Chargement le recalcule (plus grand identifiant + 1).
+    // Le domaine Ajout s'en sert ; remplacer() le recalcule (plus grand identifiant + 1).
     private int prochainId = 1;
 
     public TacheService(TacheRepository repository) {
@@ -34,6 +34,31 @@ public class TacheService {
         }
         return Optional.empty();
     }
+
+
+/**
+ * Remplace toutes les tâches par la liste fournie, puis recalcule
+ * l'identifiant de la prochaine tâche (le plus grand identifiant + 1).
+ * La liste est validée avant de modifier les tâches existantes afin
+ * de préserver leur contenu si la liste reçue est invalide.
+ *
+ * Cette méthode sert au chargement du fichier et au mode de démonstration.
+ *
+ * @param nouvelles liste des tâches qui remplacera la liste actuelle
+ * @throws NullPointerException si la liste ou l'une de ses tâches est null
+ */
+public void remplacer(List<Tache> nouvelles) {
+    List<Tache> copie = List.copyOf(nouvelles);
+
+    taches.clear();
+    taches.addAll(copie);
+
+    prochainId = taches.stream()
+            .mapToInt(Tache::id)
+            .max()
+            .orElse(0) + 1;
+}
+
 
     /** Donne l'identifiant à utiliser pour une nouvelle tâche, puis avance le compteur. */
     private int prendreProchainId() {

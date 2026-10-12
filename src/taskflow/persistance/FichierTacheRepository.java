@@ -1,10 +1,9 @@
 package taskflow.persistance;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
-import taskflow.modele.DonneesIllisiblesException;
-import taskflow.modele.SauvegardeImpossibleException;
 import taskflow.modele.Tache;
 import taskflow.modele.TacheRepository;
 
@@ -24,7 +23,7 @@ public class FichierTacheRepository implements TacheRepository {
     // --- Début domaine Sauvegarde ---
     // ---
     @Override
-    public void sauvegarder(List<Tache> taches) throws SauvegardeImpossibleException {
+    public void sauvegarder(List<Tache> taches) throws IOException {
         throw new UnsupportedOperationException("La sauvegarde n'est pas encore disponible.");
     }
     // ---
@@ -40,7 +39,7 @@ public class FichierTacheRepository implements TacheRepository {
     }
 
     @Override
-    public List<Tache> charger() throws DonneesIllisiblesException {
+    public List<Tache> charger() throws IOException {
         return List.of();
     }
     // ---
