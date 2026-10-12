@@ -47,11 +47,11 @@ Chacun possède un domaine de bout en bout (affichage, logique, fichier) pendant
 
 | Domaine | Ce qu'il couvre | Propriétaire |
 |---|---|---|
-| A — Ajout | ajouter une tâche (titre, priorité, échéance) et refuser les saisies invalides | [nom] |
-| B — Consultation et modification | afficher la liste, marquer une tâche terminée, modifier sa priorité | [nom] |
-| C — Échéance | attribuer, modifier et retirer une échéance | [nom] |
-| D — Sauvegarde | sauvegarder dans le fichier, signaler un échec de sauvegarde | [nom] |
-| E — Chargement | retrouver ses tâches au démarrage, démarrer sans fichier, gérer un fichier abîmé | [nom] |
+| A — Ajout | ajouter une tâche (titre, priorité, échéance) et refuser les saisies invalides | Sofiane |
+| B — Consultation et modification | afficher la liste, marquer une tâche terminée, modifier sa priorité | Ahmed |
+| C — Échéance | attribuer, modifier et retirer une échéance | Marc-Raphaël |
+| D — Sauvegarde | sauvegarder dans le fichier, signaler un échec de sauvegarde | Mathieu |
+| E — Chargement | retrouver ses tâches au démarrage, démarrer sans fichier, gérer un fichier abîmé | Émilien |
 
 Les domaines sont attribués en séance de lancement, avec les rôles. Chaque domaine a un point d'entrée et des zones dans le socle (voir `CONTRIBUTING.md`).
 
