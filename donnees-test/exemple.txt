@@ -1,0 +1,2 @@
+1;ELEVEE;2026-10-05;TERMINEE;Vérifier la sauvegarde du serveur
+2;NORMALE;;A_FAIRE;Mettre à jour le guide utilisateur
