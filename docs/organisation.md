@@ -618,5 +618,3 @@ En tant qu'utilisateur, je veux être averti lorsqu'une sauvegarde échoue afin 
 - Un récit est considéré comme terminé uniquement lorsque ses critères sont satisfaits, les vérifications pertinentes réalisées, le changement intégré, la revue de code effectuée et la documentation utile mise à jour.
 
 ---
-
-**Fin du backlog produit — TaskFlow, mini-projet 1.**
