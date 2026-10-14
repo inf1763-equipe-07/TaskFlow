@@ -8,6 +8,11 @@ Application Java en console pour gérer une liste de tâches. Projet de l'équip
 
 | Nom | Rôle | Domaine |
 |---|---|---|
+| Émilien Thibert | Product Owner | E — Chargement |
+| Sofiane Khider | Scrum Master | A — Ajout |
+| Ahmed Boussayri | Intégrateur | B — Consultation et modification |
+| Marc-Raphaël Chehab | Responsable qualité et tests | C — Échéances |
+| Mathieu Pagé | Responsable de la documentation | D — Sauvegarde |
 
 ## Fonctionnalités
 
