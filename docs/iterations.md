@@ -190,3 +190,79 @@ Une attention prioritaire sera accordée à la préservation des règles métier
 ### Modèle pour les prochains comptes rendus
 
 Pour chaque réunion, noter : **date et participants**, **objectif**, **décisions**, **actions et responsables**, **échéances**, **blocages**, puis **prochaine étape**. Les décisions définitives sont distinguées des propositions restant à valider.
+
+
+---
+
+## 5. Compte rendu de la réunion du 11 octobre 2026
+
+**Participants :** Émilien Thibert, Sofiane Khider, Ahmed Boussayri, Marc-Raphaël Chehab et Mathieu Pagé.
+
+**Objectif :** Finaliser les choix organisationnels et techniques du projet et lancer la première itération.
+
+### Décisions prises
+
+**1. Validation du backlog produit**
+
+L'équipe a retenu le backlog commun de 12 récits utilisateurs présenté par Émilien, à la suite des discussions et des propositions des membres. Les éventuelles précisions aux critères d'acceptation feront l'objet d'un suivi dans la PR #10.
+
+**2. Adoption du socle Java**
+
+Après comparaison des propositions d'architecture, l'équipe a retenu le socle allégé proposé par Ahmed (PR #12), en privilégiant la simplicité, la séparation des responsabilités et l'autonomie des membres.
+
+**3. Organisation du développement collaboratif**
+
+Chaque membre développera les fonctionnalités de son domaine attribué, en utilisant le socle commun. Les contributions devront être identifiables à travers les branches, les commits et les Pull Requests. Les changements seront soumis à une revue avant leur intégration dans `main`.
+
+**4. Lancement de l'itération 1**
+
+L'équipe a convenu de réaliser les premières contributions de code de chaque domaine pour le 14 octobre 2026. Une réunion permettra d'examiner les réalisations et d'évaluer la possibilité de valider une première version collective de TaskFlow.
+
+### Actions de suivi
+
+- **Tous les membres :** développer, compiler et vérifier leurs premières fonctionnalités, puis présenter leur travail dans une Pull Request.
+- **Émilien — Product Owner :** assurer le suivi du backlog et des critères d'acceptation.
+- **Ahmed — Intégrateur :** accompagner l'intégration des contributions et la résolution des éventuels conflits.
+- **Marc-Raphaël — Qualité/Test :** préparer le suivi des vérifications fonctionnelles.
+- **Sofiane — Scrum Master :** organiser la revue de l'itération 1, suivre les blocages et documenter les décisions collectives.
+
+---
+
+## 6. Réunion du 14 octobre 2026 — Revue de l'itération 1
+
+**Horaire prévu :** 20 h 30 à 21 h 30  
+**Participants prévus :** les cinq membres de l'équipe.  
+**Animateur :** Sofiane Khider, Scrum Master.
+
+### Objectif principal
+
+Examiner les contributions de code réalisées par chaque membre pendant la première itération, vérifier leur fonctionnement et déterminer collectivement si une première version de TaskFlow peut être validée.
+
+### Ordre du jour
+
+| Horaire | Activité |
+|---|---|
+| 20 h 30 – 20 h 35 | Ouverture et rappel des objectifs de l'itération 1 |
+| 20 h 35 – 21 h 00 | Présentation des contributions individuelles (5 minutes par membre) |
+| 21 h 00 – 21 h 10 | Vérification collective du code et de son intégration |
+| 21 h 10 – 21 h 20 | Dépannage ciblé, si nécessaire (maximum 10 minutes au total) |
+| 21 h 20 – 21 h 30 | Bilan, décision de validation et prochaines actions |
+
+### Règles de déroulement
+
+- Chaque membre présente sa contribution, sa Pull Request, les fonctionnalités réalisées et les résultats de ses vérifications.
+- La réunion est consacrée principalement à la **revue et à la validation du code de l'itération 1**.
+- Le temps total consacré au dépannage (*troubleshooting*) ne devra pas dépasser **10 minutes**.
+- Les problèmes non résolus dans ce délai seront documentés et traités en dehors de la réunion.
+- Une contribution ne sera considérée comme terminée que si les critères d'acceptation et la définition de terminé de l'équipe sont respectés.
+- Si des éléments bloquants subsistent, l'équipe consignera les corrections nécessaires et leurs responsables.
+
+### Résultats à compléter après la réunion
+
+- Contributions présentées et Pull Requests associées :
+- Fonctionnalités validées :
+- Fonctionnalités incomplètes :
+- Résultats des vérifications :
+- Décision sur la validation de l'itération 1 :
+- Blocages et actions correctives :
+- Ajustements pour l'itération 2 :
