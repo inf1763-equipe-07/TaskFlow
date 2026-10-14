@@ -15,8 +15,7 @@ import taskflow.modele.TacheRepository;
 import taskflow.modele.TacheService;
 import taskflow.persistance.FichierTacheRepository;
 import taskflow.vue.Console;
-import taskflow.controleur.AjoutControleur;
-import taskflow.vue.AjoutVue;
+
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -57,12 +56,25 @@ public class Main {
 
         // --- Début domaine Ajout ---
 
-        AjoutVue ajoutVue = new AjoutVue(console);
+       entrees.add(new Entree("Ajouter une tâche", () -> {
 
-        AjoutControleur ajoutControleur =
-        new AjoutControleur(service, ajoutVue);
+    console.afficherTitre("Ajouter une tâche");
+    String titre = console.lire("Titre : ");
 
-        entrees.add(new Entree("Ajouter une tâche", ajoutControleur::ajouter));
+    try {
+        Tache nouvelle = service.ajouter(titre);
+
+        console.afficherSucces("Tâche ajoutée avec succès.");
+        console.afficher("Identifiant : " + nouvelle.id());
+        console.afficher("Titre : " + nouvelle.titre());
+        console.afficher("Priorité : " + nouvelle.priorite().libelle());
+        console.afficher("Échéance : Aucune");
+        console.afficher("Statut : À faire");
+
+    } catch (SaisieInvalideException e) {
+        console.afficherErreur(e.getMessage());
+    }
+}));
 
         // --- Fin domaine Ajout ---
 
