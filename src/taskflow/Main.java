@@ -1,15 +1,15 @@
 package taskflow;
 
-import java.nio.file;
+import java.nio.file.Path;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.nio.Path;
 
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
@@ -49,55 +49,32 @@ public class Main {
             // --- Début domaine Chargement ---
             // ---
 
-            if (!repository.exists()){                 //Si un repo n'existe pas, un est creer
+            if (!repository.existe()){                 //Si un repo n'existe pas, un est creer
                 repository.mkdir();
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
             
             int id_tache;
 
-            if(sauvergarde.exists()){                                         //Verifie si un fichier de sauvegarde existe
-                try (Scanner reader = new Scanner(sauvegarde)){
-                    while (reader.hasNextLine()){
-                        String contenu = reader.nextLine();
+            if(!sauvegarde.existe()){                                         //Verifie si un fichier de sauvegarde existe
+                try{
+                    
+                    if(!sauvegarde.canRead()){                                                     //US-14, verif de l'etat du fichier
                         
-                        if(contenu=="Echeance"){
-                            String echeance = reader.readLine();              //Depend de la strucutre du fichier et du contenu necessaire
+                        System.out.println("Le fichier de sauvegarde est corrompue");
+
+                    }else{
                         
-                        }else if(contenu=="Priorite"){
-                            String priorite = reader.readLine();
-                        
-                        }else if(contenu=="Titre"){
-                            String titre = reader.readLine();                                   //US-09, id a regler apres le chargement du fichier
-                        }else{
-                            id_tache++;
-                        }
+                        charger();                                                                  //US-12, chargement de la sauvegarde
+
                     }
-                
                 }catch(FileNotFoundException FNF){
                     System.out.println("Le fichier n'existe pas");
                 
                 }
-            }else if(!sauvegarde.canRead()){                                                     //US-11
-                
-                System.out.println("Le fichier de sauvegarde est corrompue");
-                System.out.println("Voulez-vous supprimer le fichier ? (Y/N)");                 //Demande a l'utilisateur ce qu'il veut faire le fichier corrompu
-                Scanner reponse_corruption = new Scanner(System.in);
-                String reponse = reponse_corruption.nextLine();
-                
-                if(reponse_corruption=="Y"){                                                     //Si oui, le fichier corrompu est supprime et un nouveau est cree
-        
-                    sauvegarde.delete();
-                    
-                    sauvegarde.createNewFile();
-                    
-                    System.out.println("Le fichier a ete supprimer et un nouveau a ete cree");
-                
-                }else{                                                                           //Si non, le fichier est laisse tel quel
-                    System.out.println("Le fichier n'a pas ete supprime");
-                }
             
-            }else{                                                                              //US-10
+            
+            }else{                                                                              //US-13, creation de fichier si une sauvegarde n'existe pas
                 
                 try{
                     
