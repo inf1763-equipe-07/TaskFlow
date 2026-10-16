@@ -7,6 +7,7 @@ import java.util.List;
 
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
+import taskflow.controleur.TerminerControleur;
 import taskflow.modele.Priorite;
 import taskflow.modele.SaisieInvalideException;
 import taskflow.modele.Statut;
@@ -15,6 +16,7 @@ import taskflow.modele.TacheRepository;
 import taskflow.modele.TacheService;
 import taskflow.persistance.FichierTacheRepository;
 import taskflow.vue.Console;
+import taskflow.vue.TerminerVue;
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -62,9 +64,14 @@ public class Main {
 
 
         // --- Début domaine Consultation et modification ---
-        // ---
 
-        // ---
+        TerminerVue terminerVue = new TerminerVue(console);
+
+        TerminerControleur terminerControleur =
+                new TerminerControleur(service, terminerVue);
+
+        entrees.add(new Entree("Marquer une tâche comme terminée", terminerControleur::terminer));
+
         // --- Fin domaine Consultation et modification ---
 
 
