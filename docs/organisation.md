@@ -11,7 +11,7 @@
 
 **Ce qu'on livre et remet.** L'application, le dépôt GitHub avec tout son historique, et la documentation. À la remise (semaine 7, date sur Moodle) : le lien du dépôt, l'identifiant du commit final et l'archive `TaskFlow_MP1_EquipeXX.zip`.
 
-**Ce qui compte le plus.** La démarche. Les Issues, les PR, les revues et le tableau pèsent plus lourd que le code.
+**Ce qui compte le plus.** La qualité du produit **et** la démarche vérifiable : backlog, Issues, PR, revues, tests, versions intégrées et tableau de suivi.
 
 **Chacun doit pouvoir montrer :**
 - au moins 2 récits dont il est l'auteur principal ;
@@ -40,19 +40,46 @@ Rôles proposés à la première rencontre d'équipe, attribués en séance de l
 - Toute modification d'un document passe par une PR.
 - Le dépôt appartient à l'organisation GitHub de l'équipe, et les droits de chacun suivent son rôle (détail dans `CONTRIBUTING.md`).
 
-### Domaines
+### Domaines et responsabilités fonctionnelles
 
-Chacun possède un domaine de bout en bout (affichage, logique, fichier) pendant tout le MP1, et en écrit les récits.
+Le domaine (A à E) regroupe les fonctionnalités ; **l’identifiant US-xx désigne un récit utilisateur précis**. Les deux sont indiqués afin qu’aucun membre ne dépende d’une lettre seule pour comprendre sa mission.
 
-| Domaine | Ce qu'il couvre | Propriétaire |
-|---|---|---|
-| A — Ajout | ajouter une tâche (titre, priorité, échéance) et refuser les saisies invalides | Sofiane |
-| B — Consultation et modification | afficher la liste, marquer une tâche terminée, modifier sa priorité | Ahmed |
-| C — Échéance | attribuer, modifier et retirer une échéance | Marc-Raphaël |
-| D — Sauvegarde | sauvegarder dans le fichier, signaler un échec de sauvegarde | Mathieu |
-| E — Chargement | retrouver ses tâches au démarrage, démarrer sans fichier, gérer un fichier abîmé | Émilien |
+| Domaine | Responsable | Fonctionnalités et limites | Récits attribués | Itération 1 | Itération 2 |
+|---|---|---|---|---|---|
+| **A — Ajout** | **Sofiane** | Créer une tâche ; proposer les choix facultatifs de priorité et d’échéance **à la création**. | **US-01, US-02, US-03** | US-01 | US-02, US-03 |
+| **B — Consultation et modification** | **Ahmed** | Voir les tâches, terminer une tâche, changer la priorité **après création**. | **US-04, US-05, US-06** | US-04, US-05 | US-06 |
+| **C — Gestion des échéances** | **Marc-Raphaël** | Ajouter, modifier ou retirer une date sur une tâche **déjà existante**. | **US-07, US-08, US-09** | US-07 | US-08, US-09 |
+| **D — Sauvegarde** | **Mathieu** | Enregistrer les tâches ; signaler un échec d’écriture. | **US-10, US-11** | US-10 | US-11 |
+| **E — Chargement** | **Émilien** | Restaurer les tâches au démarrage ; gérer fichier absent ou corrompu. | **US-12, US-13, US-14** | US-12 | US-13, US-14 |
 
-Les domaines sont attribués en séance de lancement, avec les rôles. Chaque domaine a un point d'entrée et des zones dans le socle (voir `CONTRIBUTING.md`).
+**Total : 14 récits, répartis 3 + 3 + 3 + 2 + 3.** Chaque membre possède au moins deux récits ; leur réalisation effective et leur traçabilité devront être vérifiées à la livraison.
+
+#### Historique de renumérotation (à utiliser pour mettre à jour les références)
+
+L’ancienne US-01 a été divisée en trois : **US-01 — ajout simple ; US-02 — choix de la priorité à l’ajout ; US-03 — choix de l’échéance à l’ajout**. Les autres fonctionnalités et propriétaires sont conservés. Pour **regrouper les numéros de chaque membre**, l’ancien US-12 (échec de sauvegarde) prend sa place avec la sauvegarde avant les récits d’Émilien.
+
+| Ancien récit | Nouveau récit | Responsable | Fonctionnalité conservée |
+|---|---|---|---|
+| US-01 | **US-01 + US-02 + US-03** | Sofiane | Ajout, désormais découpé en trois capacités |
+| US-02 | **US-04** | Ahmed | Affichage de la liste |
+| US-03 | **US-05** | Ahmed | Tâche terminée |
+| US-04 | **US-06** | Ahmed | Modification de la priorité |
+| US-05 | **US-07** | Marc-Raphaël | Attribution d’une échéance |
+| US-06 | **US-08** | Marc-Raphaël | Modification d’une échéance |
+| US-07 | **US-09** | Marc-Raphaël | Retrait d’une échéance |
+| US-08 | **US-10** | Mathieu | Sauvegarde réussie |
+| US-12 | **US-11** | Mathieu | Échec de sauvegarde |
+| US-09 | **US-12** | Émilien | Rechargement automatique |
+| US-10 | **US-13** | Émilien | Démarrage sans fichier |
+| US-11 | **US-14** | Émilien | Fichier invalide / illisible |
+
+**Important :** `US-xx` est une référence métier, différente du numéro GitHub `#xx` d’une Issue ou PR. Les numéros GitHub restent tels quels ; seuls les titres et références textuelles des récits devront être harmonisés. **Cette présentation chronologique par domaine est un choix éditorial proposé après le bilan, sans modifier la répartition fonctionnelle décidée en réunion.**
+
+#### Zones communes et points de coordination
+
+- **Ajout (A) / Modifications (B, C)** : les choix pendant la création ne doivent pas être confondus avec les changements sur une tâche existante. Utiliser le socle et ses zones balisées pour limiter les conflits.
+- **Sauvegarde (D) / Chargement (E)** : Mathieu et Émilien doivent convenir **avant intégration** d’un même fichier, format, ordre des champs, gestion des valeurs absentes et encodage ; Ahmed tranche les conflits d’intégration au besoin.
+- **Intégration** : Ahmed préserve les interfaces communes ; chaque membre soumet ses changements par une PR. Une classe supplémentaire n’est pas interdite par l’énoncé ; l’équipe privilégie néanmoins la réutilisation du socle pour limiter la complexité.
 
 ### Qui fait quoi : ensemble ou seul
 
@@ -133,7 +160,7 @@ Le backlog est dans les Issues du dépôt, suivies dans le tableau :
 
 **Règles pour les récits :**
 - Avant la séance de lancement, chacun propose des récits sur tout le produit, en commentaire de l'Issue « Propositions de récits ». En séance, on les regroupe en un backlog commun ; ensuite, chaque propriétaire écrit les Issues des récits de son domaine.
-- Au moins 12 récits au total, au moins 2 par membre.
+- **14 récits (US-01 à US-14) dans la présente version**, satisfaisant le minimum de 12 demandé par l’énoncé ; au moins 2 récits par membre.
 - Un récit = une action de l'utilisateur. Un cas d'erreur (titre vide, date impossible…) est un critère, pas un récit.
 - Chaque Issue contient : `US-xx` dans le titre, « En tant que… je veux… afin de… », au moins 2 critères vérifiables, une estimation avec ses hypothèses, la priorité avec sa justification, et quelques notes techniques.
 - Le PO relit chaque Issue sous 24 h. Il demande les corrections en commentaire, puis ajoute la priorité et déplace la carte de « Brouillon » à « À faire ». À partir de là, le récit peut être codé.
@@ -157,6 +184,14 @@ Le backlog est dans les Issues du dépôt, suivies dans le tableau :
 - Champs propres au tableau : Domaine, Itération, Estimation. Les champs *Priority* et *Effort* de GitHub ne sont pas utilisés, pour ne pas avoir deux endroits qui disent la même chose.
 - Labels : *récit*, *tâche technique*, *anomalie*, *amélioration*, *bloqué*.
 - Un défaut trouvé à la vérification devient une Issue *anomalie*, liée au récit concerné.
+
+**Mise à jour du 15 octobre — traçabilité des 14 récits :**
+- Chaque US-01 à US-14 doit avoir **sa propre Issue GitHub**, distincte de l’Issue collective **#4 « Propositions de récits »** et des tâches techniques.
+- Le propriétaire crée ou corrige l’Issue, la nomme `US-xx — Intitulé`, lui attribue le responsable, l’itération cible, une priorité justifiée, une estimation à valider, les critères de la section 9 et les vérifications ; il évite tout doublon.
+- Une PR peut prendre en charge une ou plusieurs US si les liens et critères sont explicites ; **les deux variantes PR #18 et PR #19 couvrent la même US-01**, pas deux récits distincts.
+- Le tableau GitHub Projects reflète l’état **réel** des Issues et PR. Une PR ouverte est « À vérifier » ; **« Terminé »** exige l’intégration et la définition de terminé.
+- **Contrôle du 15 octobre :** parmi les Issues repérées sur GitHub, aucune Issue individuelle explicitement titrée `US-xx` n’a été identifiée. Les propriétaires doivent contrôler à nouveau le dépôt, puis créer les Issues manquantes.
+
 - Les réglages du tableau et du dépôt (visibilité, protection de `main`, fusion) sont dans `CONTRIBUTING.md`.
 
 ---
@@ -189,107 +224,226 @@ Le backlog est dans les Issues du dépôt, suivies dans le tableau :
 
 ---
 
-## 6. Itérations
+## 6. Itérations — référence commune de travail
 
-*Proposition, à vérifier en équipe. Les dates et la durée de chaque itération sont fixées en séance de lancement, à partir de la date de remise sur Moodle.*
+> **À lire par tous les membres.** Cette section précise **qui réalise quel récit, ce qui doit être montré, quand et comment le vérifier**. Les critères détaillés se trouvent en section 9 ; l’état du code et des revues se vérifie dans GitHub. Le tableau ci-dessous est une **proposition opérationnelle issue du bilan**, à valider avec l’ensemble de l’équipe, notamment Émilien (Product Owner).
 
-| Étape | Ensemble | Chacun de son côté |
-|---|---|---|
-| **Avant la séance de lancement** | Commentaires sur la PR des documents et sur celle du socle | Chacun : ses propositions de récits. Intégrateur : T0, PR des documents (T1), PR du socle (T2) et sa fusion |
-| **Séance de lancement** (en présentiel) | Regroupement des récits en backlog commun ; attribution des rôles et des domaines ; présentation du socle ; date de fin | — |
-| **Entre la séance et le lancement de l'itération 1** | — | Chacun : sa première PR (README), puis les Issues des récits de son domaine ; le PO valide au fil de l'eau |
-| **Lancement de l'itération 1** | Fusion de la PR des documents ; choix du récit de référence, revue des estimations, ordre du backlog | — |
-| **Itération 1** | En fin d'itération : revue, rétrospective, planification de l'itération 2 | Ses récits : PR ouverte au plus tard 2 jours avant la fin, revue sous 48 h, fusion avant la revue d'itération |
-| **Itération 2** | En fin d'itération : revue et rétrospective (en présentiel) | Même rythme que l'itération 1 |
-| **Livraison** | Issue « Livraison MP1 » : chacun coche après avoir vérifié ses récits | Responsable Qualité/Test : vérification complète. Responsable de la documentation : remise sur Moodle |
+### 6.1 Dates et principes
 
-- Chaque domaine a au moins un récit dans chaque itération.
-- À la fin de chaque itération, le Responsable Qualité/Test vérifie sur un clone propre et note le commit ; la rétrospective retient au moins une amélioration.
-- Après l'itération 2, on ne fait plus que des corrections. Les anomalies restantes sont déclarées.
-- **Revue croisée :** à l'itération 1, on relit le membre suivant (1 → 2 … 5 → 1) ; à l'itération 2, celui d'après (1 → 3 … 5 → 2). La façon de relire est dans `CONTRIBUTING.md`.
+- **Réunion de bilan : mercredi 14 octobre 2026**, en soirée (présents : Sofiane, Ahmed, Marc-Raphaël).
+- **Vendredi 16 octobre 2026 : présentation des résultats de l’itération 1.** Chacun montre un résultat réel (fonctionnement, PR, tests, difficultés). Ce jalon **ne signifie pas que l’application complète est due le 16**.
+- **Itération 2 :** poursuivre à partir de l’incrément obtenu, ajouter les comportements obligatoires restants et corriger les défauts. **Sa date de clôture n’a pas été fournie et doit être fixée collectivement.** Ne pas inventer de date dans les Issues ou le tableau.
+- Le projet vise **deux incréments utilisables**, et non une première itération composée seulement de documents ou de code impossible à exécuter.
+- Les critères de US-01 couvrent la création simple pour l’itération 1 ; **les critères d’ajout complets de l’énoncé seront couverts par US-01 + US-02 + US-03 à la fin de l’itération 2**.
 
-**Objectifs et résultats.** Le détail de chaque itération (planification, suivi, revue, rétrospective) est dans `docs/iterations.md`. Le résumé :
+### 6.2 Répartition des résultats par membre
+
+Les colonnes ci-dessous définissent les livrables **cibles** ; elles ne prouvent pas que le code est déjà terminé. Chacun doit déclarer précisément **réalisé / à vérifier / bloqué** dans son Issue.
+
+| Membre / domaine | **Itération 1 — résultat à montrer le 16/10** | **Itération 2 — travail à achever** | Vérification attendue |
+|---|---|---|---|
+| **Sofiane — Ajout** | **US-01** : saisir un titre, créer un ID unique, statut `À faire`, priorité `Normale`, aucune échéance ; rejet d’un titre vide. Soumettre **une seule** des variantes PR #18 / #19 à l’intégration. | **US-02** : choisir `Basse/Normale/Élevée` à la création, défaut `Normale`, erreur corrigée/annulée. **US-03** : saisir ou omettre une échéance à la création, contrôler le calendrier, pouvoir annuler l’ajout. | Ajout réussi, doublons de titre permis avec ID distinct, titre vide refusé ; puis priorité/date valide ou invalide, aucune tâche partielle. |
+| **Ahmed — Consultation / modification** | **US-04** : afficher les tâches avec tous leurs champs et le cas de liste vide. **US-05** : terminer une tâche par ID, gérer ID inconnu / déjà terminée. | **US-06** : modifier la priorité d’une tâche existante sans changer les autres champs, refuser les valeurs et ID incorrects. | Liste vide et remplie ; terminaison ciblée et répétée ; valeur de priorité invalide sans altération. |
+| **Marc-Raphaël — Échéances existantes** | **US-07** : attribuer une date réelle à une tâche existante, accepter une date passée, refuser une date impossible. | **US-08** : remplacer une échéance ; **US-09** : la retirer ; ne jamais modifier les autres champs. | Date valide / impossible / passée, ID inconnu ; modification puis retrait et intégrité des autres champs. |
+| **Mathieu — Sauvegarde** | **US-10** : sauvegarder explicitement les tâches dans un fichier documenté et complet (ID, titre, priorité, échéance, statut). **Accorder format et chemin avec Émilien.** | **US-11** : sur échec d’écriture, afficher une erreur sans annoncer une réussite ; vérifier que les données ne sont pas présentées comme sauvegardées. | Contenu du fichier, écriture après modification ; dossier non accessible / erreur d’écriture et message correct. |
+| **Émilien — Chargement** | **US-12** : recharger automatiquement au démarrage des tâches issues de US-10 ; conserver les ID et permettre un nouvel ID unique. **Aligner le format sur celui de Mathieu.** | **US-13** : démarrer sans fichier avec liste vide. **US-14** : refuser fichier illisible / mal formé, interrompre le démarrage et conserver le fichier intact. | Redémarrage et comparaison champ par champ ; nouveau titre après rechargement ; fichier absent ; fichier corrompu inchangé. |
+
+**Interfaces croisées à préparer sans attendre :** (1) le menu de démarrage et la collection de tâches pour les domaines A, B et C ; (2) le contrat du fichier entre D et E ; (3) l’intégration et les vérifications transversales avec Ahmed et Marc-Raphaël. Les choix de priorité/date **lors de l’ajout** (A) ne remplacent pas leur modification **après ajout** (B et C).
+
+### 6.3 Tableau récapitulatif des itérations
 
 | Itération | Objectif | Récits | Version (commit) | Vérifications | Observations |
 |---|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
+| **1 — bilan du 16/10/2026** | Disposer d’un premier **TaskFlow compilable et démontrable** : créer, afficher, terminer, gérer une première échéance, préparer la sauvegarde et le rechargement compatibles. | **Cible : US-01, US-04, US-05, US-07, US-10, US-12**. Livrables réels à cocher après tests et intégration. | **À renseigner : SHA de `main` vérifié lors de la revue.** Les commits de branche ou PR ouvertes ne sont pas le commit livré. | Compilation et lancement depuis un clone propre, démonstration des six récits, tests nominaux et négatifs, résultats dans `docs/verification.md`. | Présenter les réussites **et les blocages** ; une US non validée/non fusionnée reste « À vérifier » ou « En cours ». Déterminer les ajustements de l’itération 2. |
+| **2 — date à fixer** | Terminer le parcours complet de l’énoncé, les validations, les scénarios d’erreur et les intégrations ; préparer la version finale. | **Cible : US-02, US-03, US-06, US-08, US-09, US-11, US-13, US-14**, plus corrections ou reprises de l’itération 1. | **À renseigner : SHA final de `main`** après fusions et validation. | Bout en bout : ajout avec options → affichage → mise à jour → sauvegarde → redémarrage → nouvel ajout ; erreurs de saisie, fichier absent, fichier corrompu, sauvegarde impossible ; traces dans `docs/verification.md`. | Bilan de la progression, correction des anomalies, README et Issues à jour, approbation des PR, décision de livraison. |
+
+### 6.4 Modalités de réalisation et preuves à présenter
+
+**Pendant chaque itération — pour chaque récit :**
+
+1. **Issue :** le propriétaire ouvre ou corrige l’Issue `US-xx`, reprend les critères section 9, indique responsable, itération, priorité, estimation et état.
+2. **Code :** implémentation dans les fichiers balisés du socle autant que possible ; coordination préalable si une zone commune doit être modifiée.
+3. **PR :** lier l’Issue, expliquer le changement, les vérifications, les limites et l’éventuel usage de l’IA ; faire relire par un autre membre.
+4. **Vérifications :** consigner commande, entrée, résultat attendu, résultat réel et commit testé dans `docs/verification.md` ; signaler les écarts par Issue d’anomalie.
+5. **Bilan :** mettre à jour l’Issue et GitHub Projects ; le responsable Qualité/Test contrôle sur un clone propre, le Scrum Master renseigne `docs/iterations.md`, l’Intégrateur consigne le commit de la version intégrée.
+
+**Vendredi 16 octobre — minimum de restitution par personne :**
+
+| À présenter | Support attendu | Responsable de préparation |
+|---|---|---|
+| Ce qui fonctionne effectivement pour les US de l’itération 1 | Démonstration et références d’Issues / PR | **Chaque auteur** |
+| Ce qui ne compile pas, manque ou attend une revue | Blocage et prochaine action datée dans l’Issue | **Chaque auteur** ; coordination Scrum Master |
+| Compatibilité du fichier sauvegardé et chargé | Format partagé, exemple réel et contrôle des champs | **Mathieu + Émilien**, avec Ahmed pour l’intégration |
+| Résultats des scénarios testés | `docs/verification.md` avec commit et écarts | **Marc-Raphaël**, avec chaque auteur |
+| Version commune et état des fusions | Commit `main`, PR approuvées / non fusionnées | **Ahmed** |
+| Décisions, améliorations et planification de l’itération 2 | `docs/iterations.md` + présente section 6 mise à jour | **Sofiane**, avec validation collective / Product Owner |
+
+### 6.5 Validation et règles de sortie
+
+- L’état **Terminé** exige la définition de terminé (section 5) et la fusion de la PR ; **une branche qui fonctionne localement ne suffit pas**.
+- La première itération est un **incrément limité**, pas l’application complète. Les fonctions ou erreurs non encore traitées doivent être documentées et planifiées en itération 2.
+- Après chaque revue, noter au moins **un ajustement concret** en section 7 et dans `docs/iterations.md`.
+- Le calendrier définitif de l’itération 2, les priorités relatives et les estimations sont à **valider par l’équipe et le Product Owner**, sans attribuer une validation à une personne absente de la réunion du 14 octobre.
 
 ---
 
-## 7. Ajustements
+## 7. Ajustements et décisions de suivi
 
-Les changements qu'on apporte à notre démarche, avec la raison. À compléter à chaque rétrospective.
+Cette section réunit les améliorations du processus. **Les ajustements de présentation proposés après la réunion restent soumis à validation**, comme le contenu détaillé des itérations.
 
-| Ajustement | Raison |
-|---|---|
-| Le workflow « Auto-close issue » du tableau fermait les Issues placées en « En cours » ; il ne ferme plus qu'en « Terminé » | éviter des Issues fermées avant leur fusion |
-| Les modèles d'Issue de récit et de PR sont livrés avec le socle (T2) plutôt qu'avec les documents (T1) | GitHub ne lit les modèles qu'une fois fusionnés dans `main` : ils doivent exister avant l'écriture des premiers récits |
+| Ajustement | Problème traité / justification | État |
+|---|---|---|
+| Restreindre la fermeture automatique des Issues à l’état « Terminé » | Éviter une Issue fermée avant la fusion et la vérification. | Règle déjà décrite dans le document initial. |
+| Livrer les modèles d’Issue et de PR avec le socle T2 | Les modèles doivent exister sur `main` avant la création des récits. | Organisation initiale du dépôt. |
+| **Scinder l’ancienne US-01 en trois** | Distinguer l’ajout simple présentable en itération 1 des choix de priorité et d’échéance réservés à l’itération 2 ; rendre les contributions plus explicites. | **Orientation retenue lors du bilan du 14/10 ; détail à confirmer par l’équipe.** |
+| **Regrouper US-01 à US-14 par domaine / propriétaire** | Éviter les numéros non consécutifs pour un même membre et préserver les 11 autres fonctionnalités. | **Renumérotation éditoriale proposée après le bilan ; validation collective requise.** |
+| **Renseigner les récits dans le tableau Domaines et les deux itérations en section 6** | Chacun doit savoir ce qu’il produit, comment le tester et quand le présenter. | **Demande issue du bilan du 14/10 ; proposition opérationnelle à valider.** |
+| **Exiger une Issue distincte pour chaque US** | Relier précisément backlog, auteur, critères, branche, PR, revue et résultats. | **Contrôle et création des Issues à faire.** |
+| **Distinguer sauvegarde normale / échec et chargement normal / fichier absent / fichier corrompu** | Clarifier les frontières entre récits, tout en conservant les capacités prévues dans le backlog initial. | **Clarification rédactionnelle, à valider avec les propriétaires.** |
 
 ---
 
 ## 8. Contribution de chaque membre
 
-Chacun écrit sa ligne, avec des liens vers ses Issues, ses PR et ses revues. Le Responsable de la documentation la vérifie.
+**Suivi factuel à renseigner par chacun** : inscrire **uniquement** des Issues, PR, revues et commits réellement existants. Ne pas utiliser une PR ouverte comme preuve de fusion. Les identifiants de récits renvoient au backlog de la section 9.
 
-| Membre | Rôle | Domaine | Récits (Issues) | Pull requests | Revues |
+| Membre | Rôle | US attribuées | Issues US (liens à compléter) | PR de code (liens) | Revues effectuées (liens) |
 |---|---|---|---|---|---|
-
-## 9. Backlog détaillé (récits utilisateurs)
-
-La section 3 renvoie aux Issues et au tableau. Le détail de chaque récit, synthétisé par Marc-Raphaël à partir des propositions de l'Issue #4 et mis en forme par Émilien, suit ci-dessous.
-
-### 9.1 Objectif
-
-Ce backlog présente les 12 récits utilisateurs de TaskFlow, une application Java en ligne de commande permettant à un utilisateur de gérer ses tâches.
-
-Chaque récit comprend sa description, ses critères d'acceptation, sa priorité, son estimation, ses dépendances et les vérifications permettant de confirmer son bon fonctionnement.
-
-### 9.2 Échelle de priorité
-
-- **P1 — Très élevée :** fonctionnalité fondamentale.
-- **P2 — Élevée :** fonctionnalité complémentaire ou gestion d'un cas particulier obligatoire.
-- **P3 - Normale :** fonctionnalité obligatoire mais non cruciale
-
-**Estimation :** points d'effort proposés à valider par l'équipe.
+| Sofiane | Scrum Master | **US-01, US-02, US-03** | À compléter | [#18](https://github.com/inf1763-equipe-07/TaskFlow/pull/18), [#19](https://github.com/inf1763-equipe-07/TaskFlow/pull/19) — variantes de **US-01**, une seule à retenir | À compléter avec liens de revue |
+| Ahmed | Intégrateur | **US-04, US-05, US-06** | À compléter | À compléter | À compléter |
+| Marc-Raphaël | Qualité/Test | **US-07, US-08, US-09** | À compléter | À compléter | À compléter |
+| Mathieu | Documentation | **US-10, US-11** | À compléter | À compléter | À compléter |
+| Émilien | Product Owner | **US-12, US-13, US-14** | À compléter | À compléter | À compléter |
 
 ---
 
-### US-01 — Ajouter une tâche
+## 9. Backlog détaillé — 14 récits utilisateurs
 
-**Priorité :** P1 — Très élevée  
-**Estimation :** 5 points, crucial pour le projet, plus de temps doit lui être accordé
+Le backlog d’origine (12 récits) a été établi à partir des propositions de l’Issue collective #4, synthétisées par Marc-Raphaël et mises en forme par Émilien. La présente révision **conserve les 11 autres capacités et leurs propriétaires**, scinde l’ajout en trois récits et regroupe les identifiants **dans l’ordre Sofiane → Ahmed → Marc-Raphaël → Mathieu → Émilien**.
+
+### 9.1 Règles de lecture
+
+- **US-01 à US-14** désignent les récits fonctionnels. **`#18`, `#19`**, etc. sont des numéros GitHub de PR, qui ne changent pas avec la renumérotation.
+- **Les titres expriment des actions distinctes.** Les erreurs de saisie et les annulations sont des critères d’acceptation des récits correspondants.
+- La **priorité P1 / P2 / P3** est la priorité produit ; elle ne doit pas être confondue avec `Priorite.BASSE`, `NORMALE` ou `ELEVEE`, qui sont des valeurs d’une tâche dans l’application.
+- Les priorités et estimations indiquées ci-dessous sont des **propositions à valider collectivement**. L’itération cible désigne le moment prévu, pas le statut réel d’achèvement.
+- Chaque récit doit être relié à sa propre Issue GitHub et à ses vérifications. L’ordre de numérotation facilite la lecture **mais n’impose pas de développer US-01 à US-14 séquentiellement** : les dépendances guident la réalisation.
+
+### 9.2 Priorités et estimations
+
+- **P1 — Très élevée :** capacité indispensable au premier parcours utilisable.
+- **P2 — Élevée :** comportement obligatoire à compléter pour le parcours final.
+- **P3 — Normale :** cas obligatoire particulier ; sa moindre urgence **n’autorise pas son omission**.
+- **Estimation :** effort relatif sur l’échelle `1, 2, 3, 5, 8` ; à confirmer par l’auteur, le Product Owner et l’équipe.
+
+---
+
+### US-01 — Créer une tâche simple
+
+**Responsable :** Sofiane  
+**Itération cible :** 1  
+**Priorité proposée :** P1 — Très élevée (capacité de base nécessaire aux autres récits)  
+**Estimation proposée :** 2 points — interface console et logique d’ajout simple déjà développées ; à confirmer collectivement.
 
 #### Récit utilisateur
 
-En tant qu'utilisateur de soutien, je veux ajouter une tâche afin de conserver une trace du travail à effectuer.
+En tant que membre du soutien informatique, je veux créer une tâche en indiquant son titre afin de consigner un travail à effectuer.
 
-#### Critères d'acceptation
+#### Critères d’acceptation
 
-- [ ] CA1 : Lorsqu'un titre valide est fourni, l'application crée une tâche avec un identifiant positif unique et le statut `À faire`.
-- [ ] CA2 : Si aucune priorité n'est précisée, la priorité par défaut est `Normale`, sinon elle prend la valeur entrée, soit `Basse`, `Normale` ou `Élevée`. Si la valeur entrée est invalide, une erreur est affichée.
-- [ ] CA3 : Si aucune échéance n'est fournie la tâche est créée sans échéance, sinon elle prend la valeur entrée. Si la valeur entrée ne correspond pas au format `AAAA-MM-JJ`, une erreur est affichée.
-- [ ] CA4 : Un titre vide ou composé uniquement d'espaces est refusé sans créer de tâche, et un message explique l'erreur, sinon il prend la velur entrée.
-- [ ] CA5 : Après un ajout réussi, l'application confirme la création et affiche l'identifiant attribué.
-- [ ] CA6 : Il est possible à tout moment d'annuler la création d'une tâche.
+- [ ] CA1 : Un titre non vide crée **une seule** tâche avec un identifiant entier positif **unique** et le statut `À faire`.
+- [ ] CA2 : Sans options supplémentaires, la tâche est créée avec la priorité `Normale` et **sans échéance**.
+- [ ] CA3 : Un titre vide ou composé uniquement d’espaces est refusé avec un message explicite, sans création de tâche.
+- [ ] CA4 : L’application confirme la création et affiche au minimum le nouvel identifiant.
+- [ ] CA5 : Deux tâches ayant le même titre restent distinctes par leurs identifiants.
 
-#### Dépendances
+#### Dépendances et limites
 
-- Aucune dépendance fonctionnelle préalable.
-- Nécessite la structure de données `Task` et un mécanisme de génération d'identifiants.
+- Aucun récit préalable ; utilise les classes communes `Tache`, `TacheService` et le menu du socle.
+- **Livrable de l’itération 1 :** ajout simple vérifiable ; **le choix d’une priorité et d’une date sera apporté par US-02 et US-03 en itération 2**.
+- Les PR #18 et #19 sont deux implémentations alternatives de ce même récit ; une seule sera retenue à l’intégration.
 
 #### Vérification
 
-- Ajouter une tâche avec un titre valide et vérifier que son identifiant est positif et son statut est `À faire`.
-- Ajouter une tâche sans priorité ni échéance et vérifier les valeurs par défaut.
-- Tenter d'ajouter une tâche avec un titre vide ou composé d'espaces et vérifier qu'aucune tâche n'est créée.
+- Ajouter `Vérifier la sauvegarde du serveur` et contrôler l’ID, la priorité `Normale`, l’absence d’échéance et le statut `À faire`.
+- Ajouter une deuxième tâche, y compris avec un titre identique, et contrôler l’unicité des ID.
+- Essayer un titre vide puis des espaces seuls ; vérifier le message et l’absence de tâche supplémentaire.
 
 ---
 
-### US-02 — Afficher la liste des tâches
+### US-02 — Choisir une priorité lors de l’ajout
+
+**Responsable :** Sofiane  
+**Itération cible :** 2  
+**Priorité proposée :** P2 — Élevée (complète la création conformément à l’énoncé)  
+**Estimation proposée :** 2 points — ajout d’une étape facultative au parcours US-01 et validation des entrées.
+
+#### Récit utilisateur
+
+En tant que membre du soutien informatique, je veux **choisir la priorité d’une nouvelle tâche au moment de sa création** afin de signaler son importance dès l’ajout.
+
+#### Critères d’acceptation
+
+- [ ] CA1 : Pendant la création, l’utilisateur peut choisir `Basse`, `Normale` ou `Élevée` et la valeur retenue est enregistrée.
+- [ ] CA2 : Si l’utilisateur ne précise aucune priorité, la valeur est `Normale`.
+- [ ] CA3 : Une priorité non reconnue est signalée ; l’application permet une correction ou l’annulation, **sans créer une tâche avec une valeur invalide**.
+- [ ] CA4 : La création réussie conserve l’identifiant unique et le statut `À faire` du récit US-01.
+
+#### Dépendances et limites
+
+- **Dépend de US-01.** Il s’agit du **choix lors de la création**, et non de la modification de la priorité d’une tâche existante (**US-06, Ahmed**).
+- L’action peut enrichir la même entrée de menu `Ajouter une tâche` ; une nouvelle option de menu n’est pas exigée.
+
+#### Vérification
+
+- Créer successivement des tâches avec les trois priorités permises.
+- Omettre la priorité : vérifier `Normale`.
+- Entrer une priorité invalide : vérifier que l’erreur est expliquée et qu’aucune tâche incorrecte n’est ajoutée.
+
+---
+
+### US-03 — Définir une échéance lors de l’ajout
+
+**Responsable :** Sofiane  
+**Itération cible :** 2  
+**Priorité proposée :** P2 — Élevée (complète la création conformément à l’énoncé)  
+**Estimation proposée :** 3 points — saisie d’une date facultative, validation calendaire, correction ou annulation.
+
+#### Récit utilisateur
+
+En tant que membre du soutien informatique, je veux **définir ou omettre une échéance pendant la création d’une tâche** afin de préciser immédiatement sa date limite lorsqu’elle est connue.
+
+#### Critères d’acceptation
+
+- [ ] CA1 : L’utilisateur peut indiquer une échéance au format `AAAA-MM-JJ` correspondant à une date réelle ; cette date est enregistrée.
+- [ ] CA2 : S’il ne saisit pas de date, la tâche est créée sans échéance.
+- [ ] CA3 : Une date impossible (ex. `2026-02-30`) ou mal formatée est rejetée avec une explication ; l’utilisateur peut corriger ou annuler sans ajouter de tâche invalide.
+- [ ] CA4 : Une date passée valide est acceptée.
+- [ ] CA5 : L’utilisateur peut annuler le processus de création avant validation finale ; **aucune tâche partielle n’est ajoutée**.
+- [ ] CA6 : La création aboutie conserve le titre et la priorité choisis conformément à US-01 et US-02.
+
+#### Dépendances et limites
+
+- **Dépend de US-01 et complète le parcours enrichi par US-02.** Cela concerne uniquement la **création**.
+- L’attribution, la modification et le retrait d’une échéance sur une tâche **déjà existante** relèvent de **US-07, US-08 et US-09 (Marc-Raphaël)**.
+- L’annulation n’est pas un récit artificiel indépendant : elle est un critère de validité du processus d’ajout, conformément à l’énoncé.
+
+#### Vérification
+
+- Créer une tâche avec une date réelle au format attendu et contrôler la valeur enregistrée.
+- Créer une tâche sans échéance et vérifier son absence.
+- Saisir une date impossible, puis corriger ; vérifier qu’une seule tâche valide est créée.
+- Annuler l’ajout : vérifier que la liste et le prochain identifiant utilisable restent cohérents.
+
+---
+
+### US-04 — Afficher la liste des tâches
 
 **Priorité :** P1 — Très élevée  
-**Estimation :** 2 points, quelques lignes de codes
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Ahmed  
+**Itération cible :** 1 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -314,10 +468,13 @@ En tant qu'utilisateur, je veux consulter la liste des tâches afin de connaîtr
 
 ---
 
-### US-03 — Marquer une tâche comme terminée
+### US-05 — Marquer une tâche comme terminée
 
 **Priorité :** P1 — Très élevée  
-**Estimation :** 2 points, quelques lignes de codes
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Ahmed  
+**Itération cible :** 1 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -333,8 +490,8 @@ En tant qu'utilisateur, je veux marquer une tâche comme terminée afin de suivr
 
 #### Dépendances
 
-- Dépend de **US-01 — Ajouter une tâche**, pour disposer d'une tâche existante.
-- Dépend de **US-02 — Afficher la liste des tâches**, pour faciliter la consultation des identifiants.
+- Dépend de **US-01 — Créer une tâche simple**, pour disposer d'une tâche existante.
+- Dépend de **US-04 — Afficher la liste des tâches**, pour faciliter la consultation des identifiants.
 
 #### Vérification
 
@@ -345,10 +502,13 @@ En tant qu'utilisateur, je veux marquer une tâche comme terminée afin de suivr
 
 ---
 
-### US-04 — Modifier la priorité d'une tâche
+### US-06 — Modifier la priorité d’une tâche existante
 
-**Priorité :** P2 — Très élevée  
-**Estimation :** 2 points, quelques lignes de codes
+**Priorité :** P2 — Élevée  
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Ahmed  
+**Itération cible :** 2 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -364,7 +524,7 @@ En tant qu'utilisateur, je veux modifier la priorité d'une tâche afin d'adapte
 
 #### Dépendances
 
-- Dépend de **US-01 — Ajouter une tâche**, pour disposer d'une tâche à modifier.
+- Dépend de **US-01 — Créer une tâche simple**, pour disposer d'une tâche à modifier.
 
 #### Vérification
 
@@ -375,10 +535,13 @@ En tant qu'utilisateur, je veux modifier la priorité d'une tâche afin d'adapte
 
 ---
 
-### US-05 — Attribuer une échéance à une tâche
+### US-07 — Attribuer une échéance à une tâche existante
 
-**Priorité :** P3 — Très élevée  
-**Estimation :** 2 points, quelques lignes de codes
+**Priorité :** P3 — Normale  
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Marc-Raphaël  
+**Itération cible :** 1 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -394,7 +557,7 @@ En tant qu'utilisateur, je veux attribuer une échéance à une tâche afin de c
 
 #### Dépendances
 
-- Dépend de **US-01 — Ajouter une tâche**, pour disposer d'une tâche existante.
+- Dépend de **US-01 — Créer une tâche simple**, pour disposer d'une tâche existante.
 
 #### Vérification
 
@@ -406,10 +569,13 @@ En tant qu'utilisateur, je veux attribuer une échéance à une tâche afin de c
 
 ---
 
-### US-06 — Modifier une échéance existante
+### US-08 — Modifier une échéance existante
 
-**Priorité :** P3 — Élevée  
-**Estimation :** 2 points,  quelques lignes de codes
+**Priorité :** P3 — Normale  
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Marc-Raphaël  
+**Itération cible :** 2 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -424,8 +590,8 @@ En tant qu'utilisateur, je veux modifier l'échéance d'une tâche afin de tenir
 
 #### Dépendances
 
-- Dépend de **US-05 — Attribuer une échéance à une tâche**, pour disposer du mécanisme de gestion des échéances.
-- Dépend de **US-01 — Ajouter une tâche**, pour disposer d'une tâche existante.
+- Dépend de **US-07 — Attribuer une échéance à une tâche**, pour disposer du mécanisme de gestion des échéances.
+- Dépend de **US-01 — Créer une tâche simple**, pour disposer d'une tâche existante.
 
 #### Vérification
 
@@ -436,10 +602,13 @@ En tant qu'utilisateur, je veux modifier l'échéance d'une tâche afin de tenir
 
 ---
 
-### US-07 — Retirer l'échéance d'une tâche
+### US-09 — Retirer l’échéance d’une tâche
 
-**Priorité :** P3 — Élevée  
-**Estimation :** 2 points, quelques lignes de codes
+**Priorité :** P3 — Normale  
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Marc-Raphaël  
+**Itération cible :** 2 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -454,8 +623,8 @@ En tant qu'utilisateur, je veux retirer l'échéance d'une tâche afin de ne plu
 
 #### Dépendances
 
-- Dépend de **US-01 — Ajouter une tâche**, pour disposer d'une tâche existante.
-- Dépend de **US-05 — Attribuer une échéance à une tâche**, pour utiliser le mécanisme de gestion des échéances.
+- Dépend de **US-01 — Créer une tâche simple**, pour disposer d'une tâche existante.
+- Dépend de **US-07 — Attribuer une échéance à une tâche**, pour utiliser le mécanisme de gestion des échéances.
 
 #### Vérification
 
@@ -465,10 +634,13 @@ En tant qu'utilisateur, je veux retirer l'échéance d'une tâche afin de ne plu
 
 ---
 
-### US-08 — Sauvegarder les tâches dans un fichier
+### US-10 — Sauvegarder les tâches dans un fichier
 
 **Priorité :** P1 — Très élevée  
-**Estimation :** 5 points, crucial, besoin de plus de temps que les autres
+**Estimation :** 5 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Mathieu  
+**Itération cible :** 1 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -479,7 +651,7 @@ En tant qu'utilisateur, je veux sauvegarder explicitement les tâches dans un fi
 - [ ] CA1 : Une commande explicite permet de sauvegarder les données dans un fichier local.
 - [ ] CA2 : La sauvegarde conserve toutes les informations des tâches, y compris les identifiants, les priorités, les statuts et les échéances absentes.
 - [ ] CA3 : Un message de réussite est affiché uniquement si la sauvegarde réussit.
-- [ ] CA4 : Si l'écriture échoue, l'application signale clairement l'échec et n'annonce pas une sauvegarde réussie.
+- [ ] CA4 : Le fichier produit peut être relu par le chargement (US-12) sans perte de champs. Le scénario d’échec d’écriture est vérifié dans US-11.
 
 #### Dépendances
 
@@ -491,14 +663,49 @@ En tant qu'utilisateur, je veux sauvegarder explicitement les tâches dans un fi
 - Ajouter plusieurs tâches et lancer la sauvegarde.
 - Vérifier que le fichier contient toutes les informations nécessaires.
 - Vérifier qu'un message de réussite apparaît après une sauvegarde réussie.
-- Provoquer un échec d'écriture et vérifier que l'application signale l'échec.
+- Vérifier que le fichier sauvegardé est compatible avec le chargement US-12 ; voir US-11 pour les erreurs d’écriture.
 
 ---
 
-### US-09 — Recharger les tâches sauvegardées au démarrage
+### US-11 — Signaler un échec de sauvegarde
 
-**Priorité :** P2 — Très élevée  
-**Estimation :** 2 points, quelques lignes de codes
+**Priorité :** P2 — Élevée  
+**Estimation :** 3 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Mathieu  
+**Itération cible :** 2 *(proposition de planification à valider)*
+
+#### Récit utilisateur
+
+En tant qu'utilisateur, je veux être averti lorsqu'une sauvegarde échoue afin de savoir que mes données n'ont pas été enregistrées correctement.
+
+#### Critères d'acceptation
+
+- [ ] CA1 : Si le fichier ne peut pas être écrit, l'application affiche un message clair indiquant l'échec.
+- [ ] CA2 : L'application n'affiche jamais un message de réussite lorsque l'écriture a échoué.
+- [ ] CA3 : L'échec peut être reproduit manuellement, par exemple en utilisant un emplacement de sauvegarde non accessible en écriture.
+
+**Limite du récit :** ce scénario concerne une tentative de sauvegarde qui échoue ; le scénario nominal est couvert par US-10.
+
+#### Dépendances
+
+- Dépend de **US-10 — Sauvegarder les tâches dans un fichier**, car ce récit vérifie spécifiquement le comportement en cas d'échec de sauvegarde.
+
+#### Vérification
+
+- Tenter une sauvegarde vers un emplacement non accessible en écriture.
+- Vérifier que l'application affiche un message d'échec.
+- Vérifier qu'aucun message de réussite n'est affiché à tort.
+
+---
+
+### US-12 — Recharger les tâches au démarrage
+
+**Priorité :** P2 — Élevée  
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Émilien  
+**Itération cible :** 1 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -511,9 +718,11 @@ En tant qu'utilisateur, je veux retrouver automatiquement mes tâches sauvegard�
 - [ ] CA3 : Une nouvelle tâche créée après le rechargement reçoit un identifiant distinct de ceux déjà présents.
 - [ ] CA4 : Les tâches sans échéance sont également rechargées correctement.
 
+**Point d’intégration :** convenir du même chemin, du même format et des mêmes champs de données avec Mathieu (US-10) avant la fusion.
+
 #### Dépendances
 
-- Dépend de **US-08 — Sauvegarder les tâches dans un fichier**, pour disposer d'un fichier de données à recharger.
+- Dépend de **US-10 — Sauvegarder les tâches dans un fichier**, pour disposer d'un fichier de données à recharger.
 - Nécessite un mécanisme de lecture du fichier local.
 
 #### Vérification
@@ -525,10 +734,13 @@ En tant qu'utilisateur, je veux retrouver automatiquement mes tâches sauvegard�
 
 ---
 
-### US-10 — Démarrer sans fichier de données existant
+### US-13 — Démarrer sans fichier de données
 
-**Priorité :** P3 — Élevée  
-**Estimation :** 2 points,  quelques lignes de codes, lié à US-09
+**Priorité :** P3 — Normale  
+**Estimation :** 2 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Émilien  
+**Itération cible :** 2 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -540,9 +752,11 @@ En tant qu'utilisateur, je veux pouvoir démarrer l'application sans fichier de 
 - [ ] CA2 : L'absence du fichier ne provoque pas d'erreur empêchant l'utilisation de l'application.
 - [ ] CA3 : L'affichage de la liste vide présente un message explicite.
 
+**Cas particulier :** le démarrage sans fichier est distinct du chargement d’un fichier valide (US-12) et du refus d’un fichier corrompu (US-14).
+
 #### Dépendances
 
-- Dépend de **US-09 — Recharger les tâches sauvegardées au démarrage**, car cette fonctionnalité doit distinguer un fichier absent d'un fichier valide existant.
+- Dépend de **US-12 — Recharger les tâches au démarrage**, car cette fonctionnalité doit distinguer un fichier absent d'un fichier valide existant.
 
 #### Vérification
 
@@ -552,10 +766,13 @@ En tant qu'utilisateur, je veux pouvoir démarrer l'application sans fichier de 
 
 ---
 
-### US-11 — Gérer un fichier de données illisible ou mal formé
+### US-14 — Gérer un fichier illisible ou mal formé
 
-**Priorité :** P3 — Élevée  
-**Estimation :** 3 points,  quelques lignes de codes, besoin de recherche
+**Priorité :** P3 — Normale  
+**Estimation :** 3 points — estimation initiale du backlog ; à réviser et justifier collectivement.
+
+**Responsable :** Émilien  
+**Itération cible :** 2 *(proposition de planification à valider)*
 
 #### Récit utilisateur
 
@@ -567,9 +784,11 @@ En tant qu'utilisateur, je veux être averti si le fichier de données est illis
 - [ ] CA2 : Le démarrage est interrompu plutôt que de poursuivre avec des données potentiellement incorrectes.
 - [ ] CA3 : Le fichier d'origine n'est pas modifié par cette tentative de chargement.
 
+**Cas particulier :** le fichier d’origine ne doit ni être supprimé, ni être réécrit lors d’un échec de chargement.
+
 #### Dépendances
 
-- Dépend de **US-09 — Recharger les tâches sauvegardées au démarrage**, car ce récit couvre les erreurs rencontrées lors du chargement.
+- Dépend de **US-12 — Recharger les tâches au démarrage**, car ce récit couvre les erreurs rencontrées lors du chargement.
 
 #### Vérification
 
@@ -580,41 +799,11 @@ En tant qu'utilisateur, je veux être averti si le fichier de données est illis
 
 ---
 
-### US-12 — Signaler un échec de sauvegarde
+### 9.3 Contrôle de cohérence du backlog
 
-**Priorité :** P2 — Élevée  
-**Estimation :** 3 points, quelques lignes de codes, besoin de recherche
-
-#### Récit utilisateur
-
-En tant qu'utilisateur, je veux être averti lorsqu'une sauvegarde échoue afin de savoir que mes données n'ont pas été enregistrées correctement.
-
-#### Critères d'acceptation
-
-- [ ] CA1 : Si le fichier ne peut pas être écrit, l'application affiche un message clair indiquant l'échec.
-- [ ] CA2 : L'application n'affiche jamais un message de réussite lorsque l'écriture a échoué.
-- [ ] CA3 : L'échec peut être reproduit manuellement, par exemple en utilisant un emplacement de sauvegarde non accessible en écriture.
-
-#### Dépendances
-
-- Dépend de **US-08 — Sauvegarder les tâches dans un fichier**, car ce récit vérifie spécifiquement le comportement en cas d'échec de sauvegarde.
-
-#### Vérification
-
-- Tenter une sauvegarde vers un emplacement non accessible en écriture.
-- Vérifier que l'application affiche un message d'échec.
-- Vérifier qu'aucun message de réussite n'est affiché à tort.
-
----
-
-### 9.3 Règles de gestion du backlog
-
-- Chaque récit possède un identifiant stable.
-- Chaque récit comporte au moins deux critères d'acceptation vérifiables.
-- Les priorités et les estimations sont validées collectivement par l'équipe.
-- Les dépendances indiquent les récits nécessaires à la réalisation ou à la vérification d'un autre récit.
-- Les vérifications doivent préciser les scénarios exécutés et les résultats attendus.
-- Les récits sont reliés aux Issues GitHub, aux pull requests et aux vérifications correspondantes.
-- Un récit est considéré comme terminé uniquement lorsque ses critères sont satisfaits, les vérifications pertinentes réalisées, le changement intégré, la revue de code effectuée et la documentation utile mise à jour.
-
----
+- **14 récits distincts**, dans l’ordre US-01 à US-14, sans doublon ni numéro manquant.
+- **Propriétaires** : Sofiane (US-01 à US-03), Ahmed (US-04 à US-06), Marc-Raphaël (US-07 à US-09), Mathieu (US-10 à US-11), Émilien (US-12 à US-14).
+- **Itération 1 proposée** : US-01, US-04, US-05, US-07, US-10, US-12. **Itération 2 proposée** : US-02, US-03, US-06, US-08, US-09, US-11, US-13, US-14.
+- **Frontières** : priorité **à l’ajout** (US-02) / priorité **après ajout** (US-06) ; échéance **à l’ajout** (US-03) / échéance **après ajout** (US-07 à US-09) ; sauvegarde réussie (US-10) / échec (US-11) ; chargement normal (US-12) / fichier absent (US-13) / fichier invalide (US-14).
+- **Traçabilité** : une Issue par US et des liens vers PR, essais et commit intégré ; la date de fin de l’itération 2 reste à confirmer.
+- **État « Terminé »** : satisfaire les critères, vérifier, relire, fusionner et documenter ; aucun récit ne devient terminé par sa seule inscription au présent document.
