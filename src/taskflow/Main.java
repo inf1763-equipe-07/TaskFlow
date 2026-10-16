@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import taskflow.controleur.AfficherControleur;
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
 import taskflow.modele.Priorite;
@@ -14,6 +15,7 @@ import taskflow.modele.Tache;
 import taskflow.modele.TacheRepository;
 import taskflow.modele.TacheService;
 import taskflow.persistance.FichierTacheRepository;
+import taskflow.vue.AfficherVue;
 import taskflow.vue.Console;
 
 /**
@@ -62,9 +64,14 @@ public class Main {
 
 
         // --- Début domaine Consultation et modification ---
-        // ---
 
-        // ---
+        AfficherVue afficherVue = new AfficherVue(console);
+
+        AfficherControleur afficherControleur =
+                new AfficherControleur(service, afficherVue);
+
+        entrees.add(new Entree("Afficher les tâches", afficherControleur::afficher));
+
         // --- Fin domaine Consultation et modification ---
 
 
