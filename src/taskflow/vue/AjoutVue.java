@@ -3,29 +3,28 @@ package taskflow.vue;
 
 import taskflow.modele.Tache;
 
-public class AjoutVue {
-
-    private final Console console;
+public class AjoutVue extends Vue {
 
     public AjoutVue(Console console) {
-        this.console = console;
+        super(console);
     }
 
     public String demanderTitre() {
-        console.afficherTitre("Ajouter une tâche");
-        return console.lire("Titre : ");
+        afficherTitre("Ajouter une tâche");
+        return lire("Titre : ");
     }
 
     public void afficherSucces(Tache tache) {
-        console.afficherSucces("Tâche ajoutée avec succès.");
-        console.afficher("Identifiant : " + tache.id());
-        console.afficher("Titre : " + tache.titre());
-        console.afficher("Priorité : " + tache.priorite().libelle());
-        console.afficher("Échéance : Aucune");
-        console.afficher("Statut : À faire");
+        super.afficherSucces("Tâche ajoutée avec succès.");
+        afficher("Identifiant : " + tache.id());
+        afficher("Titre : " + tache.titre());
+        afficher("Priorité : " + tache.priorite().libelle());
+        afficher("Échéance : Aucune");
+        afficher("Statut : À faire");
     }
 
+    @Override
     public void afficherErreur(String message) {
-        console.afficherErreur(message);
+        super.afficherErreur(message);
     }
 }
