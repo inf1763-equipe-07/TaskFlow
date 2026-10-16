@@ -17,6 +17,8 @@ import taskflow.modele.TacheService;
 import taskflow.persistance.FichierTacheRepository;
 import taskflow.vue.Console;
 import taskflow.vue.TerminerVue;
+import taskflow.controleur.AjoutControleur;
+import taskflow.vue.AjoutVue;
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -56,9 +58,14 @@ public class Main {
         List<Entree> entrees = new ArrayList<>();
 
         // --- Début domaine Ajout ---
-        // ---
 
-        // ---
+        AjoutVue ajoutVue = new AjoutVue(console);
+
+        AjoutControleur ajoutControleur =
+        new AjoutControleur(service, ajoutVue);
+
+        entrees.add(new Entree("Ajouter une tâche", ajoutControleur::ajouter));
+
         // --- Fin domaine Ajout ---
 
 
