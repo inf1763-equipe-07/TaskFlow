@@ -52,9 +52,12 @@ public class Tache {
     }
 
     // --- Début domaine Consultation et modification ---
-    // ---
 
-    // ---
+    /** Marque la tâche comme terminée. Les autres informations ne changent pas. */
+    public void terminer() {
+        this.statut = Statut.TERMINEE;
+    }
+
     // --- Fin domaine Consultation et modification ---
 
 
