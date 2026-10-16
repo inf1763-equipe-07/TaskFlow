@@ -67,7 +67,24 @@ public void remplacer(List<Tache> nouvelles) {
 
     // --- Début domaine Ajout ---
     // ---
+public Tache ajouter(String titre) throws SaisieInvalideException {
 
+    if (titre == null || titre.isBlank()) {
+        throw new SaisieInvalideException("le titre est obligatoire.");
+    }
+
+    Tache nouvelle = new Tache(
+        prendreProchainId(),
+        titre,
+        Priorite.NORMALE,
+        null,
+        Statut.A_FAIRE
+    );
+
+    taches.add(nouvelle);
+
+    return nouvelle;
+}
     // ---
     // --- Fin domaine Ajout ---
 
