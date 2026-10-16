@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import taskflow.controleur.AfficherControleur;
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
 import taskflow.controleur.TerminerControleur;
@@ -15,6 +16,7 @@ import taskflow.modele.Tache;
 import taskflow.modele.TacheRepository;
 import taskflow.modele.TacheService;
 import taskflow.persistance.FichierTacheRepository;
+import taskflow.vue.AfficherVue;
 import taskflow.vue.Console;
 import taskflow.vue.TerminerVue;
 import taskflow.controleur.AjoutControleur;
@@ -78,6 +80,12 @@ public class Main {
                 new TerminerControleur(service, terminerVue);
 
         entrees.add(new Entree("Marquer une tâche comme terminée", terminerControleur::terminer));
+        AfficherVue afficherVue = new AfficherVue(console);
+
+        AfficherControleur afficherControleur =
+                new AfficherControleur(service, afficherVue);
+
+        entrees.add(new Entree("Afficher les tâches", afficherControleur::afficher));
 
         // --- Fin domaine Consultation et modification ---
 
