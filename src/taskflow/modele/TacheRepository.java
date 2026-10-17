@@ -18,7 +18,7 @@ public interface TacheRepository {
     boolean existe();
 
     /** Lit toutes les tâches sauvegardées. Lance une IOException si le fichier est illisible ou mal formé. */
-    List<Tache> charger() throws IOException;
+    List<Tache> charger(sauvegarde) throws IOException;
 
     /** Écrit toutes les tâches données. Lance une IOException si l'écriture est impossible. */
     void sauvegarder(List<Tache> taches) throws IOException;
