@@ -23,6 +23,8 @@ import taskflow.controleur.AjoutControleur;
 import taskflow.vue.AjoutVue;
 import taskflow.controleur.GererEcheanceAction;
 import taskflow.vue.EcheanceVue;
+import taskflow.controleur.SauvegarderAction;
+import taskflow.vue.SauvegardeVue;
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -110,7 +112,8 @@ public class Main {
 
         // --- Début domaine Sauvegarde ---
         // ---
-
+        SauvegarderAction sauvegarderAction = new SauvegarderAction(service, new SauvegardeVue(console));
+        entrees.add(new Entree("Sauvegarder les tâches", sauvegarderAction::sauvegarder));
         // ---
         // --- Fin domaine Sauvegarde ---
 
