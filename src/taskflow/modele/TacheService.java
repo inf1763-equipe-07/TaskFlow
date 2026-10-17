@@ -92,7 +92,10 @@ public Tache ajouter(String titre) throws SaisieInvalideException {
 
     // --- Début domaine Sauvegarde ---
     // ---
-
+    /** Confie toutes les tâches au repository, qui les écrit. Lance une IOException si l'écriture échoue. */
+    public void sauvegarder() throws java.io.IOException {
+        repository.sauvegarder(lister());
+    }
     // ---
     // --- Fin domaine Sauvegarde ---
 
