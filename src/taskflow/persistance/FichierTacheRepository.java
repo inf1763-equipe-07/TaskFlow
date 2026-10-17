@@ -28,7 +28,7 @@ public class FichierTacheRepository implements TacheRepository {
         for (Tache tache : taches) {
             texte.append(versLigne(tache)).append('\n');
         }
-        // Le chemin absolu a toujours un dossier parent, même pour un simple « taches.txt ».
+        // Le chemin absolu a toujours un dossier parent, même pour un simple « Sauvegarde.txt ».
         java.nio.file.Files.createDirectories(chemin.toAbsolutePath().getParent());
         // Crée le fichier ou remplace tout son contenu, en UTF-8 pour garder les accents.
         java.nio.file.Files.writeString(chemin, texte, java.nio.charset.StandardCharsets.UTF_8);
