@@ -21,6 +21,8 @@ import taskflow.vue.Console;
 import taskflow.vue.TerminerVue;
 import taskflow.controleur.AjoutControleur;
 import taskflow.vue.AjoutVue;
+import taskflow.controleur.GererEcheanceAction;
+import taskflow.vue.EcheanceVue;
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -93,7 +95,14 @@ public class Main {
 
         // --- Début domaine Échéance ---
         // ---
+        EcheanceVue echeanceVue = new EcheanceVue(console);
+        GererEcheanceAction gererEcheanceAction =
+                new GererEcheanceAction(service, echeanceVue);
 
+        entrees.add(new Entree(
+                "Gérer une échéance",
+                gererEcheanceAction::gerer
+        ));
         // ---
         // --- Fin domaine Échéance ---
 

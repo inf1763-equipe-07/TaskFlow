@@ -20,3 +20,12 @@
 | 10. Ajout après rechargement | US-01, US-12 | La nouvelle tâche reçoit un identifiant distinct de ceux déjà chargés. | | | | | | |
 | 11. Fichier absent ou mal formé | US-13, US-14 | Fichier absent → démarrage avec liste vide ; fichier mal formé/illisible → message et interruption sans modifier le fichier. | | | | | | |
 | 12. Échec d'écriture | US-11 | Une sauvegarde impossible est signalée comme un échec, sans message de réussite. | | | | | | |
+## Vérifications de Marc-Raphaël — US-07
+
+| Vérification | Saisie | Résultat |
+|---|---|---|
+| Date valide | Tâche 1, `2026-10-20` | Acceptée |
+| Date impossible | Tâche 1, `2026-02-30` | Refusée |
+| Date passée | Tâche 2, `2026-10-05` | Acceptée |
+| Identifiant inexistant | `99` | Erreur affichée |
+| Identifiant non numérique | `abc` | Refusé |
