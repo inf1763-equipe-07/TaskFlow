@@ -4,6 +4,9 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.nio.Path;
 
 import taskflow.controleur.AfficherControleur;
 import taskflow.controleur.MenuControleur;
@@ -50,6 +53,13 @@ public class Main {
 
             // --- Début domaine Chargement ---
             // ---
+
+            if (!repository.existe()){                                                   //Si un repo n'existe pas, un est creer
+                newDir(repository);
+            }
+            File sauvegarde = new File(repository+"/Sauvegarde.txt");
+
+            chargement(sauvegarde);
 
             // ---
             // --- Fin domaine Chargement ---

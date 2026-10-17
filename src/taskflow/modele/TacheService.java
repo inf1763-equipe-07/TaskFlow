@@ -1,8 +1,16 @@
 package taskflow.modele;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.time.LocalDate;
 
 /**
  * Garde la liste des tâches et applique les règles qui les concernent.
@@ -47,17 +55,17 @@ public class TacheService {
  * @param nouvelles liste des tâches qui remplacera la liste actuelle
  * @throws NullPointerException si la liste ou l'une de ses tâches est null
  */
-public void remplacer(List<Tache> nouvelles) {
-    List<Tache> copie = List.copyOf(nouvelles);
+    public void remplacer(List<Tache> nouvelles) {
+        List<Tache> copie = List.copyOf(nouvelles);
 
-    taches.clear();
-    taches.addAll(copie);
+        taches.clear();
+        taches.addAll(copie);
 
-    prochainId = taches.stream()
+        prochainId = taches.stream()
             .mapToInt(Tache::id)
             .max()
             .orElse(0) + 1;
-}
+    }
 
 
     /** Donne l'identifiant à utiliser pour une nouvelle tâche, puis avance le compteur. */
@@ -100,6 +108,73 @@ public Tache ajouter(String titre) throws SaisieInvalideException {
 
     // --- Début domaine Chargement ---
     // ---
+
+
+    public static List<Tache> charger(Path sauvegarde) throws IOException {
+    List<String> lignes = Files.readAllLines(sauvegarde, StandardCharsets.UTF_8);
+    List<Tache> resultat = new ArrayList<>();
+
+    for (int i = 0; i < lignes.size(); i++) {
+        String ligne = lignes.get(i).trim();
+        if (ligne.isEmpty()) continue;
+
+        String[] champs = ligne.split(";", 5);
+        if (champs.length < 5) {
+            System.err.println("Ligne " + (i + 1) + " ignorée");
+            continue;
+        }
+        try {
+            int id = Integer.parseInt(champs[0].trim());
+            String priorite = champs[1].trim();
+            LocalDate echeance = LocalDate.parse(champs[2].trim());
+            String statut = champs[3].trim();
+            String titre = champs[4].trim();
+
+            resultat.add(new Tache(id, priorite, echeance, statut, titre));
+        } catch (Exception e) {
+            System.err.println("Ligne " + (i + 1) + " ignorée (" + e.getMessage() + ")");
+        }
+    }
+    return resultat;
+    }
+
+
+
+
+
+
+    public void chargement(Path sauvegarde) {
+    try {
+        remplacer(charger(sauvegarde));
+    } catch (NoSuchFileException e) {
+        System.out.println("Le fichier n'existe pas");
+    } catch (IOException e) {
+        System.out.println("Erreur de lecture : " + e.getMessage());
+    }
+    }
+
+      
+
+    public static Path newDir(Path dossier) throws IOException{
+        return Files.createDirectories(dossier);
+    }
+    
+    public void newFichier(File sauvegarde){
+        try{
+                    
+            sauvegarde.createNewFile();
+                    
+            System.out.println("Aucun fichier de sauvegarde trouve, un nouveau a ete cree");
+                
+        }catch(IOException IO){
+                    
+            System.out.println("Une erreur s'est produite");
+                    
+        }
+    }
+
+
+
 
     // ---
     // --- Fin domaine Chargement ---
