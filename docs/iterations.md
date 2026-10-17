@@ -381,3 +381,78 @@ Les éléments suivants décrivent l'état du dépôt **après** la réunion du 
 - **Documentation :** la [PR #20](https://github.com/inf1763-equipe-07/TaskFlow/pull/20) propose la mise à jour d’`organisation.md` et, avec la présente correction, le transfert de ce compte rendu dans `docs/iterations.md`, conformément à la remarque d’Ahmed. La modification, la revue et la fusion restent à confirmer sur GitHub.
 
 **À renseigner pendant le bilan du 16 octobre :** commits effectivement intégrés dans `main`, résultats de compilation et de vérification sur une version commune, décisions de revue, blocages restants, mesures correctives, amélioration retenue en rétrospective et date de fin de l'itération 2. Les résultats ne doivent pas être inventés avant la démonstration collective.
+
+---
+
+## 7. Réunion du 16 octobre 2026 — Suivi de l'itération 1
+
+**Présents :** Ahmed Boussayri, Marc-Raphaël Chehab, Émilien Thibert et Sofiane Khider.
+**Absent :** Mathieu Pagé.
+
+**Objectif :** Faire le point sur les réalisations de l'itération 1, partager les difficultés rencontrées et coordonner les prochaines étapes, sans consacrer la réunion au dépannage technique.
+
+### 1. Avancement et réalisations
+
+**Ahmed — Affichage et gestion du statut des tâches (US-04 et US-05)**
+
+Ahmed a réalisé deux fonctionnalités importantes :
+
+- L'affichage de la liste des tâches avec leurs informations.
+- Le changement de statut d'une tâche vers « Terminée », avec gestion des cas particuliers.
+
+Les PR #51 et #52 ont été examinées, testées, approuvées et fusionnées dans `main`. Les fonctionnalités ont également été vérifiées dans la version intégrée de TaskFlow.
+
+Ahmed a aussi contribué à la documentation des vérifications avec la PR #54, désormais fusionnée.
+
+**Marc-Raphaël — Attribution des échéances (US-07)**
+
+Marc-Raphaël a développé la fonctionnalité permettant d'attribuer une échéance à une tâche existante.
+
+La fonctionnalité a été testée par Ahmed, notamment avec des dates valides et invalides ainsi que des identifiants incorrects. Les résultats sont conformes aux comportements attendus.
+
+La PR #55 a été approuvée par Ahmed et fusionnée dans `main`. Quelques optimisations mineures ont été proposées, sans constituer de blocage à son intégration.
+
+Marc-Raphaël a également commencé à documenter ses vérifications dans `docs/verification.md`.
+
+**Sofiane — Ajout d'une tâche (US-01)**
+
+La fonctionnalité d'ajout d'une tâche a été réalisée, vérifiée et intégrée dans `main` avec la PR #18.
+
+**Émilien — Chargement des tâches (US-12)**
+
+Les travaux sont engagés, mais la PR #53 nécessite encore des corrections et une coordination avec la fonctionnalité de sauvegarde.
+
+**Mathieu — Sauvegarde des tâches (US-10)**
+
+Mathieu était absent de la réunion. Sa fonctionnalité n'était pas encore intégrée au moment du bilan. Son avancement reste à confirmer avec lui.
+
+### 2. Difficultés et points de coordination
+
+Les échanges ont permis d'identifier plusieurs points à suivre :
+
+- Finalisation de la sauvegarde et du chargement des tâches.
+- Coordination entre Mathieu et Émilien pour utiliser un format de fichier compatible.
+- Prise en compte des optimisations mineures relevées lors des revues.
+- Poursuite de la documentation des tests dans `docs/verification.md`.
+
+L'équipe privilégie des séances de dépannage spécifiques lorsque les difficultés nécessitent une analyse technique approfondie.
+
+### 3. Organisation et communication
+
+Chaque membre est invité à communiquer régulièrement son avancement, ses difficultés et ses besoins d'accompagnement.
+
+Si un membre ne peut pas participer à une réunion à l'horaire proposé, il peut suggérer un autre créneau.
+
+En l'absence de réponse à un message, il ne faut pas hésiter à relancer les personnes concernées ou à les contacter directement, y compris lorsque le Scrum Master n'a pas encore répondu.
+
+### 4. Prochaine réunion
+
+**Samedi 17 octobre 2026 à 10 h.**
+
+Objectifs :
+- Faire le point sur les développements restants.
+- Confirmer l'avancement de Mathieu et d'Émilien.
+- Coordonner les éventuelles séances de dépannage.
+- Préparer la poursuite de l'intégration et des vérifications de l'itération 1.
+
+L'horaire pourra être ajusté en fonction des disponibilités communiquées par les membres.
