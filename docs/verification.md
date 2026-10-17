@@ -1,3 +1,22 @@
 # Vérification
 
-À tenir par le Responsable Qualité/Test.
+À tenir par le Responsable Qualité/Test (Marc-Raphaël).
+
+> Gabarit minimal proposé en attendant la reprise du document par le Responsable Qualité/Test, basé sur la couverture minimale des vérifications de l'énoncé (§8.2). Chaque auteur consigne son résultat pour ses propres récits ; Marc-Raphaël rejoue la vérification sur un clone propre et confirme (ou non) dans la dernière colonne, conformément à son rôle de Responsable Qualité/Test.
+>
+> Les scénarios 1, 4, 5 et 6 (partiel) sont pré-remplis à partir des PR #51 et #52 (Ahmed, non encore fusionnées) et des vérifications déjà confirmées par Sofiane en revue. Le contrôle indépendant de Marc-Raphaël reste à faire sur un clone propre.
+
+| Scénario | Récit(s) concerné(s) | Comportement attendu | Données utilisées | Résultat attendu | Résultat observé (auteur) | Conclusion (auteur) | Commit testé | Contrôle indépendant (Marc-Raphaël) |
+|---|---|---|---|---|---|---|---|---|
+| 1. Liste vide | US-04 | L'application indique clairement qu'aucune tâche n'est présente. | Démarrage sans aucune tâche ajoutée. | Message explicite « Aucune tâche enregistrée ». | Message affiché correctement, conforme (CA3), confirmé par Sofiane en revue. | Conforme | `a48ed26` (PR #51, non fusionnée) | |
+| 2. Ajout valide | US-01 | La tâche reçoit un identifiant et les valeurs par défaut attendues lorsque les informations facultatives sont omises. | | | | | | |
+| 3. Titre invalide | US-01 | Un titre vide ou composé uniquement d'espaces est refusé sans ajout de tâche. | | | | | | |
+| 4. Liste de plusieurs tâches | US-04 | Toutes les tâches sont affichées avec l'ensemble de leurs informations. | Deux tâches de démonstration (titre, priorité, échéance, statut variés). | Les cinq champs de chaque tâche affichés clairement. | Affichage correct des cinq champs, lisible, conforme (CA1/CA2), confirmé par Sofiane en revue. | Conforme | `a48ed26` (PR #51, non fusionnée) | |
+| 5. Tâche terminée | US-05 | Seul le statut de la tâche sélectionnée change ; une tâche déjà terminée est correctement signalée. | Tâche d'ID 2 existante ; appel de `terminer(2)` une première fois, puis une seconde fois. | Statut → Terminée avec confirmation ; second appel signale « déjà terminée » sans modification. | Statut changé correctement (CA1/CA2), seul le statut modifié (CA3), doublon détecté sans nouvelle modification (CA5), confirmé par Sofiane en revue. | Conforme | `1331c7a` (PR #52, non fusionnée) | |
+| 6. Identifiant inconnu | US-05, US-06, US-07, US-08, US-09 | L'application affiche un message et conserve les données existantes. | ID `999` (inexistant) et `abc` (non numérique) passés à `terminer()`. | Message d'erreur, aucune donnée modifiée. | Rejet correct des deux cas pour US-05 (CA4), confirmé par Sofiane en revue. US-06 à US-09 non codées : scénario non testable pour ces récits. | Partiellement conforme (US-05 seulement) | `1331c7a` (PR #52, non fusionnée) | |
+| 7. Priorité | US-02, US-06 | Les valeurs autorisées sont acceptées ; une valeur invalide est refusée sans modifier la priorité actuelle. | | | | | | |
+| 8. Échéance | US-03, US-07, US-08, US-09 | L'ajout, la modification et le retrait fonctionnent ; dates valides acceptées, formats incorrects et dates impossibles refusés. | | | | | | |
+| 9. Sauvegarde et redémarrage | US-10, US-12 | Toutes les informations sont retrouvées, y compris identifiants, statuts et échéances absentes. | | | | | | |
+| 10. Ajout après rechargement | US-01, US-12 | La nouvelle tâche reçoit un identifiant distinct de ceux déjà chargés. | | | | | | |
+| 11. Fichier absent ou mal formé | US-13, US-14 | Fichier absent → démarrage avec liste vide ; fichier mal formé/illisible → message et interruption sans modifier le fichier. | | | | | | |
+| 12. Échec d'écriture | US-11 | Une sauvegarde impossible est signalée comme un échec, sans message de réussite. | | | | | | |
