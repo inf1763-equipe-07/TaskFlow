@@ -47,11 +47,11 @@ public class Main {
             // ---
 
             if (!repository.existe()){                                                   //Si un repo n'existe pas, un est creer
-                repository.newDir();
+                newDir(repository);
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            chargement();
+            chargement(sauvegarde);
 
             // ---
             // --- Fin domaine Chargement ---
