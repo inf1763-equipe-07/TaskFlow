@@ -1,14 +1,11 @@
 package taskflow;
 
 import java.nio.file.Path;
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.File;
 import java.nio.Path;
 
 import taskflow.controleur.MenuControleur;
@@ -49,43 +46,12 @@ public class Main {
             // --- Début domaine Chargement ---
             // ---
 
-            if (!repository.existe()){                 //Si un repo n'existe pas, un est creer
-                repository.mkdir();
+            if (!repository.existe()){                                                   //Si un repo n'existe pas, un est creer
+                repository.newDir();
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
-            
-            int id_tache;
 
-            if(!sauvegarde.existe()){                                         //Verifie si un fichier de sauvegarde existe
-                try{
-                    
-                    if(!sauvegarde.canRead()){                                                     //US-14, verif de l'etat du fichier
-                        
-                        System.out.println("Le fichier de sauvegarde est corrompue");
-
-                    }else{
-                        
-                        charger();                                                                  //US-12, chargement de la sauvegarde
-
-                    }
-                }catch(FileNotFoundException FNF){
-                    System.out.println("Le fichier n'existe pas");
-                
-                }
-            
-            
-            }else{                                                                              //US-13, creation de fichier si une sauvegarde n'existe pas
-                
-                try{
-                    
-                    sauvegarde.createNewFile();
-                    
-                    System.out.println("Aucun fichier de sauvegarde trouve, un nouveau a ete cree");
-                
-                }catch(IOException IO){
-                    System.out.println("Une erreur s'est produite");
-                }
-            }
+            chargement();
 
             // ---
             // --- Fin domaine Chargement ---

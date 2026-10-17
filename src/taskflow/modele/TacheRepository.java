@@ -2,6 +2,8 @@ package taskflow.modele;
 
 import java.io.IOException;
 import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 /**
  * Ce que le modèle attend de celui qui stocke les tâches.
@@ -10,6 +12,7 @@ import java.util.List;
  * le stockage choisit comment les organiser, et son message explique le problème.
  */
 public interface TacheRepository {
+
 
     /** Vrai si des données ont déjà été sauvegardées. */
     boolean existe();
