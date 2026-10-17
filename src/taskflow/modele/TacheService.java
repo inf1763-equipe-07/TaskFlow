@@ -122,7 +122,13 @@ public class TacheService {
     }
 
 
-
+    public boolean isCorrupt(File sauvegarde){
+        if(!sauvegarde.canRead()){
+            System.out.println("Le fichier est corrompu et le chargement est interrompu");
+            return true;
+        }
+        else{return false;}
+    }
 
 
 

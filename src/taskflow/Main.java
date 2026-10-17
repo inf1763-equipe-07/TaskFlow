@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.nio.Path;
 
@@ -51,7 +52,16 @@ public class Main {
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            chargement(sauvegarde);
+            if(sauvegarde.existe()){                                                    //Verifie si un fichier de sauvegarde existe
+                if(isCorrupt(sauvegarde)==false){
+                    
+                    chargement();                                                       //US-12, charger le fichier de sauvegarde
+                }                                                          
+
+            }else{                                                                      
+                
+                newFichier(sauvegarde);                                                 //US-13, creation de fichier si une sauvegarde n'existe pas
+            }
 
             // ---
             // --- Fin domaine Chargement ---
