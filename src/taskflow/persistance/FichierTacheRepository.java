@@ -24,7 +24,23 @@ public class FichierTacheRepository implements TacheRepository {
     // ---
     @Override
     public void sauvegarder(List<Tache> taches) throws IOException {
-        throw new UnsupportedOperationException("La sauvegarde n'est pas encore disponible.");
+        StringBuilder texte = new StringBuilder();
+        for (Tache tache : taches) {
+            texte.append(versLigne(tache)).append('\n');
+        }
+        // Le chemin absolu a toujours un dossier parent, même pour un simple « Sauvegarde.txt ».
+        java.nio.file.Files.createDirectories(chemin.toAbsolutePath().getParent());
+        // Crée le fichier ou remplace tout son contenu, en UTF-8 pour garder les accents.
+        java.nio.file.Files.writeString(chemin, texte, java.nio.charset.StandardCharsets.UTF_8);
+    }
+
+    /** Transforme une tâche en une ligne id;priorite;echeance;statut;titre, comme dans le README. */
+    private static String versLigne(Tache tache) {
+        // Sans échéance, le champ reste vide : le chargement le lira comme « aucune échéance ».
+        String echeance = tache.echeance() == null ? "" : tache.echeance().toString();
+        // Le titre est en dernier : lu avec split(";", 5), il peut contenir des « ; ».
+        return String.join(";", String.valueOf(tache.id()), tache.priorite().name(), echeance,
+                tache.statut().name(), tache.titre());
     }
     // ---
     // --- Fin domaine Sauvegarde ---
