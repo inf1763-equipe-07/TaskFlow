@@ -68,42 +68,64 @@ public void remplacer(List<Tache> nouvelles) {
 
     // --- Début domaine Ajout ---
     // ---
+    public void validerTitre(String titre) throws SaisieInvalideException {
+        if (titre == null || titre.isBlank()) {
+            throw new SaisieInvalideException("Le titre est obligatoire.");
+        }
+    }
+
+    public Priorite interpreterPriorite(String saisie)
+            throws SaisieInvalideException {
+        if (saisie == null || saisie.isBlank()) {
+            return Priorite.NORMALE;
+        }
+
+        return Priorite.depuisLibelle(saisie);
+    }
+
     public LocalDate interpreterEcheance(String saisie)
             throws SaisieInvalideException {
         if (saisie == null || saisie.isBlank()) {
             return null;
         }
+
         if (!saisie.matches("\\d{4}-\\d{2}-\\d{2}")) {
             throw new SaisieInvalideException(
-                "La date doit respecter le format AAAA-MM-JJ."
-            );
+                    "La date doit respecter le format AAAA-MM-JJ.");
         }
+
         try {
             return LocalDate.parse(saisie);
         } catch (DateTimeParseException e) {
             throw new SaisieInvalideException(
-                "La date indiquée n'existe pas dans le calendrier."
-            );
+                    "La date indiquée n'existe pas dans le calendrier.");
         }
     }
-    public Tache ajouter(String titre) throws SaisieInvalideException {
-        return ajouter(titre, null);
-    }
-    public Tache ajouter(String titre, LocalDate echeance) throws SaisieInvalideException {
 
-        if (titre == null || titre.isBlank()) {
-            throw new SaisieInvalideException("le titre est obligatoire.");
-        }
+    public Tache ajouter(String titre) throws SaisieInvalideException {
+        return ajouter(titre, null, null);
+    }
+
+    public Tache ajouter(String titre, String prioriteSaisie)
+            throws SaisieInvalideException {
+        return ajouter(titre, prioriteSaisie, null);
+    }
+
+    public Tache ajouter(String titre, String prioriteSaisie,
+                         LocalDate echeance)
+            throws SaisieInvalideException {
+        validerTitre(titre);
+        Priorite priorite = interpreterPriorite(prioriteSaisie);
+
         Tache nouvelle = new Tache(
-            prendreProchainId(),
-            titre,
-            Priorite.NORMALE,
-            echeance,
-            Statut.A_FAIRE
+                prendreProchainId(),
+                titre,
+                priorite,
+                echeance,
+                Statut.A_FAIRE
         );
 
         taches.add(nouvelle);
-
         return nouvelle;
     }
     // ---
