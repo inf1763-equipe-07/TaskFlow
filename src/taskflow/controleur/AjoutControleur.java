@@ -5,6 +5,7 @@ import taskflow.modele.Tache;
 import taskflow.modele.TacheService;
 import taskflow.modele.SaisieInvalideException;
 import taskflow.vue.AjoutVue;
+import taskflow.modele.Priorite;
 
 public class AjoutControleur {
 
@@ -18,9 +19,28 @@ public class AjoutControleur {
 
     public void ajouter() {
         String titre = vue.demanderTitre();
-
+        String prioriteSaisie = vue.demanderPriorite();
+        if (prioriteSaisie.trim().equals("0")) {
+           return;
+}
         try {
-            Tache nouvelle = service.ajouter(titre);
+           Priorite priorite = null;
+
+            while (priorite == null) {
+                try {
+                    priorite = prioriteSaisie.isBlank()
+                            ? Priorite.NORMALE
+                            : Priorite.depuisLibelle(prioriteSaisie);
+                } catch (SaisieInvalideException e) {
+                    vue.afficherErreur(e.getMessage());
+                    prioriteSaisie = vue.demanderPriorite();
+
+                    if (prioriteSaisie.trim().equals("0")) {
+                        return;
+                    }
+                }
+            }
+            Tache nouvelle = service.ajouter(titre, priorite);
             vue.afficherSucces(nouvelle);
         } catch (SaisieInvalideException e) {
             vue.afficherErreur(e.getMessage());

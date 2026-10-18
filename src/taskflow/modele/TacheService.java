@@ -67,7 +67,7 @@ public void remplacer(List<Tache> nouvelles) {
 
     // --- Début domaine Ajout ---
     // ---
-public Tache ajouter(String titre) throws SaisieInvalideException {
+public Tache ajouter(String titre, Priorite priorite) throws SaisieInvalideException {
 
     if (titre == null || titre.isBlank()) {
         throw new SaisieInvalideException("le titre est obligatoire.");
@@ -76,7 +76,7 @@ public Tache ajouter(String titre) throws SaisieInvalideException {
     Tache nouvelle = new Tache(
         prendreProchainId(),
         titre,
-        Priorite.NORMALE,
+        priorite,
         null,
         Statut.A_FAIRE
     );
