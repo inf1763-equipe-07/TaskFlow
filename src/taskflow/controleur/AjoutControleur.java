@@ -19,6 +19,19 @@ public class AjoutControleur {
 
     public void ajouter() {
         String titre = vue.demanderTitre();
+        while (true) {
+            try {
+                service.validerTitre(titre);
+                break;
+            } catch (SaisieInvalideException e) {
+                vue.afficherErreur(e.getMessage());
+                titre = vue.demanderTitre();
+
+                if ("0".equals(titre)) {
+                    return;
+                }
+            }
+        }
         String prioriteSaisie = vue.demanderPriorite();
         if (prioriteSaisie.trim().equals("0")) {
            return;
@@ -28,9 +41,7 @@ public class AjoutControleur {
 
             while (priorite == null) {
                 try {
-                    priorite = prioriteSaisie.isBlank()
-                            ? Priorite.NORMALE
-                            : Priorite.depuisLibelle(prioriteSaisie);
+                    priorite = service.interpreterPriorite(prioriteSaisie);
                 } catch (SaisieInvalideException e) {
                     vue.afficherErreur(e.getMessage());
                     prioriteSaisie = vue.demanderPriorite();
@@ -40,7 +51,7 @@ public class AjoutControleur {
                     }
                 }
             }
-            Tache nouvelle = service.ajouter(titre, priorite);
+            Tache nouvelle = service.ajouter(titre, prioriteSaisie);
             vue.afficherSucces(nouvelle);
         } catch (SaisieInvalideException e) {
             vue.afficherErreur(e.getMessage());
