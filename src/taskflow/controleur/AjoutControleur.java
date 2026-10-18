@@ -18,9 +18,28 @@ public class AjoutControleur {
 
     public void ajouter() {
         String titre = vue.demanderTitre();
-
+        String echeanceSaisie = vue.demanderEcheance();
+        if ("0".equals(echeanceSaisie.trim())) {
+          return;
+        }
         try {
-            Tache nouvelle = service.ajouter(titre);
+            java.time.LocalDate echeance;
+
+        while (true) {
+            try {
+                echeance = service.interpreterEcheance(echeanceSaisie);
+                break;
+            } catch (SaisieInvalideException e) {
+                vue.afficherErreur(e.getMessage());
+                echeanceSaisie = vue.demanderEcheance();
+
+                if ("0".equals(echeanceSaisie.trim())) {
+                    return;
+                }
+            }
+        }
+
+        Tache nouvelle = service.ajouter(titre, echeance);
             vue.afficherSucces(nouvelle);
         } catch (SaisieInvalideException e) {
             vue.afficherErreur(e.getMessage());

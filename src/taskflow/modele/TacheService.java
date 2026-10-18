@@ -3,7 +3,8 @@ package taskflow.modele;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 /**
  * Garde la liste des tâches et applique les règles qui les concernent.
  */
@@ -67,24 +68,44 @@ public void remplacer(List<Tache> nouvelles) {
 
     // --- Début domaine Ajout ---
     // ---
-public Tache ajouter(String titre) throws SaisieInvalideException {
-
-    if (titre == null || titre.isBlank()) {
-        throw new SaisieInvalideException("le titre est obligatoire.");
+    public LocalDate interpreterEcheance(String saisie)
+            throws SaisieInvalideException {
+        if (saisie == null || saisie.isBlank()) {
+            return null;
+        }
+        if (!saisie.matches("\\d{4}-\\d{2}-\\d{2}")) {
+            throw new SaisieInvalideException(
+                "La date doit respecter le format AAAA-MM-JJ."
+            );
+        }
+        try {
+            return LocalDate.parse(saisie);
+        } catch (DateTimeParseException e) {
+            throw new SaisieInvalideException(
+                "La date indiquée n'existe pas dans le calendrier."
+            );
+        }
     }
+    public Tache ajouter(String titre) throws SaisieInvalideException {
+        return ajouter(titre, null);
+    }
+    public Tache ajouter(String titre, LocalDate echeance) throws SaisieInvalideException {
 
-    Tache nouvelle = new Tache(
-        prendreProchainId(),
-        titre,
-        Priorite.NORMALE,
-        null,
-        Statut.A_FAIRE
-    );
+        if (titre == null || titre.isBlank()) {
+            throw new SaisieInvalideException("le titre est obligatoire.");
+        }
+        Tache nouvelle = new Tache(
+            prendreProchainId(),
+            titre,
+            Priorite.NORMALE,
+            echeance,
+            Statut.A_FAIRE
+        );
 
-    taches.add(nouvelle);
+        taches.add(nouvelle);
 
-    return nouvelle;
-}
+        return nouvelle;
+    }
     // ---
     // --- Fin domaine Ajout ---
 
