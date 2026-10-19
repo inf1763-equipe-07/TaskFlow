@@ -1,3 +1,4 @@
+
 package taskflow.controleur;
 
 import taskflow.modele.SaisieInvalideException;
@@ -22,22 +23,44 @@ public class GererEcheanceAction {
         try {
             id = Integer.parseInt(texteIdentifiant);
         } catch (NumberFormatException e) {
-            vue.afficherErreur("l'identifiant doit contenir uniquement des chiffres.");
+            vue.afficherErreur(
+                    "L'identifiant doit contenir uniquement des chiffres.");
             return;
         }
 
         Tache tache = service.trouver(id).orElse(null);
         if (tache == null) {
-            vue.afficherErreur("aucune tâche ne possède cet identifiant.");
+            vue.afficherErreur(
+                    "Aucune tâche ne possède cet identifiant.");
             return;
         }
 
-        String texteDate = vue.demanderDate();
-        try {
-            tache.definirEcheance(texteDate);
-            vue.afficherSucces(tache);
-        } catch (SaisieInvalideException e) {
-            vue.afficherErreur(e.getMessage());
+        String choix = vue.demanderAction();
+
+        switch (choix) {
+            case "1":
+                try {
+                    String texteDate = vue.demanderDate();
+                    tache.definirEcheance(texteDate);
+                    vue.afficherSucces(tache);
+                } catch (SaisieInvalideException e) {
+                    vue.afficherErreur(e.getMessage());
+                }
+                break;
+
+            case "2":
+                tache.retirerEcheance();
+                vue.afficherRetraitSucces(tache);
+                break;
+
+            case "0":
+                // Annulation : aucune modification.
+                break;
+
+            default:
+                vue.afficherErreur(
+                        "Choix invalide. Sélectionnez 1, 2 ou 0.");
+                break;
         }
     }
 }
