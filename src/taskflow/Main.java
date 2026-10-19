@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.nio.Path;
+import java.io.File;
 
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
@@ -47,15 +48,15 @@ public class Main {
             // --- Début domaine Chargement ---
             // ---
 
-            if (!repository.existe()){                                                   //Si un repo n'existe pas, un est creer
+            if (!repository.exists()){                                                   //Si un repo n'existe pas, un est creer
                 newDir(repository);
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            if(sauvegarde.existe()){                                                    //Verifie si un fichier de sauvegarde existe
+            if(sauvegarde.exists()){                                                    //Verifie si un fichier de sauvegarde existe
                 if(isCorrupt(sauvegarde)==false){
                     
-                    chargement();                                                       //US-12, charger le fichier de sauvegarde
+                    chargement(sauvegarde.toPath());                                                       //US-12, charger le fichier de sauvegarde
                 }                                                          
 
             }else{                                                                      
@@ -116,7 +117,7 @@ public class Main {
                 return Path.of(argument);
             }
         }
-        return Path.of("data/taches.txt");
+        return Path.of("Sauvegarde.txt");
     }
 
     /** Les deux tâches de l'exemple de l'énoncé, les mêmes que dans donnees-test/exemple.txt. */
