@@ -119,12 +119,17 @@ public class TacheService {
         } catch (Exception e) {
             System.err.println("Ligne " + (i + 1) + " ignorée (" + e.getMessage() + ")");
         }
-    }
+        }
     return resultat;
-}
+    }
 
 
-
+    public boolean isCorrupt(File fichier){
+        if(fichier.canRead()){
+            return false;
+        }
+        else{return true;}
+    }
 
 
 

@@ -50,19 +50,33 @@ public class Main {
 
             if (!dossier.exists()){                                                   //Si un repo n'existe pas, un est creer
                 try{                
+
                     TacheService.newDir(dossier.toPath());
+
                 }catch(IOException e){
+
                     System.err.println("Une erreur est survenue lors de la creation du dossier");
+
                     return;
                 }
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            service.chargement(sauvegarde.toPath());
+            if(sauvegarde.exists()){
+                
+                if(service.isCorrupt(sauvegarde)==false){                                  //US-14, verification de la lisibilite du fichier
+
+                    service.chargement(sauvegarde.toPath());
+
+                }else{
+
+                    service.newFichier(sauvegarde);                                       //US-13, creation d'un fichier s'il n'existe pas
+                }
+                
 
             // ---
             // --- Fin domaine Chargement ---
-        }
+        }}
 
         // Les entrées du menu, dans l'ordre des zones ci-dessous.
         // Un domaine y ajoute son contrôleur et son entrée, par exemple :
@@ -104,7 +118,7 @@ public class Main {
     }
 
     /**
-     * Le fichier de données : data/taches.txt, ou le chemin donné en argument
+     * Le fichier de données : Sauvegarde.txt, ou le chemin donné en argument
      * (par exemple donnees-test/exemple.txt pour essayer avec le fichier d'exemple).
      */
     private static Path cheminDesDonnees(String[] args) {
