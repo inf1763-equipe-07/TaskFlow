@@ -62,16 +62,9 @@ public class Main {
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            if(sauvegarde.exists()){
-                
-                if(service.isCorrupt(sauvegarde)==false){                                  //US-14, verification de la lisibilite du fichier
+             service.chargement(sauvegarde.toPath());
 
-                    service.chargement(sauvegarde.toPath());
-
-                }else{
-
-                    service.newFichier(sauvegarde);                                       //US-13, creation d'un fichier s'il n'existe pas
-                }
+            
                 
 
             // ---
