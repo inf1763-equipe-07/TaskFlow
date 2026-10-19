@@ -75,7 +75,24 @@ public class TacheService {
 
     // --- Début domaine Ajout ---
     // ---
+public Tache ajouter(String titre) throws SaisieInvalideException {
 
+    if (titre == null || titre.isBlank()) {
+        throw new SaisieInvalideException("le titre est obligatoire.");
+    }
+
+    Tache nouvelle = new Tache(
+        prendreProchainId(),
+        titre,
+        Priorite.NORMALE,
+        null,
+        Statut.A_FAIRE
+    );
+
+    taches.add(nouvelle);
+
+    return nouvelle;
+}
     // ---
     // --- Fin domaine Ajout ---
 
@@ -83,7 +100,10 @@ public class TacheService {
 
     // --- Début domaine Sauvegarde ---
     // ---
-
+    /** Confie toutes les tâches au repository, qui les écrit. Lance une IOException si l'écriture échoue. */
+    public void sauvegarder() throws java.io.IOException {
+        repository.sauvegarder(lister());
+    }
     // ---
     // --- Fin domaine Sauvegarde ---
 

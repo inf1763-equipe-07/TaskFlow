@@ -57,6 +57,8 @@ Le dépôt appartient à l'organisation GitHub de l'équipe. Les droits suivent 
 ## Revue
 
 - Le relecteur lit le code, l'exécute, et dit ce qu'il a lu et essayé : « OK » ne suffit pas.
+- Rotation croisée obligatoire, un membre pour chaque PR, dans l'ordre 1-Sofiane, 2-Ahmed, 3-Marc-Raphaël, 4-Mathieu, 5-Émilien : à l'itération 1 chacun relit le suivant (1→2, 2→3, 3→4, 4→5, 5→1) ; à l'itération 2, celui d'après (1→3, 2→4, 3→5, 4→1, 5→2). C'est le minimum exigé, pas une exclusivité.
+- La revue reste ouverte à tous. N'importe quel membre peut commenter ou relire une PR en plus du relecteur désigné ; ça ne remplace pas la rotation, ça s'y ajoute.
 - Il répond sous 48 h. Un commentaire de revue n'est jamais généré.
 - Si la revue demande des changements, l'auteur corrige avec de nouveaux commits.
 - Après approbation, la PR est fusionnée et l'Issue se ferme.

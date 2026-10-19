@@ -52,17 +52,48 @@ public class Tache {
     }
 
     // --- Début domaine Consultation et modification ---
-    // ---
 
-    // ---
+    /** Marque la tâche comme terminée. Les autres informations ne changent pas. */
+    public void terminer() {
+        this.statut = Statut.TERMINEE;
+    }
+
     // --- Fin domaine Consultation et modification ---
 
 
 
     // --- Début domaine Échéance ---
-    // ---
 
-    // ---
+    /**
+     * Définit ou modifie l'échéance à partir du texte saisi.
+     *
+     * @param texteDate date au format AAAA-MM-JJ
+     * @throws SaisieInvalideException si le texte ne représente pas une date valide
+     */
+    public void definirEcheance(String texteDate)
+            throws SaisieInvalideException {
+
+        if (texteDate == null || texteDate.isBlank()) {
+            throw new SaisieInvalideException(
+                    "l'échéance doit être une date valide au format AAAA-MM-JJ.");
+        }
+
+        try {
+            LocalDate nouvelleEcheance = LocalDate.parse(texteDate);
+            this.echeance = nouvelleEcheance;
+        } catch (java.time.format.DateTimeParseException e) {
+            throw new SaisieInvalideException(
+                    "date invalide. Utilisez le format AAAA-MM-JJ.");
+        }
+    }
+
+    /**
+     * Retire l'échéance de la tâche.
+     */
+    public void retirerEcheance() {
+        this.echeance = null;
+    }
+
     // --- Fin domaine Échéance ---
     
 }
