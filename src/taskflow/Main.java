@@ -74,19 +74,19 @@ public class Main {
 
             if(sauvegarde.exists()){
                 
-                if(service.isCorrupt(sauvegarde)==false){                                  //US-14, verification de la lisibilite du fichier
+                
 
-                    service.chargement(sauvegarde.toPath());
+                service.chargement(sauvegarde.toPath());
 
-                }else{
+            }else{
 
-                    service.newFichier(sauvegarde);                                       //US-13, creation d'un fichier s'il n'existe pas
-                }
+                service.newFichier(sauvegarde);                                       //US-13, creation d'un fichier s'il n'existe pas
+            }
                 
 
             // ---
             // --- Fin domaine Chargement ---
-        }}
+        }
 
         // Les entrées du menu, dans l'ordre des zones ci-dessous.
         // Un domaine y ajoute son contrôleur et son entrée, par exemple :
