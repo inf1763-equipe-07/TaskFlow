@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.nio.Path;
 import java.io.File;
+import java.io.IOException;
 
 import taskflow.controleur.MenuControleur;
 import taskflow.controleur.MenuControleur.Entree;
@@ -31,6 +31,7 @@ public class Main {
         TacheRepository repository = new FichierTacheRepository(cheminDesDonnees(args));
         TacheService service = new TacheService(repository);
         Console console = new Console();
+        File dossier = new File("donnes");
 
         console.afficher("TASKFLOW — Gestion des tâches");
 
@@ -47,12 +48,17 @@ public class Main {
             // --- Début domaine Chargement ---
             // ---
 
-            if (!repository.exists()){                                                   //Si un repo n'existe pas, un est creer
-                newDir(repository);
+            if (!dossier.exists()){                                                   //Si un repo n'existe pas, un est creer
+                try{                
+                    TacheService.newDir(dossier.toPath());
+                }catch(IOException e){
+                    System.err.println("Une erreur est survenue lors de la creation du dossier");
+                    return;
+                }
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            chargement(sauvegarde.toPath());
+            service.chargement(sauvegarde.toPath());
 
             // ---
             // --- Fin domaine Chargement ---

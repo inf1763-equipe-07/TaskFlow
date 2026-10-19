@@ -108,18 +108,20 @@ public class TacheService {
         }
         try {
             int id = Integer.parseInt(champs[0].trim());
-            String priorite = champs[1].trim();
-            LocalDate echeance = LocalDate.parse(champs[2].trim());
-            String statut = champs[3].trim();
+            Priorite priorite = Priorite.valueOf(champs[1].trim().toUpperCase());
+            LocalDate echeance = champs[2].trim().isEmpty()
+                    ? null
+                    : LocalDate.parse(champs[2].trim());
+            Statut statut = Statut.valueOf(champs[3].trim().toUpperCase());
             String titre = champs[4].trim();
 
-            resultat.add(new Tache(id, priorite, echeance, statut, titre));
+            resultat.add(new Tache(id, titre, priorite, echeance, statut));
         } catch (Exception e) {
             System.err.println("Ligne " + (i + 1) + " ignorée (" + e.getMessage() + ")");
         }
     }
     return resultat;
-    }
+}
 
 
 
