@@ -153,7 +153,12 @@ public Tache ajouter(String titre) throws SaisieInvalideException {
     }
     }
 
-
+    public boolean isCorrupt(File fichier){
+        if(fichier.canRead()){
+            return false;
+        }
+        else{return true;}
+    }
 
     public static Path newDir(Path dossier) throws IOException{
         return Files.createDirectories(dossier);
