@@ -27,4 +27,21 @@ public class EcheanceVue extends Vue {
         afficher("Tâche : " + tache.titre());
         afficher("Échéance : " + tache.echeance());
     }
+public String demanderAction(Tache tache) {
+    String actuelle = tache.echeance() == null
+            ? "Aucune"
+            : tache.echeance().toString();
+
+    afficher("Échéance actuelle : " + actuelle);
+    afficher("1. Définir ou modifier l’échéance");
+    afficher("2. Retirer l’échéance");
+    afficher("0. Annuler");
+
+    return lire("Votre action : ");
+}
+
+public void afficherRetraitSucces(Tache tache) {
+    super.afficherSucces("L’échéance de la tâche " + tache.id() + " a été retirée.");
+}
+
 }
