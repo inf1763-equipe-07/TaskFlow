@@ -456,3 +456,83 @@ Objectifs :
 - Préparer la poursuite de l'intégration et des vérifications de l'itération 1.
 
 L'horaire pourra être ajusté en fonction des disponibilités communiquées par les membres.
+
+---
+
+## 8. Réunion du 17 octobre 2026 — Bilan de l’itération 1 et préparation de l’itération 2
+
+**Date :** samedi 17 octobre 2026.  
+**Rédaction et suivi :** Sofiane Khider — Scrum Master, le 18 octobre 2026.
+
+**Objectif :** Poursuivre l’examen des contributions, vérifier les fonctionnalités présentées, préciser les ajustements nécessaires et préparer la validation des récits de l’itération 2.
+
+### 1. Contributions examinées et vérifications
+
+Dans la continuité de la réunion du 16 octobre, l’équipe a examiné les contributions des membres et effectué des tests sur les fonctionnalités présentées.
+
+Ces échanges ont permis de valider les comportements vérifiés et de formuler des remarques constructives pour affiner certains récits utilisateurs, leur réalisation et leurs vérifications.
+
+| Membre | Récits concernés | Avancement et points de suivi |
+|---|---|---|
+| **Sofiane — Ajout** | US-01 | L’ajout simple est intégré dans `main` par la [PR #18](https://github.com/inf1763-equipe-07/TaskFlow/pull/18). La priorité et l’échéance à la création sont prévues dans US-02 et US-03, à l’itération 2. |
+| **Ahmed — Consultation et statut** | US-04, US-05 | L’affichage et le changement de statut sont intégrés par les [PR #51](https://github.com/inf1763-equipe-07/TaskFlow/pull/51) et [#52](https://github.com/inf1763-equipe-07/TaskFlow/pull/52). Les vérifications documentées servent de référence pour la suite. |
+| **Marc-Raphaël — Échéances** | US-07 | L’attribution d’une échéance est intégrée par la [PR #55](https://github.com/inf1763-equipe-07/TaskFlow/pull/55). Le suivi des vérifications et les améliorations signalées en revue se poursuivent. |
+| **Mathieu — Sauvegarde** | US-10 | La [PR #59](https://github.com/inf1763-equipe-07/TaskFlow/pull/59) a été relue et approuvée par Ahmed le 17 octobre. Deux incohérences documentaires concernant le chemin du fichier restent à corriger avant fusion. |
+| **Émilien — Chargement** | US-12 | Le travail se poursuit dans la [PR #58](https://github.com/inf1763-equipe-07/TaskFlow/pull/58). Des erreurs de compilation, notamment dans la déclaration de `charger()`, empêchent encore sa validation. |
+
+### 2. Validation de l’itération 1 et conditions de passage à l’itération 2
+
+Lors de la réunion, l’équipe a constaté le bon avancement des contributions et validé les PR présentées, à l’exception de celle d’Émilien concernant US-12, qui présentait encore des erreurs de compilation.
+
+L’itération 1 a donc fait l’objet d’une **validation sous réserve des corrections à apporter à cette PR**. Sa clôture définitive et le passage formel à l’itération 2 nécessitent la validation de l’ensemble des PR associées à l’itération 1.
+
+La règle commune est rappelée : **chaque membre doit vérifier que le projet compile localement avant de pousser ses modifications sur GitHub**. Les résultats des vérifications doivent être documentés et les éventuels blocages signalés rapidement.
+
+Ahmed peut apporter son soutien en tant qu’intégrateur pour résoudre les difficultés de compilation et d’intégration. Les membres sont invités à le solliciter dès qu’un accompagnement est nécessaire.
+
+Les remarques constructives formulées lors des échanges visent également à :
+
+- Maintenir la cohérence entre le code, les critères d’acceptation et les vérifications.
+- Respecter les responsabilités des différentes couches et réutiliser les interfaces communes.
+- Harmoniser le chemin et le format du fichier entre sauvegarde, chargement et documentation.
+- Décrire les corrections demandées avec des éléments concrets permettant de les reproduire.
+- Compléter `docs/verification.md` avec les données utilisées, les résultats observés et le commit testé.
+
+La validation en réunion doit être suivie de la finalisation des corrections, des vérifications et de l’intégration. Un récit devient « Terminé » lorsque la définition de terminé de l’équipe est satisfaite.
+
+### 3. Suivi complémentaire du dimanche 18 octobre
+
+Après la réunion, Sofiane a relancé Mathieu et Émilien afin de finaliser les éléments de l’itération 1 encore en attente.
+
+| Destinataire | Relance et suivi |
+|---|---|
+| **Mathieu** | [Relance dans la PR #59](https://github.com/inf1763-equipe-07/TaskFlow/pull/59#issuecomment-6251724923) concernant les deux corrections documentaires signalées par Ahmed, afin de permettre la finalisation de l’US-10. |
+| **Émilien** | [Relance dans la PR #58](https://github.com/inf1763-equipe-07/TaskFlow/pull/58#issuecomment-6252027441) concernant la compilation et l’intégration de l’US-12. Émilien a demandé de préciser les problèmes concernés. Une vérification technique complémentaire du commit publié `c3814e4`, avec le JDK 21, confirme notamment une erreur de syntaxe dans la déclaration de `charger()` dans `TacheRepository.java`. |
+
+En préparation de l’itération 2, les PR de Sofiane [#61 — US-02](https://github.com/inf1763-equipe-07/TaskFlow/pull/61) et [#62 — US-03](https://github.com/inf1763-equipe-07/TaskFlow/pull/62) ont été ouvertes le 18 octobre. Les tests locaux sont documentés dans la branche US-03 ; la revue et le contrôle qualité restent à effectuer.
+
+Ces travaux préparatoires ne lèvent pas la réserve portant sur la clôture de l’itération 1.
+
+### 4. Actions de suivi
+
+| Action | Responsable |
+|---|---|
+| Finaliser les ajustements de sauvegarde et la documentation du fichier. | Mathieu |
+| Corriger les erreurs du chargement, confirmer la compilation et vérifier la compatibilité avec la sauvegarde. | Émilien, avec le soutien d’Ahmed au besoin |
+| Préparer les démonstrations et les résultats des récits de l’itération 2. | Chaque auteur |
+| Réaliser les revues et compléter le contrôle indépendant des vérifications. | Relecteurs désignés et Marc-Raphaël |
+| Coordonner les fusions et vérifier le fonctionnement de la version intégrée. | Ahmed, avec les auteurs concernés |
+| Suivre les blocages, les réponses aux relances et les décisions de validation. | Sofiane |
+
+### 5. Prochaine réunion
+
+**Lundi 19 octobre 2026 à 8 h.**
+
+**Objectif principal :** examiner et valider les récits utilisateurs de l’itération 2 selon leurs critères d’acceptation et les vérifications présentées, après confirmation de la levée des réserves de l’itération 1.
+
+La réunion permettra également de :
+
+- Confirmer la résolution des éléments restants de l’itération 1.
+- Présenter les contributions et les résultats de chaque membre.
+- Examiner les remarques de revue et les éventuelles corrections.
+- Déterminer les récits validés, ceux restant à vérifier et les prochaines actions d’intégration.
