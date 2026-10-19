@@ -13,10 +13,6 @@ import java.io.FileNotFoundException;
  */
 public interface TacheRepository {
 
-
-    /** Vrai si des données ont déjà été sauvegardées. */
-    boolean existe();
-
     /** Lit toutes les tâches sauvegardées. Lance une IOException si le fichier est illisible ou mal formé. */
     List<Tache> charger(sauvegarde) throws IOException;
 
