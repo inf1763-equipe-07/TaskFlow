@@ -51,7 +51,7 @@ public class Main {
             }
             File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            chargement(sauvegarde);
+            chargement(sauvegarde.toPath());
 
             // ---
             // --- Fin domaine Chargement ---
@@ -106,7 +106,7 @@ public class Main {
                 return Path.of(argument);
             }
         }
-        return Path.of("data/taches.txt");
+        return Path.of("Sauvegarde.txt");
     }
 
     /** Les deux tâches de l'exemple de l'énoncé, les mêmes que dans donnees-test/exemple.txt. */
