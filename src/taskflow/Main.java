@@ -25,6 +25,8 @@ import taskflow.controleur.GererEcheanceAction;
 import taskflow.vue.EcheanceVue;
 import taskflow.controleur.ModifierPrioriteControleur;
 import taskflow.vue.ModifierPrioriteVue;
+import taskflow.controleur.SauvegarderAction;
+import taskflow.vue.SauvegardeVue;
 
 /**
  * Le point d'entrée : crée les objets de l'application, les relie entre eux, puis lance le menu.
@@ -119,7 +121,8 @@ public class Main {
 
         // --- Début domaine Sauvegarde ---
         // ---
-
+        SauvegarderAction sauvegarderAction = new SauvegarderAction(service, new SauvegardeVue(console));
+        entrees.add(new Entree("Sauvegarder les tâches", sauvegarderAction::sauvegarder));
         // ---
         // --- Fin domaine Sauvegarde ---
 
@@ -127,7 +130,7 @@ public class Main {
     }
 
     /**
-     * Le fichier de données : data/taches.txt, ou le chemin donné en argument
+     * Le fichier de données : data/Sauvegarde.txt, ou le chemin donné en argument
      * (par exemple donnees-test/exemple.txt pour essayer avec le fichier d'exemple).
      */
     private static Path cheminDesDonnees(String[] args) {
@@ -136,7 +139,7 @@ public class Main {
                 return Path.of(argument);
             }
         }
-        return Path.of("data/taches.txt");
+        return Path.of("Sauvegarde.txt");
     }
 
     /** Les deux tâches de l'exemple de l'énoncé, les mêmes que dans donnees-test/exemple.txt. */
