@@ -49,13 +49,9 @@ public class FichierTacheRepository implements TacheRepository {
 
     // --- Début domaine Chargement ---
     // ---
-    @Override
-    public boolean existe() {
-        return false;
-    }
 
-    @Override
-    public List<Tache> charger() throws IOException {
+   
+    public List<Tache> charger(Path chemin) throws IOException {
         return List.of();
     }
     // ---

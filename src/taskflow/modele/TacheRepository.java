@@ -2,6 +2,9 @@ package taskflow.modele;
 
 import java.io.IOException;
 import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
 
 /**
  * Ce que le modèle attend de celui qui stocke les tâches.
@@ -11,11 +14,8 @@ import java.util.List;
  */
 public interface TacheRepository {
 
-    /** Vrai si des données ont déjà été sauvegardées. */
-    boolean existe();
-
     /** Lit toutes les tâches sauvegardées. Lance une IOException si le fichier est illisible ou mal formé. */
-    List<Tache> charger() throws IOException;
+    List<Tache> charger(Path sauvegarde) throws IOException;
 
     /** Écrit toutes les tâches données. Lance une IOException si l'écriture est impossible. */
     void sauvegarder(List<Tache> taches) throws IOException;
