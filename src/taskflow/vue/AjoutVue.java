@@ -3,6 +3,7 @@ package taskflow.vue;
 
 import taskflow.modele.Tache;
 
+
 public class AjoutVue extends Vue {
 
     public AjoutVue(Console console) {
@@ -13,6 +14,9 @@ public class AjoutVue extends Vue {
         afficherTitre("Ajouter une tâche");
         return lire("Titre : ");
     }
+    public String demanderPriorite() {
+    return lire("Priorité (Basse/Normale/Élevée, Entrée = Normale, 0 = Annuler) : ");
+   }
 
     public void afficherSucces(Tache tache) {
         super.afficherSucces("Tâche ajoutée avec succès.");

@@ -67,22 +67,35 @@ public void remplacer(List<Tache> nouvelles) {
 
     // --- Début domaine Ajout ---
     // ---
-public Tache ajouter(String titre) throws SaisieInvalideException {
-
+public void validerTitre(String titre) throws SaisieInvalideException {
     if (titre == null || titre.isBlank()) {
-        throw new SaisieInvalideException("le titre est obligatoire.");
+        throw new SaisieInvalideException("Le titre est obligatoire.");
     }
+}
+public Priorite interpreterPriorite(String saisie)
+        throws SaisieInvalideException {
+
+    if (saisie == null || saisie.isBlank()) {
+        return Priorite.NORMALE;
+    }
+
+    return Priorite.depuisLibelle(saisie);
+}
+public Tache ajouter(String titre, String prioriteSaisie) throws SaisieInvalideException {
+
+    validerTitre(titre);
+    
+   Priorite priorite = interpreterPriorite(prioriteSaisie);
 
     Tache nouvelle = new Tache(
         prendreProchainId(),
         titre,
-        Priorite.NORMALE,
+        priorite,
         null,
         Statut.A_FAIRE
     );
 
     taches.add(nouvelle);
-
     return nouvelle;
 }
     // ---
