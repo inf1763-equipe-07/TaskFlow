@@ -2,7 +2,6 @@
 
 Application Java en console pour gérer une liste de tâches. Projet de l'équipe 07, cours INF1763 (UQO), automne 2026, mini-projet 1.
 
-À tenir par le Responsable de la documentation.
 
 ## Équipe
 
@@ -148,7 +147,7 @@ Le code est dans `src/taskflow`, réparti en quatre paquets : `modele`, `vue`, `
 
 ## Limites connues
 
-- Comme le rechargement n'est pas encore disponible, une sauvegarde faite lors d'un nouveau lancement remplace le fichier : les tâches des lancements précédents sont perdues. Pour les garder, on donne un autre fichier au lancement.
+- Le rechargement n'est pas encore disponible. Au démarrage, la liste est vide, et une nouvelle sauvegarde dans le même fichier remplace son ancien contenu.
 - Aucun avertissement n'apparaît en quittant : les changements non sauvegardés sont perdus.
 - On ne peut pas supprimer une tâche.
 - Un titre ne peut pas être `0`, puisque `0` annule l'ajout.
