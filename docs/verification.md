@@ -19,7 +19,7 @@
 | 9. Sauvegarde et redémarrage | US-10, US-12 | Toutes les informations sont retrouvées, y compris identifiants, statuts et échéances absentes. | | | | | | |
 | 10. Ajout après rechargement | US-01, US-12 | La nouvelle tâche reçoit un identifiant distinct de ceux déjà chargés. | | | | | | |
 | 11. Fichier absent ou mal formé | US-13, US-14 | Fichier absent → démarrage avec liste vide ; fichier mal formé/illisible → message et interruption sans modifier le fichier. | | | | | | |
-| 12. Échec d'écriture | US-11 | Une sauvegarde impossible est signalée comme un échec, sans message de réussite. | | | | | | |
+| 12. Échec d'écriture | US-11 | Une sauvegarde impossible est signalée comme un échec, sans message de réussite. | `--demo`, choix 5 vers 4 emplacements temporaires non accessibles en écriture : parent qui est un fichier, chemin qui est un dossier, dossier en lecture seule, fichier en lecture seule (détail plus bas). | Message d'erreur clair, aucun message de réussite, retour au menu, tâches conservées en mémoire, fichier existant inchangé. | Dans les 4 cas, « Erreur : impossible de sauvegarder les tâches (…) » avec la raison en français ; aucun message de réussite ; « Afficher » montre encore les 2 tâches ; le fichier protégé garde son contenu ; pas de plantage. | Conforme (CA1, CA2, CA3) | copie de travail basée sur `31ddbb5`, non commitée | |
 ## Vérifications de Marc-Raphaël — US-07
 
 | Vérification | Saisie | Résultat |
@@ -29,3 +29,15 @@
 | Date passée | Tâche 2, `2026-10-05` | Acceptée |
 | Identifiant inexistant | `99` | Erreur affichée |
 | Identifiant non numérique | `abc` | Refusé |
+
+## Vérifications de Mathieu — US-11
+
+Reproduire l'échec sans changer de droits (vérifié sous macOS) : lancer `java -cp out taskflow.Main --demo data/bloque`, choisir 5 puis 0, ce qui crée le fichier `data/bloque` ; relancer avec `--demo data/bloque/Sauvegarde.txt` et choisir 5.
+
+| Vérification | Saisie | Résultat |
+|---|---|---|
+| Sauvegarde normale | `--demo`, choix 5 | « Tâches sauvegardées avec succès. » ; fichier identique à `donnees-test/exemple.txt` |
+| Parent qui est un fichier | `--demo data/bloque/Sauvegarde.txt`, choix 5 | « Erreur : impossible de sauvegarder les tâches (« …/data/bloque » est un fichier et non un dossier). » ; aucune réussite |
+| Chemin qui est un dossier | `--demo un-dossier`, choix 5 | « Erreur : impossible de sauvegarder les tâches (le fichier « un-dossier » n'a pas pu être écrit). » ; aucune réussite |
+| Dossier en lecture seule | Dossier temporaire en `chmod 555`, choix 5 | « Erreur : impossible de sauvegarder les tâches (accès refusé à « lecture-seule/Sauvegarde.txt »). » ; aucune réussite |
+| Fichier en lecture seule | Fichier temporaire en `chmod 444`, choix 5 | « Erreur : impossible de sauvegarder les tâches (accès refusé à « protege.txt »). » ; aucune réussite, contenu inchangé |
