@@ -19,13 +19,17 @@ public class EcheanceVue extends Vue {
         return lire("Identifiant de la tâche : ");
     }
 
-    public String demanderAction() {
-        afficher("Échéance actuelle : ");
-        return lire(
-                "1. Définir ou modifier l'échéance\n"
-                + "2. Retirer l'échéance\n"
-                + "0. Annuler\n"
-                + "Votre action : ");
+    public String demanderAction(Tache tache) {
+        String actuelle = tache.echeance() == null
+                ? "Aucune"
+                : tache.echeance().toString();
+
+        afficher("Échéance actuelle : " + actuelle);
+        afficher("1. Définir ou modifier l’échéance");
+        afficher("2. Retirer l’échéance");
+        afficher("0. Annuler");
+
+        return lire("Votre action : ");
     }
 
     public String demanderDate() {
@@ -39,27 +43,6 @@ public class EcheanceVue extends Vue {
     }
 
     public void afficherRetraitSucces(Tache tache) {
-        super.afficherSucces("Échéance retirée avec succès.");
-        afficher("Tâche : " + tache.titre());
-        afficher("Échéance : "
-                + (tache.echeance() == null ? "Aucune" : tache.echeance()));
+        super.afficherSucces("L’échéance de la tâche " + tache.id() + " a été retirée.");
     }
-}
-public String demanderAction(Tache tache) {
-    String actuelle = tache.echeance() == null
-            ? "Aucune"
-            : tache.echeance().toString();
-
-    afficher("Échéance actuelle : " + actuelle);
-    afficher("1. Définir ou modifier l’échéance");
-    afficher("2. Retirer l’échéance");
-    afficher("0. Annuler");
-
-    return lire("Votre action : ");
-}
-
-public void afficherRetraitSucces(Tache tache) {
-    super.afficherSucces("L’échéance de la tâche " + tache.id() + " a été retirée.");
-}
-
 }
