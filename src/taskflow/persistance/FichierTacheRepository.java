@@ -28,10 +28,18 @@ public class FichierTacheRepository implements TacheRepository {
         for (Tache tache : taches) {
             texte.append(versLigne(tache)).append('\n');
         }
-        // Le chemin absolu a toujours un dossier parent, même pour un simple « Sauvegarde.txt ».
-        java.nio.file.Files.createDirectories(chemin.toAbsolutePath().getParent());
-        // Crée le fichier ou remplace tout son contenu, en UTF-8 pour garder les accents.
-        java.nio.file.Files.writeString(chemin, texte, java.nio.charset.StandardCharsets.UTF_8);
+        try {
+            // Le chemin absolu a toujours un dossier parent, même pour un simple « Sauvegarde.txt ».
+            java.nio.file.Files.createDirectories(chemin.toAbsolutePath().getParent());
+            // Crée le fichier ou remplace tout son contenu, en UTF-8 pour garder les accents.
+            java.nio.file.Files.writeString(chemin, texte, java.nio.charset.StandardCharsets.UTF_8);
+        } catch (java.nio.file.AccessDeniedException e) {
+            throw new IOException("accès refusé à « " + e.getFile() + " »", e);
+        } catch (java.nio.file.FileAlreadyExistsException e) {
+            throw new IOException("« " + e.getFile() + " » est un fichier et non un dossier", e);
+        } catch (IOException e) {
+            throw new IOException("le fichier « " + chemin + " » n'a pas pu être écrit", e);
+        }
     }
 
     /** Transforme une tâche en une ligne id;priorite;echeance;statut;titre, comme dans le README. */
