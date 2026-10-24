@@ -22,25 +22,32 @@ public class GererEcheanceAction {
         final int id;
         try {
             id = Integer.parseInt(texteIdentifiant);
+            if (id <= 0) {
+                vue.afficherErreur(
+                        "l'identifiant doit être un entier positif.");
+                return;
+            }
         } catch (NumberFormatException e) {
             vue.afficherErreur(
-                    "L'identifiant doit contenir uniquement des chiffres.");
+                    "l'identifiant doit contenir uniquement un nombre valide.");
             return;
         }
 
         Tache tache = service.trouver(id).orElse(null);
+
         if (tache == null) {
             vue.afficherErreur(
-                    "Aucune tâche ne possède cet identifiant.");
+                    "aucune tâche ne possède cet identifiant.");
             return;
         }
 
-        String choix = vue.demanderAction();
+        String action = vue.demanderAction(tache);
 
-        switch (choix) {
+        switch (action) {
             case "1":
+                String texteDate = vue.demanderDate();
+
                 try {
-                    String texteDate = vue.demanderDate();
                     tache.definirEcheance(texteDate);
                     vue.afficherSucces(tache);
                 } catch (SaisieInvalideException e) {
@@ -59,7 +66,7 @@ public class GererEcheanceAction {
 
             default:
                 vue.afficherErreur(
-                        "Choix invalide. Sélectionnez 1, 2 ou 0.");
+                        "choix invalide. Sélectionnez 1, 2 ou 0.");
                 break;
         }
     }

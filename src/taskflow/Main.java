@@ -4,6 +4,10 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
 
 import taskflow.controleur.AfficherControleur;
 import taskflow.controleur.MenuControleur;
@@ -23,6 +27,8 @@ import taskflow.controleur.AjoutControleur;
 import taskflow.vue.AjoutVue;
 import taskflow.controleur.GererEcheanceAction;
 import taskflow.vue.EcheanceVue;
+import taskflow.controleur.ModifierPrioriteControleur;
+import taskflow.vue.ModifierPrioriteVue;
 import taskflow.controleur.SauvegarderAction;
 import taskflow.vue.SauvegardeVue;
 
@@ -34,9 +40,12 @@ public class Main {
 
     public static void main(String[] args) {
         // Les objets partagés
-        TacheRepository repository = new FichierTacheRepository(cheminDesDonnees(args));
+        Path chemin =cheminDesDonnees(args);
+        TacheRepository repository = new FichierTacheRepository(chemin);
         TacheService service = new TacheService(repository);
         Console console = new Console();
+        File sauvegarde = chemin.toFile();
+        File dossier = sauvegarde.getParentFile();
 
         console.afficher("TASKFLOW — Gestion des tâches");
 
@@ -52,6 +61,22 @@ public class Main {
 
             // --- Début domaine Chargement ---
             // ---
+
+            if (dossier !=null && !dossier.exists()){                                                   //Si un repo n'existe pas, un est creer
+                try{                
+
+                    TacheService.newDir(dossier.toPath());
+
+                }catch(IOException e){
+
+                    System.err.println("Une erreur est survenue lors de la creation du dossier");
+
+                    return;
+                }
+            }
+
+            service.chargement(sauvegarde.toPath());
+                
 
             // ---
             // --- Fin domaine Chargement ---
@@ -91,6 +116,13 @@ public class Main {
 
         entrees.add(new Entree("Afficher les tâches", afficherControleur::afficher));
 
+        ModifierPrioriteVue modifierPrioriteVue = new ModifierPrioriteVue(console);
+
+        ModifierPrioriteControleur modifierPrioriteControleur =
+                new ModifierPrioriteControleur(service, modifierPrioriteVue);
+
+        entrees.add(new Entree("Modifier la priorité d'une tâche", modifierPrioriteControleur::modifier));
+
         // --- Fin domaine Consultation et modification ---
 
 
@@ -121,7 +153,7 @@ public class Main {
     }
 
     /**
-     * Le fichier de données : data/Sauvegarde.txt, ou le chemin donné en argument
+     * Le fichier de données : Sauvegarde.txt, ou le chemin donné en argument
      * (par exemple donnees-test/exemple.txt pour essayer avec le fichier d'exemple).
      */
     private static Path cheminDesDonnees(String[] args) {
