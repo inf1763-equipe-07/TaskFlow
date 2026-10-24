@@ -16,6 +16,7 @@ public class ModifierPrioriteVue extends Vue {
         return lireEntier("Identifiant de la tâche : ");
     }
 
+    /** Demande la nouvelle priorité en texte libre ; la validation se fait via Priorite.depuisLibelle. */
     public String demanderPriorite() {
         return lire("Nouvelle priorité (Basse/Normale/Élevée) : ");
     }

@@ -20,6 +20,7 @@ public class ModifierPrioriteControleur {
         this.vue = vue;
     }
 
+    /** Cherche la tâche par son identifiant, puis change sa priorité si la saisie est valide. */
     public void modifier() {
         OptionalInt saisie = vue.demanderId();
         if (saisie.isEmpty()) {
