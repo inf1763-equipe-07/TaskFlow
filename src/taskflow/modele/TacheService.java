@@ -197,30 +197,11 @@ public class TacheService {
     }
     }
 
-    public boolean isCorrupt(File fichier){
-        if(fichier.canRead()){
-            return false;
-        }
-        else{return true;}
-    }
 
     public static Path newDir(Path dossier) throws IOException{
         return Files.createDirectories(dossier);
     }
     
-    public void newFichier(File sauvegarde){
-        try{
-                    
-            sauvegarde.createNewFile();
-                    
-            System.out.println("Aucun fichier de sauvegarde trouve, un nouveau a ete cree");
-                
-        }catch(IOException IO){
-                    
-            System.out.println("Une erreur s'est produite");
-                    
-        }
-    }
 
 
 
