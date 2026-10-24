@@ -27,6 +27,8 @@ import taskflow.controleur.AjoutControleur;
 import taskflow.vue.AjoutVue;
 import taskflow.controleur.GererEcheanceAction;
 import taskflow.vue.EcheanceVue;
+import taskflow.controleur.ModifierPrioriteControleur;
+import taskflow.vue.ModifierPrioriteVue;
 import taskflow.controleur.SauvegarderAction;
 import taskflow.vue.SauvegardeVue;
 
@@ -72,17 +74,8 @@ public class Main {
                     return;
                 }
             }
-            
 
-            if(!sauvegarde.exists()){
-                
-                service.newFichier(sauvegarde);                      //US-13, creation d'un fichier s'il n'existe pas
-                
-            }else{
-
-                 service.chargement(sauvegarde.toPath());
-                                                      
-            }
+            service.chargement(sauvegarde.toPath());
                 
 
             // ---
@@ -122,6 +115,13 @@ public class Main {
                 new AfficherControleur(service, afficherVue);
 
         entrees.add(new Entree("Afficher les tâches", afficherControleur::afficher));
+
+        ModifierPrioriteVue modifierPrioriteVue = new ModifierPrioriteVue(console);
+
+        ModifierPrioriteControleur modifierPrioriteControleur =
+                new ModifierPrioriteControleur(service, modifierPrioriteVue);
+
+        entrees.add(new Entree("Modifier la priorité d'une tâche", modifierPrioriteControleur::modifier));
 
         // --- Fin domaine Consultation et modification ---
 
