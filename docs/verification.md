@@ -18,7 +18,7 @@
 | 8. Échéance | US-03, US-07, US-08, US-09 | L'ajout, la modification et le retrait fonctionnent ; dates valides acceptées, formats incorrects et dates impossibles refusés. | | | | | | |
 | 9. Sauvegarde et redémarrage | US-10, US-12 | Toutes les informations sont retrouvées, y compris identifiants, statuts et échéances absentes. | | | | | | |
 | 10. Ajout après rechargement | US-01, US-12 | La nouvelle tâche reçoit un identifiant distinct de ceux déjà chargés. | | | | | | |
-| 11. Fichier absent ou mal formé | US-13, US-14 | Fichier absent → démarrage avec liste vide ; fichier mal formé/illisible → message et interruption sans modifier le fichier. | | | | | | |
+| 11. Fichier absent ou mal formé | US-13, US-14 | Fichier absent → démarrage avec liste vide ; fichier mal formé/illisible → message et interruption sans modifier le fichier. | Démarrage sans fichier de sauvegarde | Le programme démarre et crée un nouveau fichier "Sauvegarde.txt" | Le programme crée un fichier "Sauvegarde.txt" | Conforme aux US | PR #67 et PR #68 | |
 | 12. Échec d'écriture | US-11 | Une sauvegarde impossible est signalée comme un échec, sans message de réussite. | | | | | | |
 ## Vérifications de Marc-Raphaël — US-07
 
