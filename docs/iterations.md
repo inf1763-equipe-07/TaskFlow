@@ -642,3 +642,69 @@ Le point de contrôle portera sur :
 L’état de chaque contribution sera consigné : **compilable et disponible pour revue**, **en attente de correction ou d’intégration**, ou **encore bloquée**.
 
 Les difficultés persistantes seront documentées avec leur impact, l’aide demandée ou apportée et les prochaines actions convenues. Ce suivi permettra de rendre visibles les engagements de chacun et les mesures prises collectivement pour finaliser le projet.
+
+
+---
+
+## 10. Réunion du 20 octobre 2026 — Bilan des avancées et préparation de la finalisation
+
+**Date :** mardi 20 octobre 2026.
+
+**Membres présents :**
+
+- Sofiane Khider : Scrum Master.
+- Ahmed Boussayri : Intégrateur.
+- Marc-Raphaël Chehab : Responsable qualité et tests.
+- Émilien Thibert : Product Owner.
+
+**Absent :** Mathieu Pagé.
+
+**Objectif :** Faire le point sur les progrès réalisés depuis la réunion précédente et organiser la finalisation des contributions, des revues et de l’intégration.
+
+### 1. Avancées constatées
+
+La réunion a permis de constater une progression importante des contributions et une meilleure cohérence entre les différentes fonctionnalités du programme.
+
+Ahmed a indiqué avoir compilé les dernières versions disponibles avec des résultats globalement satisfaisants. Les contributions examinées compilaient, y compris celles d’Émilien concernant le chargement, qui avaient précédemment présenté des difficultés.
+
+Des remarques techniques et quelques anomalies restaient néanmoins à traiter, notamment sur le chargement. La compilation réussie constitue une avancée ; la validation finale reste liée aux critères d’acceptation, aux vérifications et aux revues.
+
+### 2. Organisation de la finalisation
+
+L’enseignant ayant reporté la remise à la semaine suivante, l’équipe a convenu d’utiliser ce délai pour affiner le programme, corriger les anomalies et compléter la documentation.
+
+Chaque membre reste responsable de :
+
+- Finaliser les contributions qui lui sont attribuées.
+- Traiter les remarques reçues et documenter les vérifications.
+- Effectuer les revues des PR pour lesquelles il est désigné.
+- Signaler rapidement tout blocage nécessitant un accompagnement.
+- Actualiser l’état de ses Issues et de ses tâches dans la vue projet.
+
+L’objectif est de finaliser les PR restantes et leurs fusions, puis de vérifier le fonctionnement de la version commune. Le passage à « Terminé » reste soumis à la définition de terminé et à l’intégration effective.
+
+### 3. Suivi de Mathieu
+
+Mathieu était absent de la réunion. Il a répondu après celle-ci et a été informé sur Teams des responsabilités et des actions attendues concernant ses contributions et ses revues.
+
+Ce suivi doit permettre de poursuivre la finalisation avec la participation de chaque membre.
+
+### 4. Actions de suivi
+
+| Action | Responsable |
+|---|---|
+| Finaliser les contributions et répondre aux remarques de revue. | Chaque auteur |
+| Examiner les PR attribuées et communiquer les résultats de revue. | Chaque relecteur désigné |
+| Coordonner les fusions, résoudre les conflits avec les auteurs et vérifier la version intégrée. | Ahmed |
+| Compléter les vérifications et le contrôle qualité sur la version commune. | Marc-Raphaël, avec les auteurs et relecteurs |
+| Finaliser le README et vérifier la cohérence documentaire. | Mathieu, avec les membres concernés |
+| Actualiser la vue projet et les états des Issues. | Émilien, avec chaque responsable |
+| Consigner les décisions et suivre les actions restantes. | Sofiane |
+
+### 5. Prochaine réunion
+
+**Samedi 24 octobre 2026 à 10 h.**
+
+**Objectif :** Finaliser les PR restantes, effectuer les fusions après validation et mettre à jour la vue projet, les Issues et les tâches.
+
+La version intégrée devra être compilée et vérifiée collectivement. L’objectif visé est de ne laisser aucune PR nécessaire à la livraison en attente de fusion, tout en identifiant explicitement les éventuelles réserves restantes.
