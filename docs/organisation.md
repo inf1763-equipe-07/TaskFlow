@@ -309,7 +309,7 @@ Cette section réunit les améliorations du processus. **Les ajustements de pré
 
 | Membre | Rôle | US attribuées | Issues US (liens à compléter) | PR de code (liens) | Revues effectuées (liens) |
 |---|---|---|---|---|---|
-| Sofiane | Scrum Master | **US-01, US-02, US-03** | À compléter | [#18](https://github.com/inf1763-equipe-07/TaskFlow/pull/18), [#19](https://github.com/inf1763-equipe-07/TaskFlow/pull/19) — variantes de **US-01**, une seule à retenir | À compléter avec liens de revue |
+| Sofiane | Scrum Master | **US-01, US-02, US-03** | #35, #36, #37 | #18, #61, #62 — fusionnées | #51 et #52 — approuvées ; #65 et #66 — à finaliser |
 | Ahmed | Intégrateur | **US-04, US-05, US-06** | À compléter | À compléter | À compléter |
 | Marc-Raphaël | Qualité/Test | **US-07, US-08, US-09** | À compléter | À compléter | À compléter |
 | Mathieu | Documentation | **US-10, US-11** | À compléter | À compléter | À compléter |
