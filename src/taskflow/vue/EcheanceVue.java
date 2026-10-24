@@ -1,3 +1,4 @@
+
 package taskflow.vue;
 
 import taskflow.modele.Tache;
@@ -18,6 +19,15 @@ public class EcheanceVue extends Vue {
         return lire("Identifiant de la tâche : ");
     }
 
+    public String demanderAction() {
+        afficher("Échéance actuelle : ");
+        return lire(
+                "1. Définir ou modifier l'échéance\n"
+                + "2. Retirer l'échéance\n"
+                + "0. Annuler\n"
+                + "Votre action : ");
+    }
+
     public String demanderDate() {
         return lire("Nouvelle échéance (AAAA-MM-JJ) : ");
     }
@@ -27,6 +37,14 @@ public class EcheanceVue extends Vue {
         afficher("Tâche : " + tache.titre());
         afficher("Échéance : " + tache.echeance());
     }
+
+    public void afficherRetraitSucces(Tache tache) {
+        super.afficherSucces("Échéance retirée avec succès.");
+        afficher("Tâche : " + tache.titre());
+        afficher("Échéance : "
+                + (tache.echeance() == null ? "Aucune" : tache.echeance()));
+    }
+}
 public String demanderAction(Tache tache) {
     String actuelle = tache.echeance() == null
             ? "Aucune"
