@@ -55,7 +55,7 @@ _À compléter._
 
 ## Fichier de données
 
-Proposition à valider : `data/taches.txt`, une ligne par tâche, `id;priorite;echeance;statut;titre`.
+Proposition à valider : `Sauvegarde.txt`, une ligne par tâche, `id;priorite;echeance;statut;titre`.
 
 - Le titre est en dernier : on lit chaque ligne avec `split(";", 5)`, ce qui permet à un titre de contenir un point-virgule.
 - Une échéance vide signifie « aucune échéance ».
