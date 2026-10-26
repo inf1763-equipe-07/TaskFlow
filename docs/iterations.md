@@ -708,3 +708,81 @@ Ce suivi doit permettre de poursuivre la finalisation avec la participation de c
 **Objectif :** Finaliser les PR restantes, effectuer les fusions après validation et mettre à jour la vue projet, les Issues et les tâches.
 
 La version intégrée devra être compilée et vérifiée collectivement. L’objectif visé est de ne laisser aucune PR nécessaire à la livraison en attente de fusion, tout en identifiant explicitement les éventuelles réserves restantes.
+
+
+---
+
+## 11. Réunion du 24 octobre 2026 : Intégration des contributions et préparation de la revue finale
+
+**Date :** samedi 24 octobre 2026, à 10 h.
+
+**Membres présents :**
+
+- Sofiane Khider : Scrum Master.
+- Ahmed Boussayri : Intégrateur.
+- Émilien Thibert : Product Owner.
+
+**Absents :** Marc-Raphaël Chehab et Mathieu Pagé. 
+
+**Objectif :** Examiner les contributions restantes, poursuivre leur intégration et préparer la finalisation du projet.
+
+### 1. Bilan des contributions et des intégrations
+
+Les participants ont constaté une progression importante depuis la réunion précédente. Les versions présentées compilaient et les échanges ont permis de poursuivre l’approbation et la fusion des PR restantes.
+
+Les contributions concernant le chargement, la modification de priorité et la gestion des échéances ont été intégrées par les PR #58, #63, #65, #66, #67 et #68. Les mises à jour documentaires #70, #71 et #72 ont également été fusionnées.
+
+Les PR correspondant aux quatorze récits utilisateurs sont désormais intégrées.
+
+Certaines remarques concernant les commentaires et la présentation du code ont été considérées comme non bloquantes pour ces intégrations. Les observations relatives au comportement, aux vérifications et à la cohérence documentaire restent à suivre jusqu’à la validation finale.
+
+### 2. Décisions et points de vigilance
+
+L’équipe a retenu la tenue d’une dernière revue collective avant la remise afin de :
+
+- Vérifier le fonctionnement de l’application après l’ensemble des fusions.
+- Confirmer la couverture des critères d’acceptation et des cas d’erreur.
+- Consolider les résultats de vérification et la documentation.
+- Actualiser la vue projet, les Issues et les contributions individuelles.
+- Déterminer le commit final correspondant à la version remise.
+
+La compilation des versions présentées constitue un résultat positif. Le contrôle de la version commune après résolution des conflits reste nécessaire pour confirmer la cohérence de l’ensemble.
+
+### 3. Suivi complémentaire du 25 octobre
+
+L’examen technique effectué après les intégrations fait ressortir plusieurs points à finaliser :
+
+- **Compilation :** une erreur introduite lors d’une résolution de conflit affecte `EcheanceVue.java` dans le commit `4f2ba03`. Ahmed l’a identifiée et a proposé la correction dans la [PR #74](https://github.com/inf1763-equipe-07/TaskFlow/pull/74), encore en attente de revue et de fusion.
+- **Chargement :** le traitement des fichiers mal formés ou illisibles doit être corrigé pour interrompre le démarrage, conformément à l’US-14. Les identifiants chargés doivent également rester uniques.
+- **Vérifications :** les doublons et contradictions apparus dans `docs/verification.md` doivent être supprimés, puis les résultats consolidés sur la version corrigée.
+- **Documentation :** le README, les bilans des deux itérations et les lignes de contribution restent à finaliser.
+
+Ces constats complètent le bilan de la réunion. Leur traitement et leur vérification conditionnent la validation de la livraison.
+
+### 4. Plan de finalisation actualisé
+
+| Action attendue | Responsable |
+|---|---|
+| Faire relire la PR #74, intégrer la correction et confirmer la compilation de `main` depuis une copie propre. | Ahmed, avec un autre relecteur |
+| Corriger le refus des fichiers mal formés ou illisibles ; vérifier l’unicité des identifiants et la conservation du fichier d’origine. | Émilien, avec Ahmed pour l’intégration |
+| Après intégration des corrections, vérifier les critères des 14 récits utilisateurs en couvrant les 12 scénarios de l’énoncé, puis consigner les résultats et le commit testé. | Marc-Raphaël, avec les auteurs |
+| Finaliser le README : exemple d’utilisation, prérequis, sauvegarde, rechargement et limites connues. | Mathieu |
+| Vérifier que les Issues et la vue projet sont à jour avant la remise finale. | Émilien, avec chaque responsable |
+| Compléter les bilans des deux itérations et assurer le suivi des décisions et des blocages. | Sofiane |
+| Actualiser sa ligne de contribution et vérifier les références à ses Issues, PR et revues. | Chaque membre |
+
+Chaque responsable est invité à confirmer son avancement avant la revue collective et à signaler rapidement tout blocage nécessitant un accompagnement.
+
+### 5. Prochaine réunion : Revue finale collective
+
+**Mardi 27 octobre 2026, de 17 h à 19 h, heure de Gatineau.**
+
+La réunion sera consacrée à :
+
+1. Confirmer les corrections et la compilation de la version intégrée.
+2. Exécuter le parcours complet : ajout, consultation, modifications, sauvegarde, redémarrage et nouvel ajout.
+3. Vérifier les erreurs de saisie, le fichier absent, le fichier incorrect et l’échec de sauvegarde.
+4. Examiner la documentation, les contributions individuelles et le tableau de suivi.
+5. Consigner les éventuelles réserves et décider de la version à remettre.
+
+La préparation de la remise comprendra l’URL du dépôt, le commit final validé et l’archive correspondante `TaskFlow_MP1_Equipe07.zip`.
