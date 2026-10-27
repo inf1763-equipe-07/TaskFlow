@@ -167,8 +167,7 @@ public class TacheService {
 
         String[] champs = ligne.split(";", 5);
         if (champs.length < 5) {
-            System.err.println("Ligne " + (i + 1) + " ignorée");
-            continue;
+            throw new IOException("ligne " + (i + 1) + " mal formée");
         }
         try {
             int id = Integer.parseInt(champs[0].trim());
@@ -181,20 +180,25 @@ public class TacheService {
 
             resultat.add(new Tache(id, titre, priorite, echeance, statut));
         } catch (Exception e) {
-            System.err.println("Ligne " + (i + 1) + " ignorée (" + e.getMessage() + ")");
+            throw new IOException("ligne " + (i + 1) + " mal formée (" + e.getMessage() + ")", e);
         }
         }
     return resultat;
     }
 
-    public void chargement(Path sauvegarde) {
-    try {
-        remplacer(charger(sauvegarde));
-    } catch (NoSuchFileException e) {
-        System.out.println("Le fichier n'existe pas");
-    } catch (IOException e) {
-        System.out.println("Erreur de lecture : " + e.getMessage());
-    }
+    /**
+     * Charge les tâches sauvegardées. Un fichier absent démarre avec une liste vide (CA1) ;
+     * un fichier mal formé lance l'IOException, à charge de l'appelant d'interrompre le
+     * démarrage sans modifier le fichier (CA2).
+     */
+    public void chargement(Path sauvegarde) throws IOException {
+        try {
+            List<Tache> chargees = charger(sauvegarde);
+            remplacer(chargees);
+            System.out.println(chargees.size() + " tâche(s) chargée(s) avec succès.");
+        } catch (NoSuchFileException e) {
+            System.out.println("Aucun fichier de données trouvé. L'application démarre avec une liste vide.");
+        }
     }
 
 

@@ -75,8 +75,13 @@ public class Main {
                 }
             }
 
-            service.chargement(sauvegarde.toPath());
-                
+            try {
+                service.chargement(sauvegarde.toPath());
+            } catch (IOException e) {
+                console.afficher("Erreur : le fichier de données est illisible ou mal formé (" + e.getMessage() + ").");
+                console.afficher("Démarrage interrompu. Le fichier n'a pas été modifié.");
+                System.exit(1);
+            }
 
             // ---
             // --- Fin domaine Chargement ---
