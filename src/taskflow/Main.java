@@ -72,9 +72,21 @@ public class Main {
                     return;
                 }
             }
+            
 
-            service.chargement(sauvegarde.toPath());
+            if(!sauvegarde.exists()){
+                
+                service.newFichier(sauvegarde);                      //US-13, creation d'un fichier s'il n'existe pas
+                
+            }else if(service.isCorrupt(sauvegarde)){                 //US-14, verification de la lisibilite du fichier
+                System.err.println("Le fichier est illisible");
+                System.exit(1);                                
+
+            }else{
+
+                 service.chargement(sauvegarde.toPath());
                                                       
+            }
                 
 
             // ---
