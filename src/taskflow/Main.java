@@ -38,10 +38,12 @@ public class Main {
 
     public static void main(String[] args) {
         // Les objets partagés
-        TacheRepository repository = new FichierTacheRepository(cheminDesDonnees(args));
+        Path chemin =cheminDesDonnees(args);
+        TacheRepository repository = new FichierTacheRepository(chemin);
         TacheService service = new TacheService(repository);
         Console console = new Console();
-        File dossier = new File("donnes");
+        File sauvegarde = chemin.toFile();
+        File dossier = sauvegarde.getParentFile();
 
         console.afficher("TASKFLOW — Gestion des tâches");
 
@@ -58,7 +60,7 @@ public class Main {
             // --- Début domaine Chargement ---
             // ---
 
-            if (!dossier.exists()){                                                   //Si un repo n'existe pas, un est creer
+            if (dossier !=null && !dossier.exists()){                                                   //Si un repo n'existe pas, un est creer
                 try{                
 
                     TacheService.newDir(dossier.toPath());
@@ -70,23 +72,14 @@ public class Main {
                     return;
                 }
             }
-            File sauvegarde = new File(repository+"/Sauvegarde.txt");
 
-            if(sauvegarde.exists()){
-                
-                if(service.isCorrupt(sauvegarde)==false){                                  //US-14, verification de la lisibilite du fichier
-
-                    service.chargement(sauvegarde.toPath());
-
-                }else{
-
-                    service.newFichier(sauvegarde);                                       //US-13, creation d'un fichier s'il n'existe pas
-                }
+            service.chargement(sauvegarde.toPath());
+                                                      
                 
 
             // ---
             // --- Fin domaine Chargement ---
-        }}
+        }
 
         // Les entrées du menu, dans l'ordre des zones ci-dessous.
         // Un domaine y ajoute son contrôleur et son entrée, par exemple :
