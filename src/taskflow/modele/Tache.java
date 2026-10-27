@@ -58,6 +58,11 @@ public class Tache {
         this.statut = Statut.TERMINEE;
     }
 
+    /** Change la priorité. Les autres informations ne changent pas. */
+    public void changerPriorite(Priorite nouvelle) {
+        this.priorite = Objects.requireNonNull(nouvelle, "priorite");
+    }
+
     // --- Fin domaine Consultation et modification ---
 
 

@@ -456,3 +456,333 @@ Objectifs :
 - Préparer la poursuite de l'intégration et des vérifications de l'itération 1.
 
 L'horaire pourra être ajusté en fonction des disponibilités communiquées par les membres.
+
+---
+
+## 8. Réunion du 17 octobre 2026 — Bilan de l’itération 1 et préparation de l’itération 2
+
+**Date :** samedi 17 octobre 2026.  
+**Rédaction et suivi :** Sofiane Khider — Scrum Master, le 18 octobre 2026.
+
+**Objectif :** Poursuivre l’examen des contributions, vérifier les fonctionnalités présentées, préciser les ajustements nécessaires et préparer la validation des récits de l’itération 2.
+
+### 1. Contributions examinées et vérifications
+
+Dans la continuité de la réunion du 16 octobre, l’équipe a examiné les contributions des membres et effectué des tests sur les fonctionnalités présentées.
+
+Ces échanges ont permis de valider les comportements vérifiés et de formuler des remarques constructives pour affiner certains récits utilisateurs, leur réalisation et leurs vérifications.
+
+| Membre | Récits concernés | Avancement et points de suivi |
+|---|---|---|
+| **Sofiane — Ajout** | US-01 | L’ajout simple est intégré dans `main` par la [PR #18](https://github.com/inf1763-equipe-07/TaskFlow/pull/18). La priorité et l’échéance à la création sont prévues dans US-02 et US-03, à l’itération 2. |
+| **Ahmed — Consultation et statut** | US-04, US-05 | L’affichage et le changement de statut sont intégrés par les [PR #51](https://github.com/inf1763-equipe-07/TaskFlow/pull/51) et [#52](https://github.com/inf1763-equipe-07/TaskFlow/pull/52). Les vérifications documentées servent de référence pour la suite. |
+| **Marc-Raphaël — Échéances** | US-07 | L’attribution d’une échéance est intégrée par la [PR #55](https://github.com/inf1763-equipe-07/TaskFlow/pull/55). Le suivi des vérifications et les améliorations signalées en revue se poursuivent. |
+| **Mathieu — Sauvegarde** | US-10 | La [PR #59](https://github.com/inf1763-equipe-07/TaskFlow/pull/59) a été relue et approuvée par Ahmed le 17 octobre. Deux incohérences documentaires concernant le chemin du fichier restent à corriger avant fusion. |
+| **Émilien — Chargement** | US-12 | Le travail se poursuit dans la [PR #58](https://github.com/inf1763-equipe-07/TaskFlow/pull/58). Des erreurs de compilation, notamment dans la déclaration de `charger()`, empêchent encore sa validation. |
+
+### 2. Validation de l’itération 1 et conditions de passage à l’itération 2
+
+Lors de la réunion, l’équipe a constaté le bon avancement des contributions et validé les PR présentées, à l’exception de celle d’Émilien concernant US-12, qui présentait encore des erreurs de compilation.
+
+L’itération 1 a donc fait l’objet d’une **validation sous réserve des corrections à apporter à cette PR**. Sa clôture définitive et le passage formel à l’itération 2 nécessitent la validation de l’ensemble des PR associées à l’itération 1.
+
+La règle commune est rappelée : **chaque membre doit vérifier que le projet compile localement avant de pousser ses modifications sur GitHub**. Les résultats des vérifications doivent être documentés et les éventuels blocages signalés rapidement.
+
+Ahmed peut apporter son soutien en tant qu’intégrateur pour résoudre les difficultés de compilation et d’intégration. Les membres sont invités à le solliciter dès qu’un accompagnement est nécessaire.
+
+Les remarques constructives formulées lors des échanges visent également à :
+
+- Maintenir la cohérence entre le code, les critères d’acceptation et les vérifications.
+- Respecter les responsabilités des différentes couches et réutiliser les interfaces communes.
+- Harmoniser le chemin et le format du fichier entre sauvegarde, chargement et documentation.
+- Décrire les corrections demandées avec des éléments concrets permettant de les reproduire.
+- Compléter `docs/verification.md` avec les données utilisées, les résultats observés et le commit testé.
+
+La validation en réunion doit être suivie de la finalisation des corrections, des vérifications et de l’intégration. Un récit devient « Terminé » lorsque la définition de terminé de l’équipe est satisfaite.
+
+### 3. Suivi complémentaire du dimanche 18 octobre
+
+Après la réunion, Sofiane a relancé Mathieu et Émilien afin de finaliser les éléments de l’itération 1 encore en attente.
+
+| Destinataire | Relance et suivi |
+|---|---|
+| **Mathieu** | [Relance dans la PR #59](https://github.com/inf1763-equipe-07/TaskFlow/pull/59#issuecomment-6251724923) concernant les deux corrections documentaires signalées par Ahmed, afin de permettre la finalisation de l’US-10. |
+| **Émilien** | [Relance dans la PR #58](https://github.com/inf1763-equipe-07/TaskFlow/pull/58#issuecomment-6252027441) concernant la compilation et l’intégration de l’US-12. Émilien a demandé de préciser les problèmes concernés. Une vérification technique complémentaire du commit publié `c3814e4`, avec le JDK 21, confirme notamment une erreur de syntaxe dans la déclaration de `charger()` dans `TacheRepository.java`. |
+
+En préparation de l’itération 2, les PR de Sofiane [#61 — US-02](https://github.com/inf1763-equipe-07/TaskFlow/pull/61) et [#62 — US-03](https://github.com/inf1763-equipe-07/TaskFlow/pull/62) ont été ouvertes le 18 octobre. Les tests locaux sont documentés dans la branche US-03 ; la revue et le contrôle qualité restent à effectuer.
+
+Ces travaux préparatoires ne lèvent pas la réserve portant sur la clôture de l’itération 1.
+
+### 4. Actions de suivi
+
+| Action | Responsable |
+|---|---|
+| Finaliser les ajustements de sauvegarde et la documentation du fichier. | Mathieu |
+| Corriger les erreurs du chargement, confirmer la compilation et vérifier la compatibilité avec la sauvegarde. | Émilien, avec le soutien d’Ahmed au besoin |
+| Préparer les démonstrations et les résultats des récits de l’itération 2. | Chaque auteur |
+| Réaliser les revues et compléter le contrôle indépendant des vérifications. | Relecteurs désignés et Marc-Raphaël |
+| Coordonner les fusions et vérifier le fonctionnement de la version intégrée. | Ahmed, avec les auteurs concernés |
+| Suivre les blocages, les réponses aux relances et les décisions de validation. | Sofiane |
+
+### 5. Prochaine réunion
+
+**Lundi 19 octobre 2026 à 8 h.**
+
+**Objectif principal :** examiner et valider les récits utilisateurs de l’itération 2 selon leurs critères d’acceptation et les vérifications présentées, après confirmation de la levée des réserves de l’itération 1.
+
+La réunion permettra également de :
+
+- Confirmer la résolution des éléments restants de l’itération 1.
+- Présenter les contributions et les résultats de chaque membre.
+- Examiner les remarques de revue et les éventuelles corrections.
+- Déterminer les récits validés, ceux restant à vérifier et les prochaines actions d’intégration.
+
+---
+
+## 9. Réunion du 19 octobre 2026 — Revue des contributions et plan de finalisation
+
+**Date :** lundi 19 octobre 2026.
+
+**Membres présents :**
+
+- Sofiane Khider : Scrum Master.
+- Ahmed Boussayri : Intégrateur.
+- Marc-Raphaël Chehab : Responsable qualité et tests.
+- Émilien Thibert : Product Owner.
+
+**Absent :** Mathieu Pagé.
+
+**Objectif :** Examiner les contributions disponibles, identifier les blocages et définir les actions nécessaires à la finalisation des travaux.
+
+### 1. Contributions examinées
+
+Dans la continuité des réunions précédentes, l’équipe a examiné les contributions présentées pour l’itération 2.
+
+| Membre | Contributions concernées | Constat et suivi |
+|---|---|---|
+| **Sofiane — Ajout** | US-02 et US-03 — [PR #61](https://github.com/inf1763-equipe-07/TaskFlow/pull/61) et [#62](https://github.com/inf1763-equipe-07/TaskFlow/pull/62) | Les versions présentées compilent. Les revues et l’intégration restent à finaliser, en respectant la dépendance de #62 envers #61. |
+| **Ahmed — Consultation et modification** | US-06 — [PR #63](https://github.com/inf1763-equipe-07/TaskFlow/pull/63) | La version présentée compile. La revue et l’intégration avec les autres contributions restent à finaliser. |
+| **Marc-Raphaël — Échéances** | US-08 et US-09 — [PR #65](https://github.com/inf1763-equipe-07/TaskFlow/pull/65) et [#66](https://github.com/inf1763-equipe-07/TaskFlow/pull/66) | Les versions présentées compilent. Les revues, les éventuelles corrections et l’intégration restent à finaliser. |
+| **Émilien — Chargement** | US-12, US-13 et US-14 — [PR #58](https://github.com/inf1763-equipe-07/TaskFlow/pull/58) et [#60](https://github.com/inf1763-equipe-07/TaskFlow/pull/60) | Des erreurs de compilation subsistent et empêchent la validation des contributions. Un soutien au débogage et à l’intégration a été convenu avec Ahmed. |
+| **Mathieu — Sauvegarde** | US-11 — [Issue #45](https://github.com/inf1763-equipe-07/TaskFlow/issues/45) | Mathieu était absent et aucune PR concernant sa contribution d’itération 2 n’a été présentée pour cette revue. Son avancement reste à confirmer. L’US-10 de l’itération 1 est déjà intégrée par la [PR #59](https://github.com/inf1763-equipe-07/TaskFlow/pull/59). |
+
+**La compilation réussie constitue un prérequis à la vérification.** Elle ne remplace ni le contrôle des critères d’acceptation, ni l’approbation de la PR, ni les vérifications après intégration.
+
+Les réserves précédemment formulées concernant le chargement restent ouvertes.
+
+### 2. Accompagnement d’Émilien pour le chargement
+
+L’équipe a identifié un besoin de soutien technique pour permettre à Émilien de corriger les erreurs de compilation et de finaliser ses contributions.
+
+**Ahmed sera disponible lundi 19 octobre à partir de 22 h** pour apporter son soutien en tant qu’intégrateur. S’il est disponible plus tôt, il pourra en avertir Émilien.
+
+Émilien doit préparer la version à examiner, les messages d’erreur et les difficultés rencontrées afin de faciliter la séance de débogage.
+
+Cet accompagnement ne transfère pas la responsabilité des récits : **Émilien reste responsable de ses contributions, des corrections, des vérifications et de la publication de son travail.** Ahmed apporte son soutien technique et accompagne l’intégration.
+
+### 3. Échéance commune et responsabilités individuelles
+
+**Échéance décidée : mardi 20 octobre 2026 à 12 h, heure de Gatineau.**
+
+À cette échéance, chaque membre doit avoir :
+
+- Publié ses contributions dans les PR correspondantes sur GitHub.
+- Vérifié au préalable que le projet compile avec ses modifications.
+- Réalisé les vérifications nécessaires pour permettre la revue.
+- Documenté les résultats observés et le commit testé dans `docs/verification.md`.
+- Signalé les difficultés restantes et les besoins d’accompagnement.
+
+La règle commune est rappelée : **la compilation locale doit être vérifiée avant chaque push et avant toute demande de revue.**
+
+**Tout membre qui estime ne pas pouvoir respecter l’échéance doit avertir l’équipe sans attendre et demander un soutien à l’intégration.** Le signalement doit préciser l’état du travail, le problème rencontré et l’aide nécessaire, suffisamment tôt pour permettre une intervention avant mardi à 12 h.
+
+Chaque membre est responsable de communiquer son avancement réel, de traiter les corrections qui lui reviennent et de répondre aux échanges concernant ses contributions.
+
+L’objectif collectif est de disposer de contributions compilables et vérifiables, puis de confirmer la compilation et le fonctionnement de la version commune après intégration.
+
+### 4. Absence de Mathieu et relance
+
+Mathieu n’a pas participé à la réunion du 19 octobre. Sa contribution d’itération 2 n’a donc pas pu être examinée avec lui.
+
+Après la réunion, Sofiane l’a relancé sur Teams pour lui demander de :
+
+- Confirmer son avancement et publier sa contribution concernant l’US-11.
+- Respecter l’échéance commune du mardi 20 octobre à 12 h.
+- Signaler rapidement tout blocage nécessitant un accompagnement.
+- Participer aux rendez-vous de suivi.
+- Effectuer les revues des PR **#61 et #62**, dont il est le relecteur désigné conformément à la rotation de l’itération 2.
+
+La réponse de Mathieu et les suites données à cette relance restent à consigner.
+
+### 5. Plan d’action
+
+| Action | Responsable | Échéance |
+|---|---|---|
+| Corriger les erreurs de compilation du chargement, effectuer les vérifications et publier les corrections. | Émilien, avec le soutien d’Ahmed | Mardi 20 octobre à 12 h |
+| Accompagner Émilien pour le débogage et l’intégration ; le prévenir en cas de disponibilité plus tôt. | Ahmed | Lundi 19 octobre, à partir de 22 h |
+| Confirmer l’avancement de l’US-11 et publier la contribution pour vérification. | Mathieu | Mardi 20 octobre à 12 h |
+| Réaliser les revues des PR #61 et #62 et communiquer les corrections nécessaires. | Mathieu | Dès que possible pour permettre la finalisation |
+| Finaliser les contributions, vérifier la compilation et documenter les résultats. | Chaque auteur | Mardi 20 octobre à 12 h |
+| Signaler tout blocage ou risque de retard et demander l’aide nécessaire. | Chaque membre concerné | Dès identification du problème, avant l’échéance |
+| Effectuer les revues croisées et répondre aux demandes de correction. | Relecteurs désignés et auteurs | Au fil des contributions disponibles |
+| Coordonner les fusions et vérifier la compilation de la version commune. | Ahmed, avec les auteurs concernés | Au fil des intégrations |
+| Poursuivre le contrôle qualité et le suivi des vérifications. | Marc-Raphaël, avec les relecteurs concernés | Sur les versions disponibles et intégrées |
+| Consigner les réponses aux relances, les blocages et les mesures prises. | Sofiane | Suivi continu |
+
+### 6. Point de contrôle du 20 octobre à 12 h
+
+Le point de contrôle portera sur :
+
+- Les PR effectivement publiées et les commits disponibles.
+- Les résultats de compilation.
+- Les vérifications documentées.
+- Les revues réalisées et les corrections demandées.
+- Les blocages signalés et l’accompagnement apporté.
+
+L’état de chaque contribution sera consigné : **compilable et disponible pour revue**, **en attente de correction ou d’intégration**, ou **encore bloquée**.
+
+Les difficultés persistantes seront documentées avec leur impact, l’aide demandée ou apportée et les prochaines actions convenues. Ce suivi permettra de rendre visibles les engagements de chacun et les mesures prises collectivement pour finaliser le projet.
+
+
+---
+
+## 10. Réunion du 20 octobre 2026 — Bilan des avancées et préparation de la finalisation
+
+**Date :** mardi 20 octobre 2026.
+
+**Membres présents :**
+
+- Sofiane Khider : Scrum Master.
+- Ahmed Boussayri : Intégrateur.
+- Marc-Raphaël Chehab : Responsable qualité et tests.
+- Émilien Thibert : Product Owner.
+
+**Absent :** Mathieu Pagé.
+
+**Objectif :** Faire le point sur les progrès réalisés depuis la réunion précédente et organiser la finalisation des contributions, des revues et de l’intégration.
+
+### 1. Avancées constatées
+
+La réunion a permis de constater une progression importante des contributions et une meilleure cohérence entre les différentes fonctionnalités du programme.
+
+Ahmed a indiqué avoir compilé les dernières versions disponibles avec des résultats globalement satisfaisants. Les contributions examinées compilaient, y compris celles d’Émilien concernant le chargement, qui avaient précédemment présenté des difficultés.
+
+Des remarques techniques et quelques anomalies restaient néanmoins à traiter, notamment sur le chargement. La compilation réussie constitue une avancée ; la validation finale reste liée aux critères d’acceptation, aux vérifications et aux revues.
+
+### 2. Organisation de la finalisation
+
+L’enseignant ayant reporté la remise à la semaine suivante, l’équipe a convenu d’utiliser ce délai pour affiner le programme, corriger les anomalies et compléter la documentation.
+
+Chaque membre reste responsable de :
+
+- Finaliser les contributions qui lui sont attribuées.
+- Traiter les remarques reçues et documenter les vérifications.
+- Effectuer les revues des PR pour lesquelles il est désigné.
+- Signaler rapidement tout blocage nécessitant un accompagnement.
+- Actualiser l’état de ses Issues et de ses tâches dans la vue projet.
+
+L’objectif est de finaliser les PR restantes et leurs fusions, puis de vérifier le fonctionnement de la version commune. Le passage à « Terminé » reste soumis à la définition de terminé et à l’intégration effective.
+
+### 3. Suivi de Mathieu
+
+Mathieu était absent de la réunion. Il a répondu après celle-ci et a été informé sur Teams des responsabilités et des actions attendues concernant ses contributions et ses revues.
+
+Ce suivi doit permettre de poursuivre la finalisation avec la participation de chaque membre.
+
+### 4. Actions de suivi
+
+| Action | Responsable |
+|---|---|
+| Finaliser les contributions et répondre aux remarques de revue. | Chaque auteur |
+| Examiner les PR attribuées et communiquer les résultats de revue. | Chaque relecteur désigné |
+| Coordonner les fusions, résoudre les conflits avec les auteurs et vérifier la version intégrée. | Ahmed |
+| Compléter les vérifications et le contrôle qualité sur la version commune. | Marc-Raphaël, avec les auteurs et relecteurs |
+| Finaliser le README et vérifier la cohérence documentaire. | Mathieu, avec les membres concernés |
+| Actualiser la vue projet et les états des Issues. | Émilien, avec chaque responsable |
+| Consigner les décisions et suivre les actions restantes. | Sofiane |
+
+### 5. Prochaine réunion
+
+**Samedi 24 octobre 2026 à 10 h.**
+
+**Objectif :** Finaliser les PR restantes, effectuer les fusions après validation et mettre à jour la vue projet, les Issues et les tâches.
+
+La version intégrée devra être compilée et vérifiée collectivement. L’objectif visé est de ne laisser aucune PR nécessaire à la livraison en attente de fusion, tout en identifiant explicitement les éventuelles réserves restantes.
+
+
+---
+
+## 11. Réunion du 24 octobre 2026 : Intégration des contributions et préparation de la revue finale
+
+**Date :** samedi 24 octobre 2026, à 10 h.
+
+**Membres présents :**
+
+- Sofiane Khider : Scrum Master.
+- Ahmed Boussayri : Intégrateur.
+- Émilien Thibert : Product Owner.
+
+**Absents :** Marc-Raphaël Chehab et Mathieu Pagé. 
+
+**Objectif :** Examiner les contributions restantes, poursuivre leur intégration et préparer la finalisation du projet.
+
+### 1. Bilan des contributions et des intégrations
+
+Les participants ont constaté une progression importante depuis la réunion précédente. Les versions présentées compilaient et les échanges ont permis de poursuivre l’approbation et la fusion des PR restantes.
+
+Les contributions concernant le chargement, la modification de priorité et la gestion des échéances ont été intégrées par les PR #58, #63, #65, #66, #67 et #68. Les mises à jour documentaires #70, #71 et #72 ont également été fusionnées.
+
+Les PR correspondant aux quatorze récits utilisateurs sont désormais intégrées.
+
+Certaines remarques concernant les commentaires et la présentation du code ont été considérées comme non bloquantes pour ces intégrations. Les observations relatives au comportement, aux vérifications et à la cohérence documentaire restent à suivre jusqu’à la validation finale.
+
+### 2. Décisions et points de vigilance
+
+L’équipe a retenu la tenue d’une dernière revue collective avant la remise afin de :
+
+- Vérifier le fonctionnement de l’application après l’ensemble des fusions.
+- Confirmer la couverture des critères d’acceptation et des cas d’erreur.
+- Consolider les résultats de vérification et la documentation.
+- Actualiser la vue projet, les Issues et les contributions individuelles.
+- Déterminer le commit final correspondant à la version remise.
+
+La compilation des versions présentées constitue un résultat positif. Le contrôle de la version commune après résolution des conflits reste nécessaire pour confirmer la cohérence de l’ensemble.
+
+### 3. Suivi complémentaire du 25 octobre
+
+L’examen technique effectué après les intégrations fait ressortir plusieurs points à finaliser :
+
+- **Compilation :** une erreur introduite lors d’une résolution de conflit affecte `EcheanceVue.java` dans le commit `4f2ba03`. Ahmed l’a identifiée et a proposé la correction dans la [PR #74](https://github.com/inf1763-equipe-07/TaskFlow/pull/74), encore en attente de revue et de fusion.
+- **Chargement :** le traitement des fichiers mal formés ou illisibles doit être corrigé pour interrompre le démarrage, conformément à l’US-14. Les identifiants chargés doivent également rester uniques.
+- **Vérifications :** les doublons et contradictions apparus dans `docs/verification.md` doivent être supprimés, puis les résultats consolidés sur la version corrigée.
+- **Documentation :** le README, les bilans des deux itérations et les lignes de contribution restent à finaliser.
+
+Ces constats complètent le bilan de la réunion. Leur traitement et leur vérification conditionnent la validation de la livraison.
+
+### 4. Plan de finalisation actualisé
+
+| Action attendue | Responsable |
+|---|---|
+| Faire relire la PR #74, intégrer la correction et confirmer la compilation de `main` depuis une copie propre. | Ahmed, avec un autre relecteur |
+| Corriger le refus des fichiers mal formés ou illisibles ; vérifier l’unicité des identifiants et la conservation du fichier d’origine. | Émilien, avec Ahmed pour l’intégration |
+| Après intégration des corrections, vérifier les critères des 14 récits utilisateurs en couvrant les 12 scénarios de l’énoncé, puis consigner les résultats et le commit testé. | Marc-Raphaël, avec les auteurs |
+| Finaliser le README : exemple d’utilisation, prérequis, sauvegarde, rechargement et limites connues. | Mathieu |
+| Vérifier que les Issues et la vue projet sont à jour avant la remise finale. | Émilien, avec chaque responsable |
+| Compléter les bilans des deux itérations et assurer le suivi des décisions et des blocages. | Sofiane |
+| Actualiser sa ligne de contribution et vérifier les références à ses Issues, PR et revues. | Chaque membre |
+
+Chaque responsable est invité à confirmer son avancement avant la revue collective et à signaler rapidement tout blocage nécessitant un accompagnement.
+
+### 5. Prochaine réunion : Revue finale collective
+
+**Mardi 27 octobre 2026, de 17 h à 19 h, heure de Gatineau.**
+
+La réunion sera consacrée à :
+
+1. Confirmer les corrections et la compilation de la version intégrée.
+2. Exécuter le parcours complet : ajout, consultation, modifications, sauvegarde, redémarrage et nouvel ajout.
+3. Vérifier les erreurs de saisie, le fichier absent, le fichier incorrect et l’échec de sauvegarde.
+4. Examiner la documentation, les contributions individuelles et le tableau de suivi.
+5. Consigner les éventuelles réserves et décider de la version à remettre.
+
+La préparation de la remise comprendra l’URL du dépôt, le commit final validé et l’archive correspondante `TaskFlow_MP1_Equipe07.zip`.
