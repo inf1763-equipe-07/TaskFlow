@@ -141,35 +141,34 @@ Une attention prioritaire sera accordée à la préservation des règles métier
 
 ## 3. Suivi des itérations
 
-### Itération 1
+### Itération 1 — Bilan
 
-| Élément | Suivi |
+| Élément | Bilan |
 |---|---|
-| Dates | À confirmer collectivement |
-| Objectif | À définir lors de la planification |
-| Récits retenus | À inscrire après validation du backlog |
-| Responsables | À préciser par récit / Issue |
-| Principales tâches de réalisation | À préciser lors de la planification et à actualiser pendant l'itération |
-| Version ou commit de référence | À renseigner lors de la revue |
-| Vérifications effectuées | À compléter avec `docs/verification.md` |
-| Résultats et difficultés | À consigner en revue d'itération |
-| Ajustements décidés | À consigner au fil de l'itération, avec les raisons des changements |
-| Amélioration retenue en rétrospective | À compléter |
+| Période et jalons | Lancement le 11 octobre ; revues les 14, 16 et 17 octobre ; suivi des éléments restants jusqu’à leur intégration. |
+| Objectif | Obtenir un premier parcours utilisable : créer, afficher, terminer une tâche, attribuer une échéance, sauvegarder et recharger. |
+| Récits retenus | US-01, US-04, US-05, US-07, US-10 et US-12. |
+| Responsables | Sofiane : ajout ; Ahmed : consultation et statut ; Marc-Raphaël : échéances ; Mathieu : sauvegarde ; Émilien : chargement. |
+| Réalisation et références | PR #18, #51, #52, #55, #59 et #58. Le chargement a nécessité des corrections et son intégration a été reportée au 24 octobre. |
+| Vérifications | Essais d’ajout, de titre invalide, de consultation, de changement de statut et d’échéance ; résultats consignés dans `docs/verification.md`. |
+| Résultats et difficultés | Progression des fonctionnalités, avec une réserve sur le chargement : erreurs de compilation et intégration à finaliser lors des revues. |
+| Ajustements décidés | Relances, corrections ciblées et soutien d’Ahmed à Émilien pour le débogage et l’intégration. |
+| Amélioration retenue | Vérifier la compilation avant chaque push et signaler les blocages suffisamment tôt pour permettre l’entraide. |
 
-### Itération 2
+### Itération 2 — Bilan au 27 octobre
 
-| Élément | Suivi |
+| Élément | Bilan |
 |---|---|
-| Dates | À confirmer collectivement |
-| Objectif | À définir lors de la planification |
-| Récits retenus | À inscrire après validation du backlog |
-| Responsables | À préciser par récit / Issue |
-| Principales tâches de réalisation | À préciser lors de la planification et à actualiser pendant l'itération |
-| Version ou commit de référence | À renseigner lors de la revue |
-| Vérifications effectuées | À compléter avec `docs/verification.md` |
-| Résultats et difficultés | À consigner en revue d'itération |
-| Ajustements décidés | À consigner au fil de l'itération, avec les raisons des changements |
-| Amélioration retenue en rétrospective | À compléter |
+| Période et jalons | Travaux et suivi du 18 au 27 octobre ; intégrations collectives le 24 et revue finale le 27. |
+| Objectif | Compléter les fonctionnalités, traiter les erreurs et vérifier leur fonctionnement dans la version commune. |
+| Récits retenus | US-02, US-03, US-06, US-08, US-09, US-11, US-13 et US-14 ; finalisation du chargement US-12 restant de l’itération 1. |
+| Responsables | Sofiane : priorité et échéance à l’ajout ; Ahmed : modification de priorité ; Marc-Raphaël : modification et retrait d’échéance ; Mathieu : échec de sauvegarde ; Émilien : fichier absent et erreurs de chargement. |
+| Réalisation et références | PR #61, #62, #63, #65, #66, #69, #67 et #68 ; corrections complémentaires dans les PR #74 et #78. |
+| Version de référence | `31dd990`, version intégrant la correction du chargement de la PR #78 ; validation qualité globale encore attendue. |
+| Vérifications | Tests des fonctionnalités et des cas d’erreur, dont les fichiers illisibles et mal formés. Chaque auteur doit actualiser ses résultats pour le contrôle global de Marc-Raphaël. |
+| Résultats et difficultés | Contributions intégrées ; correction d’une erreur de compilation après résolution de conflit. Les lignes mal formées restent ignorées avec poursuite du démarrage : choix collectif différent de la simulation. |
+| Ajustements décidés | Correction de compilation par Ahmed, ajustement du chargement par Émilien et mise à jour des documents avant vérification finale. |
+| Amélioration retenue | Recompiler et retester la version commune après les fusions ; consigner les données, les résultats réels et le commit testé avant la validation finale. |
 
 ---
 
