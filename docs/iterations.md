@@ -786,3 +786,31 @@ La réunion sera consacrée à :
 5. Consigner les éventuelles réserves et décider de la version à remettre.
 
 La préparation de la remise comprendra l’URL du dépôt, le commit final validé et l’archive correspondante `TaskFlow_MP1_Equipe07.zip`.
+
+---
+
+## 12. Réunion du 27 octobre 2026 — Revue finale et coordination des vérifications
+
+**Membres présents :** Sofiane Khider — Scrum Master ; Ahmed Boussayri — Intégrateur ; Émilien Thibert — Product Owner ; Mathieu Pagé — Responsable de la documentation.
+
+**Absent :** Marc-Raphaël Chehab.
+
+### Constats et décisions
+
+L’équipe a examiné les derniers ajustements du chargement et testé les fichiers illisibles et mal formés. Les échanges ont permis de préciser le comportement retenu dans la PR #78 : arrêt lorsque l’accès en lecture est refusé ; poursuite avec signalement et exclusion des lignes mal formées. Ce dernier choix diffère du comportement prévu par la simulation et sera expliqué lors de la présentation.
+
+Chaque auteur doit actualiser les résultats de ses récits dans `docs/verification.md`, en précisant les données utilisées, les résultats observés et le commit testé.
+
+Marc-Raphaël a été informé après la réunion des décisions et du contrôle global attendu. Il devra rejouer les vérifications sur la version intégrée, consigner ses conclusions et communiquer les éventuelles corrections nécessaires.
+
+### Actions de suivi
+
+| Action | Responsable |
+|---|---|
+| Actualiser les résultats de ses récits dans `docs/verification.md`. | Chaque auteur |
+| Confirmer le commit commun à utiliser pour les vérifications finales. | Ahmed |
+| Réaliser le contrôle global et consigner les résultats et les écarts constatés. | Marc-Raphaël, avec les auteurs |
+| Harmoniser le README avec le fonctionnement retenu et les limites connues. | Mathieu |
+| Suivre les retours et compléter le bilan de finalisation. | Sofiane |
+
+La validation qualité finale reste à confirmer après le contrôle global.
