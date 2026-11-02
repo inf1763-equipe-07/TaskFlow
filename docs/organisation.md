@@ -307,13 +307,13 @@ Cette section réunit les améliorations du processus. **Les ajustements de pré
 
 **Suivi factuel à renseigner par chacun** : inscrire **uniquement** des Issues, PR, revues et commits réellement existants. Ne pas utiliser une PR ouverte comme preuve de fusion. Les identifiants de récits renvoient au backlog de la section 9.
 
-| Membre | Rôle | US attribuées | Issues US (liens à compléter) | PR de code (liens) | Revues effectuées (liens) |
+| Membre | Rôle | US attribuées | Issues US (liens) | PR de code (liens) | Revues effectuées (liens) |
 |---|---|---|---|---|---|
-| Sofiane | Scrum Master | **US-01, US-02, US-03** | #35, #36, #37 | #18, #61, #62 — fusionnées | #51 et #52 — approuvées ; #65 et #66 — à finaliser |
-| Ahmed | Intégrateur | **US-04, US-05, US-06** | À compléter | À compléter | À compléter |
-| Marc-Raphaël | Qualité/Test | **US-07, US-08, US-09** | À compléter | À compléter | À compléter |
-| Mathieu | Documentation | **US-10, US-11** | À compléter | À compléter | À compléter |
-| Émilien | Product Owner | **US-12, US-13, US-14** | À compléter | À compléter | À compléter |
+| Sofiane | Scrum Master | **US-01, US-02, US-03** | #35, #36, #37 | #18, #61, #62 — fusionnées | #51, #52, #65, #66 et #74 — revues et approuvées |
+| Ahmed | Intégrateur | **US-04, US-05, US-06** | #38, #39, #40 | #51, #52, #63 — fusionnées | #18 (demande de changements puis approbation), #55, #58, #59, #67, #68, #69, #78 — revues et approuvées |
+| Marc-Raphaël | Qualité/Test | **US-07, US-08, US-09** | #41, #42, #43 | #55, #65, #66 — fusionnées | #6, #81, #83 — revues et approuvées ; #67, #68 — commentées |
+| Mathieu | Documentation | **US-10, US-11** | #44, #45 | #59, #69 — fusionnées | #61, #62 — revues et approuvées |
+| Émilien | Product Owner | **US-12, US-13, US-14** | #46, #47, #48 | #58 (US-12), #67 (US-13), #68 et #78 (US-14) — fusionnées ; #77 fermée sans fusion, remplacée par #78 | #5, #50, #63 — revues et approuvées ; #10 — commentée |
 
 ---
 
@@ -785,6 +785,8 @@ En tant qu'utilisateur, je veux être averti si le fichier de données est illis
 - [ ] CA3 : Le fichier d'origine n'est pas modifié par cette tentative de chargement.
 
 **Cas particulier :** le fichier d’origine ne doit ni être supprimé, ni être réécrit lors d’un échec de chargement.
+
+**Écart assumé (décision d'équipe du 27 octobre 2026) :** pour un fichier illisible (accès refusé), le démarrage s'interrompt conformément à CA2. Pour un fichier mal formé (lignes incorrectes dans un fichier lisible), l'équipe a choisi de poursuivre le démarrage en ignorant les lignes fautives et en le signalant à l'utilisateur, plutôt que d'interrompre complètement l'application : cela évite de perdre l'accès aux tâches valides du fichier pour une seule ligne corrompue. Ce choix diffère de CA2 pour ce cas précis et de la simulation du professeur ; il est documenté dans `docs/verification.md` (scénario 11) et dans la PR #78.
 
 #### Dépendances
 
