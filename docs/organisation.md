@@ -786,6 +786,8 @@ En tant qu'utilisateur, je veux être averti si le fichier de données est illis
 
 **Cas particulier :** le fichier d’origine ne doit ni être supprimé, ni être réécrit lors d’un échec de chargement.
 
+**Écart assumé (décision d'équipe du 27 octobre 2026) :** pour un fichier illisible (accès refusé), le démarrage s'interrompt conformément à CA2. Pour un fichier mal formé (lignes incorrectes dans un fichier lisible), l'équipe a choisi de poursuivre le démarrage en ignorant les lignes fautives et en le signalant à l'utilisateur, plutôt que d'interrompre complètement l'application : cela évite de perdre l'accès aux tâches valides du fichier pour une seule ligne corrompue. Ce choix diffère de CA2 pour ce cas précis et de la simulation du professeur ; il est documenté dans `docs/verification.md` (scénario 11) et dans la PR #78.
+
 #### Dépendances
 
 - Dépend de **US-12 — Recharger les tâches au démarrage**, car ce récit couvre les erreurs rencontrées lors du chargement.
