@@ -101,11 +101,11 @@ Chaque domaine dispose de deux choses dans le socle :
 
 | Domaine | Point d'entrée | Ses zones |
 |---|---|---|
-| A — Ajout | `AjouterTacheAction` | `TacheService` |
-| B — Consultation et modification | `AfficherTachesAction`, `TerminerTacheAction`, `ModifierPrioriteAction` | `Tache` |
+| A — Ajout | `AjoutControleur` | `TacheService` |
+| B — Consultation et modification | `AfficherControleur`, `TerminerControleur`, `ModifierPrioriteControleur` | `Tache` |
 | C — Échéance | `GererEcheanceAction` | `Tache` |
 | D — Sauvegarde | `SauvegarderAction` | `TacheService`, `FichierTacheRepository` |
-| E — Chargement | `DemarrageControleur` | `TacheService`, `FichierTacheRepository` |
+| E — Chargement | zone « Chargement » de `Main` (pas de contrôleur dédié : le chargement a lieu avant que les autres objets existent) | `TacheService`, `FichierTacheRepository` |
 
 **Règles des zones :**
 - Chaque zone est encadrée par deux marqueurs nommés par fonctionnalité, jamais par lettre :
