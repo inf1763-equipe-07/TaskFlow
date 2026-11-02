@@ -87,6 +87,7 @@ Quatre paquets :
 - Une vue affiche, c'est tout.
 - `Main` crée et relie les objets, rien d'autre.
 - Une règle métier hors du modèle = PR refusée.
+- **Exception documentée :** le chargement au démarrage (domaine E) est écrit directement dans `Main`, dans sa zone balisée, plutôt que dans un contrôleur séparé. Au moment où il s'exécute, les autres objets (vues, contrôleurs) ne sont pas encore créés ; `Main` y affiche donc directement les messages d'erreur de ce domaine.
 
 **Ce que le socle contient déjà, parce que plusieurs domaines s'en servent :**
 - `SaisieInvalideException`, dans le modèle, pour toute saisie refusée (A, B, C) ;
