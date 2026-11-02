@@ -813,3 +813,44 @@ Marc-Raphaël a été informé après la réunion des décisions et du contrôle
 | Suivre les retours et compléter le bilan de finalisation. | Sofiane |
 
 La validation qualité finale reste à confirmer après le contrôle global.
+
+---
+
+## 13. Réunion du 1er novembre 2026 : Finalisation documentaire et préparation de la remise
+
+**Membres présents :** Sofiane Khider : Scrum Master ; Ahmed Boussayri : Intégrateur ; Marc-Raphaël Chehab : Responsable qualité et tests.
+
+**Absents :** Émilien Thibert : Product Owner ; Mathieu Pagé : Responsable de la documentation.
+
+**Objectif :** Vérifier les derniers éléments à finaliser, harmoniser la documentation et préparer la remise du projet.
+
+### 1. Consolidation de la documentation
+
+Les participants ont relevé des informations devenues anciennes dans les tableaux de suivi : certaines contributions réalisées étaient encore indiquées « À compléter » ou « À vérifier ».
+
+En l’absence d’Émilien, Ahmed a pris en charge la consolidation de `docs/organisation.md` à partir des traces GitHub. Il a également actualisé `CONTRIBUTING.md` pour faire correspondre les noms des classes et les points d’entrée documentés au code réel.
+
+Ces modifications ont été intégrées dans la PR #84. Elles précisent les contributions, les revues effectuées et les particularités de l’organisation du chargement.
+
+### 2. Décision concernant les erreurs de chargement
+
+Les participants ont confirmé le maintien du comportement actuel pour la version remise :
+
+- Un refus d’accès en lecture provoque un message d’erreur et l’arrêt du démarrage.
+- Les lignes mal formées d’un fichier lisible sont signalées et ignorées ; les tâches valides restent accessibles.
+- Certaines autres erreurs de lecture produisent un message, puis permettent le démarrage avec une liste vide.
+
+Les participants privilégient ainsi la poursuite de l’utilisation lorsque cela reste possible. Ce choix constitue un écart assumé avec l’énoncé et la simulation, qui prévoient l’arrêt pour un fichier illisible ou mal formé.
+
+Les limites associées doivent rester explicites : une sauvegarde après un chargement partiel ou en échec peut remplacer le contenu du fichier d’origine. Une amélioration de ce traitement pourra être étudiée lors d’une prochaine phase de refactorisation, notamment selon les retours de l’enseignant. 
+
+### 3. Actions de clôture
+
+| Action | Responsable |
+|---|---|
+| Consolider les contributions et harmoniser les règles documentées avec le code. | Ahmed — réalisé dans la PR #84 |
+| Vérifier la cohérence des conclusions de `docs/verification.md`, en distinguant conformité et écarts connus. | Marc-Raphaël |
+| Consigner les décisions et actualiser le bilan de clôture. | Sofiane |
+| Déposer l’URL du dépôt, le commit final et l’archive correspondante à l’issue de la réunion. | Ahmed |
+
+Les participants clôturent cette revue et retiennent la version actuelle pour la remise, avec les écarts et limites connus décrits ci-dessus. Ahmed procédera au dépôt du projet à l’issue de la réunion. Les membres absents seront informés des conclusions.
