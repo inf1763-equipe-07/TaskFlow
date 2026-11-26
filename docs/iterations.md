@@ -854,3 +854,80 @@ Les limites associées doivent rester explicites : une sauvegarde après un char
 | Déposer l’URL du dépôt, le commit final et l’archive correspondante à l’issue de la réunion. | Ahmed |
 
 Les participants clôturent cette revue et retiennent la version actuelle pour la remise, avec les écarts et limites connus décrits ci-dessus. Ahmed procédera au dépôt du projet à l’issue de la réunion. Les membres absents seront informés des conclusions.
+
+---
+
+## 14. Réunion du 25 novembre 2026 : Organisation et lancement du mini-projet 2
+
+**Objectif :** Définir l'organisation du mini-projet 2 et préparer une répartition équitable des contributions conformément aux exigences de l'énoncé.
+
+### 1. Organisation et décisions prises
+
+L'équipe a convenu de conserver la méthodologie de travail et les rôles définis lors du mini-projet 1.
+
+Les décisions suivantes ont été retenues :
+
+- Maintenir le suivi des réunions, des décisions et de l'avancement dans `docs/iterations.md`.
+- Conserver le processus de travail sur GitHub : une Issue par action, une branche dédiée et une Pull Request.
+- Répartir équitablement les tâches en tenant compte de leur complexité et des responsabilités de chacun.
+- Faire participer chaque membre au diagnostic des mauvaises odeurs du code.
+- Réaliser, pour chaque membre, au moins une PR de refactoring contenant du code et une PR relevant des volets B, C ou D de l'énoncé.
+- Maintenir les revues croisées ainsi que les vérifications avant intégration.
+
+### 2. Préparation du projet
+
+Conformément à l'énoncé, un filet de sécurité devra être établi avant d'entreprendre les refactorings.
+
+Il est proposé qu'Ahmed prépare l'étiquette `v1.0.0` correspondant à la version remise au mini-projet 1, les nouveaux documents `docs/refactoring.md` et `docs/build.md`, ainsi que la structure du dossier `verification/`.
+
+Marc-Raphaël coordonnera la préparation des scénarios rejouables et des sorties de référence, avec la participation de chaque membre pour les fonctionnalités de son domaine initial. Émilien prendra en charge la préparation du script `verification/rejouer.sh`.
+
+En parallèle, chacun examinera le code existant et proposera des mauvaises odeurs accompagnées des refactorings correspondants.
+
+L'équipe retiendra collectivement au moins six mauvaises odeurs appartenant à quatre types différents au minimum, en respectant les techniques de refactoring imposées par l'énoncé.
+
+### 3. Proposition de répartition des contributions
+
+La répartition suivante est proposée afin de couvrir l'ensemble des volets du mini-projet 2, tout en conservant les responsabilités initiales et en privilégiant des contributions techniques individuelles.
+
+| Membre | Refactoring | Contribution technique individuelle | Responsabilités complémentaires |
+|---|---|---|---|
+| Sofiane | R1 | Migration Maven, configuration du `pom.xml` et Maven Wrapper. | Coordination, suivi des itérations et consolidation de `docs/build.md`. |
+| Ahmed | R2 et R6 | Génération du JAR exécutable et construction reproductible. | Préparation du dépôt, gestion des étiquettes Git et intégration des PR. |
+| Marc-Raphaël | R3 | Journalisation SLF4J et Logback, résolution du problème Log4j. | Coordination du filet de sécurité et suivi des vérifications. |
+| Mathieu | R4 | Export Excel avec Apache POI et réalisation des US-15 et US-16. | Actualisation du README et préparation de la remise Moodle. |
+| Émilien | R5 | Compatibilité des données v1.0.0 et préparation technique de la livraison v1.1.0, avec une PR dédiée. | Script de vérification, publication de la Release GitHub, gestion du backlog et actualisation de `docs/organisation.md`. |
+
+Les identifiants R1 à R6 seront associés aux refactorings retenus après le diagnostic collectif.
+
+Cette répartition privilégie l'autonomie de chaque membre en lui attribuant un périmètre technique distinct, afin de limiter les chevauchements et les contraintes de disponibilité.
+
+Chaque membre reste responsable de la création de ses Issues, de la réalisation de ses contributions, de leurs vérifications et de leur documentation.
+
+### 4. Ordre de réalisation proposé
+
+| Phase | Travaux | Responsables |
+|---|---|---|
+| 1 | Préparation du dépôt, diagnostic et filet de sécurité. | Toute l'équipe, coordination Ahmed et Marc-Raphaël |
+| 2 | Réalisation et intégration des six refactorings. | Toute l'équipe |
+| 3 | Migration Maven, `pom.xml` et Maven Wrapper. | Sofiane |
+| 4 | Journalisation, export Excel et vérification de la compatibilité des données. | Marc-Raphaël, Mathieu et Émilien, chacun sur son périmètre |
+| 5 | Génération du JAR exécutable et vérification de la construction. | Ahmed |
+| 6 | Finalisation, publication de la version 1.1.0 et remise. | Émilien pour la Release, Marc-Raphaël pour le contrôle qualité et Mathieu pour Moodle |
+
+Les travaux pourront être préparés en parallèle, mais leur intégration devra respecter les dépendances techniques. La fusion des PR dans `main` permettra à chacun de poursuivre ses contributions sans nécessiter de séances de travail communes supplémentaires.
+
+### 5. Prochaine réunion
+
+**Vendredi 27 ou samedi 28 novembre 2026 : horaire à confirmer.**
+
+D'ici la prochaine réunion, chaque membre est invité à examiner la présente proposition, à formuler ses remarques directement dans la Pull Request et à identifier les mauvaises odeurs du code qu'il juge pertinentes.
+
+La prochaine réunion sera consacrée à :
+
+- Examiner les propositions de refactoring et retenir les six contributions.
+- Confirmer ou modifier la répartition des tâches afin de garantir une charge de travail équitable.
+- Valider l'ordre de réalisation et fixer les échéances.
+- Confirmer les Issues à créer et lancer les contributions.
+
+La présente répartition reste ouverte aux remarques et aux propositions d'amélioration de chaque membre avant sa validation collective.
